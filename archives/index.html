@@ -9,7 +9,7 @@
     
     <title>
         
-            歸檔 |
+            Archive |
         
         哦？
     </title>
@@ -32,10 +32,18 @@
 <link rel="stylesheet" href="/programBlog/font/css/brands.min.css">
 
     
+        
+            
+                
+<link rel="stylesheet" href="/programBlog/css/custom.css">
+
+            
+        
+    
     <script class="keep-theme-configurations">
     const KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
+    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags/","categories":"/categories/","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":"Hello","category":false,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":["/js/custom-nav.js"]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
@@ -45,6 +53,8 @@
 
 <body>
 <div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
     
 
     
@@ -85,7 +95,7 @@
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/programBlog/">
                                 
-                                首頁
+                                HOME
                                 
                             </a>
                             
@@ -95,7 +105,7 @@
                         <li class="menu-item flex-start border-box active">
                             <a class="menu-text-color border-box" href="/programBlog/archives">
                                 
-                                歸檔
+                                ARCHIVES
                                 
                             </a>
                             
@@ -103,9 +113,19 @@
                     
                         
                         <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/programBlog/categories">
+                            <a class="menu-text-color border-box" href="/programBlog/tags/">
                                 
-                                分類
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/categories/">
+                                
+                                CATEGORIES
                                 
                             </a>
                             
@@ -124,9 +144,15 @@
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -143,7 +169,7 @@
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/">
                             
-                            首頁
+                            HOME
                         </a>
                         
                     </label>
@@ -155,7 +181,7 @@
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/archives">
                             
-                            歸檔
+                            ARCHIVES
                         </a>
                         
                     </label>
@@ -165,9 +191,21 @@
                 
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/tags/">
                             
-                            分類
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories/">
+                            
+                            CATEGORIES
                         </a>
                         
                     </label>
@@ -216,6 +254,14 @@
                 <span class="archive-year">2026</span>
             </div>
             <ul class="archive-item-body border-box">
+                
+                    <li class="post-item border-box">
+                        <span class="starting-point border-box flex-center"></span>
+                        <span class="post-date border-box">03-19</span>
+                        <a class="post-title border-box text-ellipsis"
+                           href="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"
+                        >Hexo的使用手册</a>
+                    </li>
                 
                     <li class="post-item border-box">
                         <span class="starting-point border-box flex-center"></span>
@@ -279,7 +325,7 @@
     </div>
 
     <div class="theme-info info-item">
-        <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;框架&nbsp;&&nbsp;主題&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
     </div>
 
     
@@ -349,6 +395,35 @@
 
     <!-- local search -->
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
     <!-- tablet toc -->
     
@@ -377,6 +452,10 @@
 
 
 <!-- local search -->
+
+    
+<script src="/programBlog/js/local-search.js"></script>
+
 
 
 <!-- lazyload -->
@@ -441,6 +520,14 @@
 
 
 
+
+    
+        
+            
+<script class="custom-inject-js" src="/programBlog/js/custom-nav.js" data-pjax></script>
+
+        
+    
 
 </body>
 </html>

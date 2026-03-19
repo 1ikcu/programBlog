@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hexo的使用手册</title>
+    <url>/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<p>在Hexo的第一篇文章，自然记录一下Hexo吧！   </p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到最新的 v24 版本</span></span><br><span class="line">nvm use v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 v24 设置为默认版本（这样下次开机不用重新切换）</span></span><br><span class="line">nvm <span class="built_in">alias</span> default v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证当前版本</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install npm git-core</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%AE%89%E8%A3%85Hexo.png" class="" title="安装Hexo">
+
+
+
+<h4 id="安装Keep主题"><a href="#安装Keep主题" class="headerlink" title="安装Keep主题"></a>安装Keep主题</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 Keep 主题到 themes 文件夹</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/XPoet/hexo-theme-keep.git themes/keep</span><br></pre></td></tr></table></figure>
+
+<p>先修改 <strong>Hexo 配置文件</strong>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">keep</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 <strong>keep 配置文件</strong>：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/keep%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" class="" title="keep配置文件">
+
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">base_info:</span></span><br><span class="line">  <span class="comment"># 主题颜色</span></span><br><span class="line">  <span class="attr">primary_color:</span> <span class="string">"#dcdcd6"</span></span><br><span class="line">  <span class="comment"># 博客名字</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的名字</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的头像</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">/images/avatar.svg</span></span><br><span class="line">  <span class="comment"># 博客LOGO</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment"># Website favicon, You can use local image path or image link</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/images/logo.svg</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span>  <span class="comment">#按需修改</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span>                       <span class="comment"># || fa-solid fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span>           <span class="comment"># || fa-solid fa-box-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span>                 <span class="comment"># tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories</span>     <span class="comment">#   分类</span></span><br><span class="line">  <span class="comment"># links: /links               # 链接</span></span><br><span class="line">  <span class="comment"># photos: /photos             # 相册</span></span><br><span class="line">  <span class="comment"># tools: /tools               # 工具</span></span><br><span class="line">  <span class="comment"># about: /about               # 关于</span></span><br><span class="line">  <span class="comment"># ......</span></span><br><span class="line">  <span class="comment"># MainSite: https://1ikcu.github.io/ || fa-solid fa-house-user # 指向 Jekyll 主站</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">pjax:</span>  <span class="comment">#启用局部刷新，加载主页会快一点</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>source/tags/index.md</code>，内容如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tag   #不能用中文</span><br><span class="line">date: 2026-03-19 15:23:00</span><br><span class="line"><span class="section">type: tags</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>source/categories/index.md</code>，内容如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Category</span><br><span class="line">date: 2026-03-17 19:37:00</span><br><span class="line"><span class="section">type: categories</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> SLAM</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">categories: [SLAM]</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的一篇技术笔记</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-03-19 15:30:00</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">机器人</span>          <span class="comment"># 只能有一个主分类，或按层级缩进</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">SLAM</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">C++</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ROS</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">传感器同步</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment"># 默认解析为“机器人”目录下的“SLAM”子目录</span></span><br><span class="line"></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">机器人</span>, <span class="string">SLAM</span>, <span class="string">FAST-LIVO2</span>]  <span class="comment"># 层级：机器人 -&gt; SLAM -&gt; FAST-LIVO2</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">硬件</span>, <span class="string">STM32</span>]               <span class="comment"># 层级：硬件 -&gt; STM32</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h5><p>自己画 <strong>svg</strong>：</p>
+<p><a class="link" href="https://www.jyshare.com/more/svgeditor/">https://www.jyshare.com/more/svgeditor/<i class="fas fa-external-link-alt"></i></a></p>
+<p>在这放自己的头像Logo等：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E8%B7%AF%E5%BE%84.png" class="" title="loge路径"> 
+
+<p>效果：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E6%95%88%E6%9E%9C.png" class="" title="loge效果.">
+
+<h5 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>       </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否给目录加上数字编号</span></span><br><span class="line">  <span class="comment"># 如果设为 true，目录会显示成 1. 2. 2.1. 这种格式</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span>      </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否展开所有层级</span></span><br><span class="line">  <span class="comment"># false: 只高亮当前阅读到的章节，收起其他不相关的</span></span><br><span class="line">  <span class="comment"># true: 始终把所有标题都列出来</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">false</span>  </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 每次进入页面时是否默认打开目录栏</span></span><br><span class="line">  <span class="attr">init_open:</span> <span class="literal">true</span>    </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 目录显示的位置</span></span><br><span class="line">  <span class="comment"># 对于习惯从左往右读的人，建议设为 right，以免遮挡正文视线</span></span><br><span class="line">  <span class="attr">layout:</span> <span class="string">right</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h5><p>在 <code>Hexo/hexo-site</code>目录下运行以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+
+<p>然后在<strong>站点配置文件</strong>（根目录下的 <code>_config.yml</code>）末尾添加：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">scroll:</span></span><br><span class="line">  <span class="comment"># 在页面最顶部出现一根细长的进度条，往下滚动进度条会向右延伸</span></span><br><span class="line">  <span class="attr">progress_bar:</span> <span class="literal">false</span>  <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 通常在右下角的“回到顶部”按钮附近显示当前阅读进度的百分比</span></span><br><span class="line">  <span class="attr">percent:</span> <span class="literal">false</span>       <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 向下滚动时，顶部的导航栏自动向上收起；向上微滑时重新出现</span></span><br><span class="line">  <span class="attr">hide_header:</span> <span class="literal">true</span>    <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">home:</span>  <span class="comment">#博客首页</span></span><br><span class="line">  <span class="comment"># 公告栏</span></span><br><span class="line">  <span class="attr">announcement:</span> <span class="string">"欢迎来到我的技术博客，xxxx"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 决定是否在首页的文章预览卡片上直接显示该文章所属的分类和标签</span></span><br><span class="line">  <span class="attr">category:</span> <span class="literal">false</span>           <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Show tags in home page post block</span></span><br><span class="line">  <span class="attr">tag:</span> <span class="literal">false</span>                <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 文章显示时间</span></span><br><span class="line">  <span class="attr">post_datetime:</span> <span class="string">updated</span>    <span class="comment"># Option values: updated | created</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="配置文件备份"><a href="#配置文件备份" class="headerlink" title="配置文件备份"></a>配置文件备份</h5><p>顺便复制一下刚才的 <code>_config.yml</code>到Hexo主目录下<code>_config.keep.yml</code>，防止Keep更新时配置文件被覆盖：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD.png" class="" title="配置文件备份">
+
+
+
+<h4 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 marked</span></span><br><span class="line">npm i hexo-renderer-marked --save</span><br><span class="line"><span class="comment"># 安装专为数学公式设计的过滤器</span></span><br><span class="line">npm i hexo-filter-mathjax --save</span><br></pre></td></tr></table></figure>
+
+<p>并在<code>_config.yml</code>和<code>xxx.md</code>中添加相应参数</p>
+<p>效果：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%85%AC%E5%BC%8F%E6%95%88%E6%9E%9C.png" class="" title="公式效果">
+
+
+
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://1ikcu.github.io/programBlog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/programBlog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment">#创建新文章时会创建同名文件夹，用来放对应的图片等资源</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/1ikcu/programBlog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 建议部署到 gh-pages 分支，把 main 分支留着存源代码</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span>     <span class="comment">#显示 LaTeX 数学公式</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#写文章</span></span><br><span class="line">hexo new post <span class="string">"xxx文章名"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成静态文件，存在 public文件夹下</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#下一次输入 Token 后，系统会将其保存在本地:</span></span><br><span class="line"><span class="comment">#Token: Settings-&gt;Developer settings-&gt;Personal access tokens</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#会提示输入github的name和Token</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="MarkDown标题"><a href="#MarkDown标题" class="headerlink" title="MarkDown标题"></a>MarkDown标题</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章</span><br><span class="line">date: 2026-03-18 10:00:00</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> Ubuntu</span><br><span class="line"><span class="bullet">  -</span> ROS</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">  -</span> 技术笔记</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install optipng</span><br><span class="line">optipng -o7 your_image.png</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">{% asset<span class="emphasis">_img xxx.png "this is xxx" %}</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h4><figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">style</span>=<span class="string">"color:#585A5A;background-color:#E7E9E8;"</span>&gt;</span></span>catkin<span class="emphasis">_ws/src<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%A2%9C%E8%89%B2%E6%95%88%E6%9E%9C.png" class="" title="颜色效果">
+
+<p><strong>选颜色网站：</strong></p>
+<p><a class="link" href="https://www.coloraa.com/">https://www.coloraa.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="长按效果"><a href="#长按效果" class="headerlink" title="长按效果"></a>长按效果</h4><p>给 <strong>MAINSITE</strong> 添加 长按跳转 功能</p>
+<p>先在<code>keep/source/js</code>和<code>keep/source/css/</code>目录下创建这两个文件：</p>
+<p><code>custom-nav.js</code>、<code>custom.css</code></p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 window 挂载或 var 声明，避免 PJAX 重复加载时报 SyntaxError</span></span><br><span class="line">window.initMainSiteHold = window.initMainSiteHold || function() <span class="punctuation">{</span></span><br><span class="line">  <span class="comment">// 增加选择器兼容性，匹配包含主站地址的链接</span></span><br><span class="line">  const mainSiteBtn = document.querySelector('a<span class="punctuation">[</span>href*=<span class="string">"1ikcu.github.io"</span><span class="punctuation">]</span>');</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只有找到按钮且未绑定过逻辑时才执行</span></span><br><span class="line">  if (mainSiteBtn &amp;&amp; !mainSiteBtn.dataset.holdBound) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.dataset.holdBound = <span class="string">"true"</span>; </span><br><span class="line">  mainSiteBtn.style.position = 'relative';</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注入进度条 SVG</span></span><br><span class="line">  if (!mainSiteBtn.querySelector('.hold-progress-wrap')) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.insertAdjacentHTML('beforeend'<span class="punctuation">,</span> `</span><br><span class="line">  &lt;div class=<span class="string">"hold-progress-wrap"</span>&gt;</span><br><span class="line">  &lt;svg viewBox=<span class="string">"0 0 36 36"</span> style=<span class="string">"width:26px; height:26px;"</span>&gt;</span><br><span class="line">  &lt;path class=<span class="string">"hold-progress-circle"</span> </span><br><span class="line">  d=<span class="string">"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"</span> /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">const progressWrap = mainSiteBtn.querySelector('.hold-progress-wrap');</span><br><span class="line">let pressTimer;</span><br><span class="line"></span><br><span class="line">const startPress = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  if (e.type === 'mousedown' &amp;&amp; e.button !== <span class="number">0</span>) return;</span><br><span class="line">  progressWrap.classList.add('active');</span><br><span class="line">  pressTimer = setTimeout(() =&gt; <span class="punctuation">{</span></span><br><span class="line">  window.location.href = mainSiteBtn.getAttribute('href');</span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span> <span class="number">2500</span>);</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line">const cancelPress = () =&gt; <span class="punctuation">{</span></span><br><span class="line">  clearTimeout(pressTimer);</span><br><span class="line">  progressWrap.classList.remove('active');</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截点击：由双击或长按接管</span></span><br><span class="line">mainSiteBtn.onclick = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  return <span class="literal"><span class="keyword">false</span></span>;</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双击逻辑</span></span><br><span class="line"><span class="comment">//mainSiteBtn.addEventListener('dblclick', (e) =&gt; {</span></span><br><span class="line">  <span class="comment">//    e.preventDefault();</span></span><br><span class="line">  <span class="comment">//    window.location.href = mainSiteBtn.getAttribute('href');</span></span><br><span class="line">  <span class="comment">//});</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定交互事件</span></span><br><span class="line">mainSiteBtn.addEventListener('mousedown'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseup'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseleave'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchstart'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchend'<span class="punctuation">,</span> cancelPress);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即执行并注册到 PJAX 回调</span></span><br><span class="line">if (document.readyState === 'loading') <span class="punctuation">{</span></span><br><span class="line">  document.addEventListener('DOMContentLoaded'<span class="punctuation">,</span> window.initMainSiteHold);</span><br><span class="line"><span class="punctuation">}</span> else <span class="punctuation">{</span></span><br><span class="line">  window.initMainSiteHold();</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 针对 Keep 主题内置的 PJAX 事件进行监听</span></span><br><span class="line">document.addEventListener('pjax<span class="punctuation">:</span>complete'<span class="punctuation">,</span> window.initMainSiteHold);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 确保进度条在文字上方或旁边 */</span></span><br><span class="line"><span class="selector-class">.menu-item</span>, <span class="selector-class">.drawer-menu-item</span> {</span><br><span class="line">  <span class="attribute">position</span>: relative <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/*right: -5px; /* 调整到文字右侧 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">9000</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">220</span>, <span class="number">220</span>, <span class="number">214</span>, <span class="number">0.6</span>)); <span class="comment">/* 增加外发光 */</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span><span class="selector-class">.active</span> {</span><br><span class="line">  <span class="attribute">display</span>: block <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-circle</span> {</span><br><span class="line">  <span class="attribute">fill</span>: none;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#0c0a6e</span>; <span class="comment">/* 深蓝 */</span></span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">stroke-dasharray</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">stroke-dashoffset</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">transition</span>: stroke-dashoffset <span class="number">2.5s</span> linear;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在 <code>keep/_config.yml</code>中最下方修改：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">  enable: true  # Option values: true | false</span><br><span class="line">  css:</span><br><span class="line">    - /css/custom.css</span><br><span class="line"></span><br><span class="line">  js:</span><br><span class="line">    - /js/custom-nav.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>工具教程</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>VINS-FUSION部署</title>
+    <url>/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/</url>
+    <content><![CDATA[<p><strong>FINS-Fusion</strong> 是一个视觉-惯性融合的 <strong>SLAM</strong></p>
+<p>本文是部署流程以及报错记录</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu  </p>
+<hr>
+<h1 id="环境安装与部署"><a href="#环境安装与部署" class="headerlink" title="环境安装与部署"></a>环境安装与部署</h1><p>2025-04-30 09:35</p>
+<p><a class="link" href="https://blog.csdn.net/qq_52068373/article/details/127871743">https://blog.csdn.net/qq_52068373/article/details/127871743<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong><font style="color:#E4495B;">本篇在上述链接文章的基础上，添加了一些自己在实际操作中用到的细节步骤</font></strong></p>
+<p>本文是在已经安装好 <strong>ROS <strong>的基础上，在 <strong>Ubuntu20.04</strong> 系统下，完成</strong>vins-fusion</strong> 的环境搭建，主要涉及到 <strong>opencv3.4.11、ceres-solver2.0.0、eigen3</strong>的安装，解决了 <strong>vins对ros自带的opencv4不兼容 、 ceres对c++的版本要求</strong> 、以及一些 <strong>常见编译错误</strong> 的问题，还解决了运行vins-fusion时出现 ==段错误（核心已转储）==的问题</p>
+<h2 id="一、安装OpenCV-3-4-11"><a href="#一、安装OpenCV-3-4-11" class="headerlink" title="一、安装OpenCV-3.4.11"></a>一、安装OpenCV-3.4.11</h2><p>见另一篇笔记</p>
+<p><a class="link" href="https://www.yuque.com/likcu/ntn7ly/hdg0c5rpz8vkcqhd#">Ubuntu 20.04 下安装 OpenCV 3.4.11<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="二、安装eigen3"><a href="#二、安装eigen3" class="headerlink" title="二、安装eigen3"></a>二、安装eigen3</h2><p>下面是两种安装方式，二选一即可</p>
+<h3 id="2-1-终端apt命令安装"><a href="#2-1-终端apt命令安装" class="headerlink" title="2.1 终端apt命令安装"></a>2.1 终端apt命令安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev</span><br></pre></td></tr></table></figure>
+
+<p>Eigen 只包含头文件，因此它不需要实现编译，只需要引入头文件即可编译项目。</p>
+<p>Eigen 头文件的默认安装位置是：<code>/usr/local/include/eigen3</code>；在很多程序中 include 时经常使用 <code>#include &lt;Eigen/Dense&gt; </code>而不是使用 <code>#include &lt;eigen3/Eigen/Dense&gt;</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r /usr/local/include/eigen3/Eigen /usr/local/include</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-源码编译安装"><a href="#2-2-源码编译安装" class="headerlink" title="2.2 源码编译安装"></a>2.2 源码编译安装</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/eigenteam/eigen-git-mirror</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> eigen-git-mirror</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+<p>安装后,头文件安装在<code>/usr/local/include/eigen3/</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> -r /usr/local/include/eigen3/Eigen /usr/local/include</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="三、安装ceres-solver库"><a href="#三、安装ceres-solver库" class="headerlink" title="三、安装ceres-solver库"></a>三、安装ceres-solver库</h2><p>1.在 <strong>ceres-solver</strong> 的 <strong>Git</strong> 上下载需要的版本，我用 <strong>2.0.0</strong><br>链接：<a class="link" href="https://github.com/ceres-solver/ceres-solver/releases/tag/2.0.0">https://github.com/ceres-solver/ceres-solver/releases/tag/2.0.0<i class="fas fa-external-link-alt"></i></a></p>
+<p>解压后移动到主目录下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install liblapack-dev libsuitesparse-dev libcxsparse3 libgflags-dev libgoogle-glog-dev libgtest-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ceres-solver-2.0.0</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make -j4</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+<h2 id="四、下载VINS-FUSION的代码库"><a href="#四、下载VINS-FUSION的代码库" class="headerlink" title="四、下载VINS-FUSION的代码库"></a>四、下载VINS-FUSION的代码库</h2><h3 id="4-1-下载编译"><a href="#4-1-下载编译" class="headerlink" title="4.1 下载编译"></a>4.1 下载编译</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#cd ~/vins-fusion/src</span></span><br><span class="line"><span class="built_in">cd</span> ~/catkin_ws/src</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/HKUST-Aerial-Robotics/VINS-Fusion.git</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ../</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-2-解决错误"><a href="#4-2-解决错误" class="headerlink" title="4.2 解决错误"></a>4.2 解决错误</h3><h4 id="（1）OpenCV3冲突"><a href="#（1）OpenCV3冲突" class="headerlink" title="（1）OpenCV3冲突"></a>（1）<strong>OpenCV3</strong>冲突</h4><p>首先，<strong>ROS noetic</strong> 版本中自带的 <strong>OpenCV4</strong> 和 <strong>VINS-mono</strong> 中需要使用的 <strong>OpenCV3</strong> 冲突的问题。修改<strong>vins-mono</strong>代码兼容 <strong>opencv4</strong>。其实主要修改的是 <strong>camera_model</strong> 这个包，直接包含缺失的头文件即可。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//camera_models/include/camodocal/chessboard</span></span><br><span class="line"><span class="comment">//在camera_model包中的头文件Chessboard.h中添加</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/calib3d/calib3d_c.h&gt;</span></span></span><br><span class="line"><span class="comment">//camera_models/include/camodocal/calib</span></span><br><span class="line"><span class="comment">//在CameraCalibration.h中添加</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc/imgproc_c.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h4 id="（2）integer-sequence"><a href="#（2）integer-sequence" class="headerlink" title="（2）integer_sequence"></a>（2）integer_sequence</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/include/ceres/internal/integer_sequence_algorithm.h:64:21: error: ‘integer_sequence’ is not a member of ‘std’</span><br><span class="line">64 | struct SumImpl&lt;std::integer_sequence&lt;T, N, Ns...&gt;&gt; {</span><br><span class="line">|                        ^~~~~~~~~~~~~~~~</span><br></pre></td></tr></table></figure>
+
+
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/integer_sequence.png" class="" title="integer_sequence">
+
+
+<p>在报错的项目的 <strong>CMakeList</strong> 里的 </p>
+<p><font style="color:#E4495B;background-color:#E7E9E8;">set(CMAKE_CXX_FLAGS “-std=c++11”)</font><font style="background-color:#E7E9E8;"> </font>   改为 <font style="color:#E4495B;background-color:#E7E9E8;">set(CMAKE_CXX_STANDARD 14)</font></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">~/catkin_ws/src/VINS-Fusion/camera_models/CMakeLists.txt</span><br><span class="line">~/catkin_ws/src/VINS-Fusion/global_fusion/CMakeLists.txt</span><br><span class="line">~/catkin_ws/src/VINS-Fusion/loop_fusion/CMakeLists.txt</span><br><span class="line">~/catkin_ws/src/VINS-Fusion/vins_estimator/CMakeLists.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（3）正在等待未完成的任务"><a href="#（3）正在等待未完成的任务" class="headerlink" title="（3）正在等待未完成的任务"></a>（3）正在等待未完成的任务</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make[2]: *** [VINS-Fusion/vins_estimator/CMakeFiles/vins_lib.dir/build.make:258:VINS-Fusion/vins_estimator/CMakeFiles/vins_lib.dir/src/featureTracker/feature_tracker.cpp.o] 错误 1</span><br><span class="line">make[2]: *** 正在等待未完成的任务....</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/highgui.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/cvconfig.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（4）CV-FONT-HERSHEY-SIMPLEX"><a href="#（4）CV-FONT-HERSHEY-SIMPLEX" class="headerlink" title="（4）CV_FONT_HERSHEY_SIMPLEX"></a>（4）CV_FONT_HERSHEY_SIMPLEX</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">error: ‘CV_FONT_HERSHEY_SIMPLEX’ was not declared <span class="keyword">in</span> this scope</span><br></pre></td></tr></table></figure>
+
+
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/CV_FONT_HERSHEY_SIMPLEX.png" class="" title="CV_FONT_HERSHEY_SIMPLEX">
+
+<p><strong>解决方法</strong> ：将报错文件上的<font style="color:#E4495B;background-color:#E7E9E8;"> CV_FONT_HERSHEY_SIMPLEX</font> 参数改为 <font style="color:#E4495B;background-color:#E7E9E8;">cv::FONT_HERSHEY_SIMPLEX</font>；</p>
+<p>由报错信息可知，这里主要是<font style="color:#E4495B;background-color:#E7E9E8;">pose_graph.cpp、keyframe.cpp</font>这两个文件需要修改；最好使用文本编辑的 查找和替换 完成，以免遗漏</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/catkin_ws/src/VINS-Fusion/loop_fusion/src/pose_graph.cpp</span><br><span class="line"></span><br><span class="line">~/catkin_ws/src/VINS-Fusion/loop_fusion/src/keyframe.cpp</span><br></pre></td></tr></table></figure>
+
+
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E6%9F%A5%E6%89%BE%E5%92%8C%E6%9B%BF%E6%8D%A2.png" class="" title="查找和替换">
+
+
+
+<h4 id="（5）CV-RGB2GRAY"><a href="#（5）CV-RGB2GRAY" class="headerlink" title="（5）CV_RGB2GRAY"></a>（5）CV_RGB2GRAY</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">error: ‘CV_RGB2GRAY’ was not declared <span class="keyword">in</span> this scope</span><br><span class="line">   53 |       cv::cvtColor(image, aux, CV_RGB2GRAY);</span><br><span class="line">      |                                ^~~~~~~~~~~</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>解决方案：在报错头文件里添加<font style="color:#E4495B;background-color:#E7E9E8;"> #include &lt;opencv2/imgproc/types_c.h&gt;</font></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// ~/catkin_ws/src/VINS-Fusion/loop_fusion/src/ThirdParty/DVision/BRIEF.cpp</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;opencv2/imgproc/types_c.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（6）CV-LOAD-IMAGE-GRAYSCALE"><a href="#（6）CV-LOAD-IMAGE-GRAYSCALE" class="headerlink" title="（6）CV_LOAD_IMAGE_GRAYSCALE"></a>（6）CV_LOAD_IMAGE_GRAYSCALE</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">error: ‘CV_LOAD_IMAGE_GRAYSCALE’ was not declared <span class="keyword">in</span> this scope</span><br><span class="line">  125 |    imLeft = cv::imread(leftImagePath,  CV_LOAD_IMAGE_GRAYSCALE );</span><br><span class="line">      |                                        ^~~~~~~~~~~~~~~~~~~~~~~</span><br></pre></td></tr></table></figure>
+
+<p>这里是因为在 <strong>Opencv4</strong> 中，<font style="color:#E4495B;background-color:#E7E9E8;">CV_LOAD_IMAGE_GRAYSCALE</font>找不到；需要将<font style="color:#E4495B;background-color:#E7E9E8;">CV_LOAD_IMAGE_GRAYSCALE</font>改为 <font style="color:#E4495B;background-color:#E7E9E8;">cv::IMREAD_GRAYSCALE</font>；</p>
+<p>由错误提示信息可知，这里需要修改的地方有 <font style="color:#E4495B;background-color:#E7E9E8;">KITTIGPSTest.cpp、KITTIOdomTest.cpp</font></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">~/catkin_ws/src/VINS-Fusion/vins_estimator/src/KITTIGPSTest.cpp</span><br><span class="line"></span><br><span class="line">~/catkin_ws/src/VINS-Fusion/vins_estimator/src/KITTIOdomTest.cpp</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="4-3-完成编译安装"><a href="#4-3-完成编译安装" class="headerlink" title="4.3 完成编译安装"></a>4.3 完成编译安装</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="comment">#这里编译成功，但是运行时会出现段错误</span></span><br><span class="line"><span class="comment">#解决段错误后需重新编译</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="五、添加到bash配置文件"><a href="#五、添加到bash配置文件" class="headerlink" title="五、添加到bash配置文件"></a>五、添加到bash配置文件</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span><br><span class="line"><span class="built_in">sudo</span> vi ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span><br></pre></td></tr></table></figure>
+
+<p>按<code>Esc</code>。输入 <code>:wq！</code>，保存并退出</p>
+<h2 id="六、解决段错误（核心已转储）"><a href="#六、解决段错误（核心已转储）" class="headerlink" title="六、解决段错误（核心已转储）"></a>六、解决段错误（核心已转储）</h2><p>我先用 <strong>单目+IMU</strong> 的方式跑数据集，命令如下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch vins vins_rviz.launch</span><br><span class="line"></span><br><span class="line">rosrun vins vins_node ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml</span><br><span class="line"></span><br><span class="line">rosrun loop_fusion loop_fusion_node ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行改命令前确保数据包MH_04_difficult已经下载：见第七小节</span></span><br><span class="line">rosbag play ~/SLAM/test_data/MH_04_difficult.bag</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#第二条：</span></span><br><span class="line">[INFO][1669097501.814593790]: reading paramerter of camera /home/xwj/vins-fusion/src/VINS-Fusion/config/euroc/camo_mei.yaml</span><br><span class="line">段错误（核心已转储）</span><br><span class="line"></span><br><span class="line"><span class="comment">#第三条：</span></span><br><span class="line">cam calib path:/home/xwj/vins-fusion/src/VINS-Fusion/config/euroc/camo_mei.yaml</span><br><span class="line">段错误（核心已转储）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这里由于 <strong>noetic</strong> 的 <strong>opencv4</strong> 头文件和参数名与 <strong>vins-fusion</strong> 所使用的<strong>opencv3</strong> 不同造成的，需要使用非 <strong>ROS Noetic</strong> 自带 <strong>OPENCV</strong>版本编译工程，通过修改 <strong>cv_bridge</strong> 配置文件来把 <strong>vins-fusion</strong>工程链接到 <strong>opencv3</strong>库上</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /opt/ros/noetic/share/cv_bridge/cmake</span><br><span class="line"><span class="built_in">sudo</span> gedit cv_bridgeConfig.cmake</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(NOT <span class="string">"include;/usr/include;/usr/include/opencv "</span> STREQUAL <span class="string">" "</span>)</span><br><span class="line">  <span class="built_in">set</span>(cv_bridge_INCLUDE_DIRS <span class="string">""</span>)</span><br><span class="line">  <span class="built_in">set</span>(_include_dirs <span class="string">"include;/usr/include;/usr/local/include/opencv"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<p>119行左右的：</p>
+<p>将指定库文件也修改为自己安装的opencv库文件，需要修改的内容：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/set_libraries.png" class="" title="set_libraries">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span>(libraries <span class="string">"cv_bridge;/usr/lib/x86_64…………"</span>）</span><br></pre></td></tr></table></figure>
+
+<p>在终端运行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">locate opencv</span><br></pre></td></tr></table></figure>
+
+<p>向下滑动到 <code>/usr/local/lib</code>开头的文件，复制<code>/usr/local/lib/libopencv_calib3d.so</code>到 <code>/usr/local/lib/libopencv_viz.so.3.4.11</code>的全部内容</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/locate_opencv.png" class="" title="locate_opencv">
+
+<p>在浏览器里面打开 <strong>CSDN</strong> 的 <strong>markdown编辑器</strong> </p>
+<p>【写文章】【使用MD编辑器】：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/markdown%E7%BC%96%E8%BE%91%E5%99%A8.png" class="" title="markdown">
+
+
+
+<p>输入 <code>Ctrl+Shift+K</code>，在代码段里面粘贴刚刚复制的东西，然后在第一行前面加上 <code>set(libraries "cv_bridge;</code> ，在最后一行后面加上<code>")</code></p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/Ctrl_Shift_K.png" class="" title="Ctrl_Shift_K">
+
+<p>然后再在每一行后面加上<code>;</code>（注意是英文输入状态下）最后一行不用加</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E6%AF%8F%E4%B8%80%E8%A1%8C%E5%8A%A0%E5%B0%81%E5%8F%B7.png" class="" title="每一行加封号">
+
+<p>然后从第二行开始，将光标移动到一行的最前面，按一下 <strong>Backspace</strong>，<strong>把所有的换行符去掉</strong> </p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%8E%BB%E6%8E%89.png" class="" title="换行符去掉">
+
+<p>最终编辑完后所有的内容在CSDN的编辑器的预览模式下看起来应该是一行，像下面这样</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E9%A2%84%E8%A7%88%E6%A8%A1%E5%BC%8F.png" class="" title="预览模式">
+
+<p>然后把代码片里面的内容复制下来，将119行附近 <font style="background-color:#E7E9E8;">set(libraries……)</font>的内容替换掉</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span>(libraries <span class="string">"cv_bridge;usr/local/lib/libopencv_calib3d.so;/usr/local/lib/libopencv_calib3d.so.3.4;/usr/local/lib/libopencv_calib3d.so.3.4.11;/usr/local/lib/libopencv_core.so;/usr/local/lib/libopencv_core.so.3.4;/usr/local/lib/libopencv_core.so.3.4.11;/usr/local/lib/libopencv_dnn.so;/usr/local/lib/libopencv_dnn.so.3.4;/usr/local/lib/libopencv_dnn.so.3.4.11;/usr/local/lib/libopencv_features2d.so;/usr/local/lib/libopencv_features2d.so.3.4;/usr/local/lib/libopencv_features2d.so.3.4.11;/usr/local/lib/libopencv_flann.so;/usr/local/lib/libopencv_flann.so.3.4;/usr/local/lib/libopencv_flann.so.3.4.11;/usr/local/lib/libopencv_highgui.so;/usr/local/lib/libopencv_highgui.so.3.4;/usr/local/lib/libopencv_highgui.so.3.4.11;/usr/local/lib/libopencv_imgcodecs.so;/usr/local/lib/libopencv_imgcodecs.so.3.4;/usr/local/lib/libopencv_imgcodecs.so.3.4.11;/usr/local/lib/libopencv_imgproc.so;/usr/local/lib/libopencv_imgproc.so.3.4;/usr/local/lib/libopencv_imgproc.so.3.4.11;/usr/local/lib/libopencv_ml.so;/usr/local/lib/libopencv_ml.so.3.4;/usr/local/lib/libopencv_ml.so.3.4.11;/usr/local/lib/libopencv_objdetect.so;/usr/local/lib/libopencv_objdetect.so.3.4;/usr/local/lib/libopencv_objdetect.so.3.4.11;/usr/local/lib/libopencv_photo.so;/usr/local/lib/libopencv_photo.so.3.4;/usr/local/lib/libopencv_photo.so.3.4.11;/usr/local/lib/libopencv_shape.so;/usr/local/lib/libopencv_shape.so.3.4;/usr/local/lib/libopencv_shape.so.3.4.11;/usr/local/lib/libopencv_stitching.so;/usr/local/lib/libopencv_stitching.so.3.4;/usr/local/lib/libopencv_stitching.so.3.4.11;/usr/local/lib/libopencv_superres.so;/usr/local/lib/libopencv_superres.so.3.4;/usr/local/lib/libopencv_superres.so.3.4.11;/usr/local/lib/libopencv_video.so;/usr/local/lib/libopencv_video.so.3.4;/usr/local/lib/libopencv_video.so.3.4.11;/usr/local/lib/libopencv_videoio.so;/usr/local/lib/libopencv_videoio.so.3.4;/usr/local/lib/libopencv_videoio.so.3.4.11;/usr/local/lib/libopencv_videostab.so;/usr/local/lib/libopencv_videostab.so.3.4;/usr/local/lib/libopencv_videostab.so.3.4.11;/usr/local/lib/libopencv_viz.so;/usr/local/lib/libopencv_viz.so.3.4;/usr/local/lib/libopencv_viz.so.3.4.11"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">set</span>(libraries <span class="string">"cv_bridge;/usr/local/lib/libopencv_calib3d.so;/usr/local/lib/libopencv_calib3d.so.3.4;/usr/local/lib/libopencv_calib3d.so.3.4.11;/usr/local/lib/libopencv_core.so;/usr/local/lib/libopencv_core.so.3.4;/usr/local/lib/libopencv_core.so.3.4.11;/usr/local/lib/libopencv_dnn.so;/usr/local/lib/libopencv_dnn.so.3.4;/usr/local/lib/libopencv_dnn.so.3.4.11;/usr/local/lib/libopencv_features2d.so;/usr/local/lib/libopencv_features2d.so.3.4;/usr/local/lib/libopencv_features2d.so.3.4.11;/usr/local/lib/libopencv_flann.so;/usr/local/lib/libopencv_flann.so.3.4;/usr/local/lib/libopencv_flann.so.3.4.11;/usr/local/lib/libopencv_highgui.so;/usr/local/lib/libopencv_highgui.so.3.4;/usr/local/lib/libopencv_highgui.so.3.4.11;/usr/local/lib/libopencv_imgcodecs.so;/usr/local/lib/libopencv_imgcodecs.so.3.4;/usr/local/lib/libopencv_imgcodecs.so.3.4.11;/usr/local/lib/libopencv_imgproc.so;/usr/local/lib/libopencv_imgproc.so.3.4;/usr/local/lib/libopencv_imgproc.so.3.4.11;/usr/local/lib/libopencv_ml.so;/usr/local/lib/libopencv_ml.so.3.4;/usr/local/lib/libopencv_ml.so.3.4.11;/usr/local/lib/libopencv_objdetect.so;/usr/local/lib/libopencv_objdetect.so.3.4;/usr/local/lib/libopencv_objdetect.so.3.4.11;/usr/local/lib/libopencv_photo.so;/usr/local/lib/libopencv_photo.so.3.4;/usr/local/lib/libopencv_photo.so.3.4.11;/usr/local/lib/libopencv_shape.so;/usr/local/lib/libopencv_shape.so.3.4;/usr/local/lib/libopencv_shape.so.3.4.11;/usr/local/lib/libopencv_stitching.so;/usr/local/lib/libopencv_stitching.so.3.4;/usr/local/lib/libopencv_stitching.so.3.4.11;/usr/local/lib/libopencv_superres.so;/usr/local/lib/libopencv_superres.so.3.4;/usr/local/lib/libopencv_superres.so.3.4.11;/usr/local/lib/libopencv_video.so;/usr/local/lib/libopencv_video.so.3.4;/usr/local/lib/libopencv_video.so.3.4.11;/usr/local/lib/libopencv_videoio.so;/usr/local/lib/libopencv_videoio.so.3.4;/usr/local/lib/libopencv_videoio.so.3.4.11;/usr/local/lib/libopencv_videostab.so;/usr/local/lib/libopencv_videostab.so.3.4;/usr/local/lib/libopencv_videostab.so.3.4.11;/usr/local/lib/libopencv_viz.so;/usr/local/lib/libopencv_viz.so.3.4;/usr/local/lib/libopencv_viz.so.3.4.11"</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/catkin_ws</span><br><span class="line">catkin_make</span><br><span class="line"><span class="comment">#别忘了</span></span><br><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash</span><br></pre></td></tr></table></figure>
+
+<p>就可以正常运行 <code>vins-fusion</code> 了</p>
+<h2 id="七、下载数据集"><a href="#七、下载数据集" class="headerlink" title="七、下载数据集"></a>七、下载数据集</h2><p>为了验证vins-fusion是否正确安装以及环境是否搭建完成，需要下载数据集来进行验证。这里建议大家可以事先下载好数据集，因为比较大会比较费时间，故而建议提前下好这样 VINS 安好后就可以立马验证编译运行了。</p>
+<p><strong>链接</strong> ：<a class="link" href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets#the_euroc_mav_dataset">https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets#the_euroc_mav_dataset<i class="fas fa-external-link-alt"></i></a></p>
+<p>我这里下载的是 <strong>MH_04_difficult.bag</strong></p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86.png" class="" title="下载数据集">
+
+<p>将它放在主目录的 <strong>SLAM/test_data</strong> 下</p>
+<h2 id="八、运行VINS"><a href="#八、运行VINS" class="headerlink" title="八、运行VINS"></a>八、运行VINS</h2><h3 id="8-1-Monocualr-camera-IMU"><a href="#8-1-Monocualr-camera-IMU" class="headerlink" title="8.1 Monocualr camera + IMU"></a>8.1 Monocualr camera + IMU</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch vins vins_rviz.launch</span><br><span class="line">rosrun vins vins_node ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml</span><br><span class="line">rosrun loop_fusion loop_fusion_node ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_mono_imu_config.yaml</span><br><span class="line">rosbag play ~/SLAM/test_data/MH_04_difficult.bag</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-2-Stereo-cameras-IMU"><a href="#8-2-Stereo-cameras-IMU" class="headerlink" title="8.2 Stereo cameras + IMU"></a>8.2 Stereo cameras + IMU</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch vins vins_rviz.launch</span><br><span class="line">rosrun vins vins_node ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_stereo_imu_config.yaml </span><br><span class="line">rosbag play ~/SLAM/test_data/MH_04_difficult.bag</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-3-Stereo-cameras"><a href="#8-3-Stereo-cameras" class="headerlink" title="8.3 Stereo cameras"></a>8.3 Stereo cameras</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch vins vins_rviz.launch</span><br><span class="line">rosrun vins vins_node  ~/catkin_ws/src/VINS-Fusion/config/euroc/euroc_stereo_config.yaml </span><br><span class="line">rosbag play ~/SLAM/test_data/MH_04_difficult.bag</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h1><p><font style="color:#E4495B;background-color:#E7E9E8;">记录部署编译历程</font></p>
+<p><font style="color:#E4495B;background-color:#E7E9E8;">——Likcu 2025/04/30</font></p>
+<p>FINS-Fusion 是视觉-惯性融合的SLAM方案</p>
+<p><strong>需要用到的：</strong></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">roscpp</span><br><span class="line">rviz</span><br><span class="line">Eigen库</span><br><span class="line">Ceres-Solver库</span><br><span class="line">Opencv库</span><br></pre></td></tr></table></figure>
+
+<p><strong>主页：</strong></p>
+<p><a class="link" href="https://github.com/HKUST-Aerial-Robotics">https://github.com/HKUST-Aerial-Robotics<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>源代码：</strong></p>
+<p><a class="link" href="https://github.com/HKUST-Aerial-Robotics/VINS-Fusion">https://github.com/HKUST-Aerial-Robotics/VINS-Fusion<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<p>首先就是下载源代码，我是在网页直接下载的，因为在命令行老是网络有问题下不下来。</p>
+<p>下好后解压缩在<code>/home/likcu/catkin_ws/src/</code>下</p>
+<p><code>catkin_ws/src</code>是自己新建的文件夹</p>
+<hr>
+<p>然后下载所需要的库</p>
+<p>我之前因为某些原因手动升级了Eigen库，版本为3.4.0</p>
+<p>Opencv也手动装了3.4.11的</p>
+<p>Opencv安装步骤 记录在我另一篇文章里</p>
+<p>（但后来我的失误导致我又不得不重新装了一次Opencv）</p>
+<p>至于Ceres-Solver，一开始没装对，后来找到了一篇文章，里面说手动装2.0.0的，果然好用</p>
+<p>链接如下：</p>
+<p><a class="link" href="https://ceres-solver.googlesource.com/ceres-solver/+/refs/tags/2.0.0">https://ceres-solver.googlesource.com/ceres-solver/+/refs/tags/2.0.0<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong><font style="background-color:#FBE4E7;">总之，系统为Ubuntu 20.04，已安装ROS noetic ， Eigen 3.4.0 ，Opencv 3.4.11 ，Ceres-Solver 2.0.0</font></strong></p>
+<hr>
+<p>准备工作差不多了，按照我的另一篇文章，安装即可</p>
+<p>（文章里有每一个编译报错的解决方式，按理说是都可行的</p>
+<p>但是！重点来了</p>
+<p>我照着报错修改好，然后编译成功了，看下一步是下载数据包，于是下载完毕就搁置了</p>
+<p>想着第二天再运行。 就没看到原文章后面的那个 段错误 的部分。）</p>
+<p>于是第二天，我运行报错了，我以为是我前面没装好，就去搜索原因，说是<strong>opencv</strong>的原因，我的电脑里面有<strong>opencv4</strong>还有我自己下的<strong>opencv3.4.11</strong></p>
+<p>于是我自作主张直接把两三个<strong>libopencv_xxxx.so.4.2</strong>这类的文件 rm 删除了，结果编译都编译不下来了。</p>
+<p>就在我一筹莫展的时候，我看到原文章 有关段错误 的解决办法。。。</p>
+<p>于是按照步骤进行，但是估计是因为我先前删了一些文件，导致编译还是不过。</p>
+<p>然后就到处搜办法，还重新装了一次<strong>opencv3.4.11</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make[2]: *** 没有规则可制作目标“/usr/lib/x86_64-linux-gnu/libopencv_dnn.so.4.2.0”，由“/home/likcu/catkin_ws/devel/lib/loop_fusion/loop_fusion_node” 需求。 停止。</span><br><span class="line">make[2]: *** 正在等待未完成的任务....</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/bin/ld: warning: libopencv_core.so.4.2, needed by /opt/ros/noetic/lib/libcv_bridge.so, may conflict with libopencv_core.so.3.4</span><br></pre></td></tr></table></figure>
+
+<p>上面这个报错，我看是说<font style="color:#585A5A;background-color:#FBE4E7;">/opt/ros/noetic/lib/libcv_bridge.so</font>  这个文件，需要4.2版本的</p>
+<p>所以我能否更改这个文件，然后改成需要3.4.11版本的就行了？</p>
+<p>找到了一篇文章，按照步骤操作了一下，最后总算成功了</p>
+<p>大概就是卸载系统自带的，手动安装cv_bridge</p>
+<p>下载地址如下：</p>
+<p><a class="link" href="https://github.com/ros-perception/vision_opencv/tree/noetic">https://github.com/ros-perception/vision_opencv/tree/noetic<i class="fas fa-external-link-alt"></i></a></p>
+<p>安装好后，把项目里CMakeLists.txt 中有引用 cv_bridge 的部分修改一下:</p>
+<p><a class="link" href="https://www.yuque.com/likcu/ntn7ly/gwlxnqfde54zoxuw">ubuntu20.04安装opencv 3.2.0以及cv_bridge踩坑记录<i class="fas fa-external-link-alt"></i></a></p>
+<p>就好啦！！！！</p>
+<p>本来差点就放弃了。。</p>
+<hr>
+<p>PS：</p>
+<p>在安装源码之前，我试图用docker部署，但是没成功，太难了，不知道怎么解决，而且没搜到有关docker部署的相关文章与步骤。最后还是放弃了。而且听说docker源不稳定，老是失效。</p>
+<hr>
+<p>我下载的数据包是EuRoc数据集 的Vicon Room2 01 序列</p>
+<p><a class="link" href="https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets">https://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<p>一开始假的编译成功图片：TAT</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E5%81%87%E7%9A%84%E7%BC%96%E8%AF%91.png" class="">
+
+<hr>
+<p>最后成功的编译图片！：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E7%9C%9F%E7%9A%84%E7%BC%96%E8%AF%91.png" class="">
+
+<hr>
+<p>运行数据包的Rviz界面截图：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/Rviz.png" class="" title="Rviz 示意图">
+
+<hr>
+<p><font style="color:#585A5A;background-color:#FBE4E7;">2026-03-19备注：其实就是cv_bridge版本不一致。代码用的自己安装的Opencv3.4，但调用的是系统OpenCV4.2链接的cv_bridge。只要保证cv_bridge和opencv版本一致即可</font></p>
+<p><font style="color:#585A5A;background-color:#FBE4E7;">上述方法只能解决一时的问题，在别的项目中还会遇到，还需要改路径。因此仅作参考，最规范的方法还是直接使用系统OpenCV4.2（如果系统Opencv没有问题的话），或者在本地安装OpenCV3.4并将cv_bridge等相关库在指定路径编译链接到OpenCV3.4上</font></p>
+<h1 id="VSCODE-配置"><a href="#VSCODE-配置" class="headerlink" title="VSCODE 配置"></a>VSCODE 配置</h1><img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/vscode.png" class="" title="vscode">
+
+<p>鼠标放到上面，点“快速修复”：</p>
+<p>点击编辑“<strong>includePath</strong>”设置：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/includePath%E8%AE%BE%E7%BD%AE.png" class="" title="includePath设置">
+
+<p>往下滑找到“包含路径”：</p>
+<img src="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/%E5%8C%85%E5%90%AB%E8%B7%AF%E5%BE%84.png" class="" title="包含路径">
+
+
+
+<p>在里面添加几行：</p>
+<p>按照自己的安装路径添加即可，我的<strong>opencv</strong>跟<strong>eigen</strong>是本地手动安装的，所以在<strong>local</strong>下</p>
+<p><strong>cv_bridge</strong> 是源码安装在了我本地的 <strong>ku</strong>文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/include/opencv2</span><br><span class="line">/opt/ros/noetic/include/**</span><br><span class="line">/usr/local/include/eigen3</span><br><span class="line">/home/likcu/ku/vision_opencv-noetic/cv_bridge/install/include</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>项目部署</category>
+      </categories>
+      <tags>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/programBlog/2026/03/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>开始之前</title>
+    <url>/programBlog/2026/03/18/%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/</url>
+    <content><![CDATA[<p>开始之前，也就是这个“哦？”网站的 ReadMe。</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><p>我叫 <code>LiKCu</code></p>
+<p>也可以叫我 <code>NitrogenLi</code></p>
+<p>目前24岁了</p>
+<p>没什么成就，在这个计算机的领域</p>
+<p><em>当然如果不是计算机领域，以前学校运动会比赛拿奖算不算（？</em></p>
+<h4 id="写这个博客的目的"><a href="#写这个博客的目的" class="headerlink" title="写这个博客的目的"></a>写这个博客的目的</h4><p>记性不太好，有时候看过的东西、跑过的代码</p>
+<p>总是忘，某一天想再复现时一点也想不起来了</p>
+<p>总之可以说是备忘录吧</p>
+<p><em>虽然我本地也一直有记笔记，但是有一个这种自己的博客网页，听上去就很厉害</em></p>
+<p>其实并非厉害，只是套用了大佬写好的框架主题而已</p>
+<p>大概只有内容是我自己的？嗯，可能也会改一些页面设计</p>
+<p>先慢慢把以前的本地笔记上传上去吧，也是个不小的工程</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>至于为什么可以叫我 <code>NitrogenLi</code></p>
+<p>其实 <code>LiKCu</code> 的全称是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="10.795ex" height="1.916ex" role="img" focusable="false" viewBox="0 -697 4771.6 847"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D40D" d="M314 0Q296 3 181 3T48 0H39V62H147V624H39V686H171H265Q288 686 297 686T309 684T315 679Q317 676 500 455T684 233V624H576V686H585Q603 683 718 683T851 686H860V624H752V319Q752 15 750 11Q747 4 742 2T718 0H712Q708 0 706 0T700 0T696 1T693 2T690 4T687 7T684 11T679 16T674 23Q671 27 437 311L215 579V62H323V0H314Z"></path></g><g data-mml-node="mn" transform="translate(933,-150) scale(0.707)"><path data-c="1D7D0" d="M175 580Q175 578 185 572T205 551T215 510Q215 467 191 449T137 430Q107 430 83 448T58 511Q58 558 91 592T168 640T259 654Q328 654 383 637Q451 610 484 563T517 459Q517 401 482 360T368 262Q340 243 265 184L210 140H274Q416 140 429 145Q439 148 447 186T455 237H517V233Q516 230 501 119Q489 9 486 4V0H57V25Q57 51 58 54Q60 57 109 106T215 214T288 291Q364 377 364 458Q364 515 328 553T231 592Q214 592 201 589T181 584T175 580Z"></path></g></g><g data-mml-node="mi" transform="translate(1389.6,0)"><path data-c="1D40B" d="M643 285Q641 280 629 148T612 4V0H39V62H147V624H39V686H51Q75 683 228 683Q415 685 425 686H439V624H304V62H352H378Q492 62 539 138Q551 156 558 178T569 214T576 255T581 289H643V285Z"></path><path data-c="1D422" d="M72 610Q72 649 98 672T159 695Q193 693 217 670T241 610Q241 572 217 549T157 525Q120 525 96 548T72 610ZM46 442L136 446L226 450H232V62H294V0H286Q271 3 171 3Q67 3 49 0H40V62H109V209Q109 358 108 362Q103 380 55 380H43V442H46Z" transform="translate(692,0)"></path><path data-c="1D40A" d="M400 0Q376 3 226 3Q75 3 51 0H39V62H147V624H39V686H51Q75 683 226 683Q376 683 400 686H412V624H304V338L472 483L634 624H565V686H576Q597 683 728 683Q814 683 829 686H836V624H730L614 524Q507 432 497 422Q496 422 498 418T514 395T553 342T627 241L759 63L805 62H852V0H842Q830 3 701 3Q550 3 526 0H513V62H549Q584 62 584 63Q583 65 486 196T388 328L304 256V62H412V0H400Z" transform="translate(1011,0)"></path><path data-c="1D402" d="M64 343Q64 502 174 599T468 697Q502 697 533 691T586 674T623 655T647 639T657 632L694 663Q703 670 711 677T723 687T730 692T735 695T740 696T746 697Q759 697 762 692T766 668V627V489V449Q766 428 762 424T742 419H732H720Q699 419 697 436Q690 498 657 545Q611 618 532 632Q522 634 496 634Q356 634 286 553Q232 488 232 343T286 133Q355 52 497 52Q597 52 650 112T704 237Q704 248 709 251T729 254H735Q750 254 755 253T763 248T766 234Q766 136 680 63T469 -11Q285 -11 175 86T64 343Z" transform="translate(1912,0)"></path><path data-c="1D42E" d="M40 442L134 446Q228 450 229 450H235V273V165Q235 90 238 74T254 52Q268 46 304 46H319Q352 46 380 67T419 121L420 123Q424 135 425 199Q425 201 425 207Q425 233 425 249V316Q425 354 423 363T410 376Q396 380 369 380H356V442L554 450V267Q554 84 556 79Q561 62 610 62H623V31Q623 0 622 0Q603 0 527 -3T432 -6Q431 -6 431 25V56L420 45Q373 6 332 -1Q313 -6 281 -6Q208 -6 165 14T109 87L107 98L106 230Q106 358 104 366Q96 380 50 380H37V442H40Z" transform="translate(2743,0)"></path></g></g></g></g></svg></mjx-container></p>
+<p>这下应该懂了吧？</p>
+<hr>
+<p>就这样吧</p>
+<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#x37;&#x30;&#x39;&#x37;&#x38;&#x38;&#x31;&#x33;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+      <categories>
+        <category>测试分类</category>
+      </categories>
+  </entry>
+</search>

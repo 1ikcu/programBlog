@@ -1,0 +1,30 @@
+/* 确保进度条在文字上方或旁边 */
+.menu-item, .drawer-menu-item {
+    position: relative !important;
+}
+
+.hold-progress-wrap {
+    position: absolute;
+    left: -10px;
+    /*right: -5px; /* 调整到文字右侧 */
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+    z-index: 9000;
+    filter: drop-shadow(0 0 4px rgba(220, 220, 214, 0.6)); /* 增加外发光 */
+}
+
+.hold-progress-wrap.active {
+    display: block !important;
+}
+
+
+.hold-progress-circle {
+    fill: none;
+    stroke: #0c0a6e; /* 深蓝 */
+    stroke-width: 4;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 100;
+    transition: stroke-dashoffset 2.5s linear;
+}
+

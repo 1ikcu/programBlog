@@ -32,10 +32,18 @@
 <link rel="stylesheet" href="/programBlog/font/css/brands.min.css">
 
     
+        
+            
+                
+<link rel="stylesheet" href="/programBlog/css/custom.css">
+
+            
+        
+    
     <script class="keep-theme-configurations">
     const KEEP = window.KEEP || {}
-    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh"}
-    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","categories":"/categories","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":false,"percent":false,"hide_header":true},"home":{"announcement":null,"category":false,"tag":false,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":false,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":false,"style":"default"},"highlight_theme":"default"},"toc":{"enable":false,"number":false,"expand_all":false,"init_open":true,"layout":"right"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":false,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":false,"css":[null],"js":[null]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
+    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags/","categories":"/categories/","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":"Hello","category":false,"tag":true,"post_datetime":"updated"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":["/js/custom-nav.js"]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
     KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
     KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
     KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
@@ -158,6 +166,8 @@ mjx-container[display="true"] + br {
 <body>
 <div class="progress-bar-container">
     
+        <span class="scroll-progress-bar"></span>
+    
 
     
         <span class="pjax-progress-bar"></span>
@@ -197,7 +207,7 @@ mjx-container[display="true"] + br {
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/programBlog/">
                                 
-                                首頁
+                                HOME
                                 
                             </a>
                             
@@ -207,7 +217,7 @@ mjx-container[display="true"] + br {
                         <li class="menu-item flex-start border-box">
                             <a class="menu-text-color border-box" href="/programBlog/archives">
                                 
-                                歸檔
+                                ARCHIVES
                                 
                             </a>
                             
@@ -215,9 +225,19 @@ mjx-container[display="true"] + br {
                     
                         
                         <li class="menu-item flex-start border-box">
-                            <a class="menu-text-color border-box" href="/programBlog/categories">
+                            <a class="menu-text-color border-box" href="/programBlog/tags/">
                                 
-                                分類
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/categories/">
+                                
+                                CATEGORIES
                                 
                             </a>
                             
@@ -236,9 +256,15 @@ mjx-container[display="true"] + br {
                         </li>
                     
                     
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
                 </ul>
             </div>
             <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
                 
                 <div class="icon-item menu-bar">
                     <div class="menu-bar-middle"></div>
@@ -255,7 +281,7 @@ mjx-container[display="true"] + br {
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/">
                             
-                            首頁
+                            HOME
                         </a>
                         
                     </label>
@@ -267,7 +293,7 @@ mjx-container[display="true"] + br {
                     <label class="drawer-menu-label border-box">
                         <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/archives">
                             
-                            歸檔
+                            ARCHIVES
                         </a>
                         
                     </label>
@@ -277,9 +303,21 @@ mjx-container[display="true"] + br {
                 
                 <li class="drawer-menu-item border-box not-sub-menu">
                     <label class="drawer-menu-label border-box">
-                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/tags/">
                             
-                            分類
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories/">
+                            
+                            CATEGORIES
                         </a>
                         
                     </label>
@@ -360,7 +398,7 @@ mjx-container[display="true"] + br {
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Mar 19 2026 11:55:48 GMT+0800">2026-03-19 11:55:48</span>
+                    <span class="datetime" data-updated="Thu Mar 19 2026 16:50:43 GMT+0800">2026-03-19 16:50:43</span>
                 </span>
             
         
@@ -405,7 +443,12 @@ mjx-container[display="true"] + br {
                     
 
                     
-                         <h1 id="环境安装与部署"><a href="#环境安装与部署" class="headerlink" title="环境安装与部署"></a>环境安装与部署</h1><p>2025-04-30 09:35</p>
+                         <p><strong>FINS-Fusion</strong> 是一个视觉-惯性融合的 <strong>SLAM</strong></p>
+<p>本文是部署流程以及报错记录</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu  </p>
+<hr>
+<h1 id="环境安装与部署"><a href="#环境安装与部署" class="headerlink" title="环境安装与部署"></a>环境安装与部署</h1><p>2025-04-30 09:35</p>
 <p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_52068373/article/details/127871743">https://blog.csdn.net/qq_52068373/article/details/127871743<i class="fas fa-external-link-alt"></i></a></p>
 <p><strong><font style="color:#E4495B;">本篇在上述链接文章的基础上，添加了一些自己在实际操作中用到的细节步骤</font></strong></p>
 <p>本文是在已经安装好 <strong>ROS <strong>的基础上，在 <strong>Ubuntu20.04</strong> 系统下，完成</strong>vins-fusion</strong> 的环境搭建，主要涉及到 <strong>opencv3.4.11、ceres-solver2.0.0、eigen3</strong>的安装，解决了 <strong>vins对ros自带的opencv4不兼容 、 ceres对c++的版本要求</strong> 、以及一些 <strong>常见编译错误</strong> 的问题，还解决了运行vins-fusion时出现 ==段错误（核心已转储）==的问题</p>
@@ -608,7 +651,7 @@ mjx-container[display="true"] + br {
 <p>我照着报错修改好，然后编译成功了，看下一步是下载数据包，于是下载完毕就搁置了</p>
 <p>想着第二天再运行。 就没看到原文章后面的那个 段错误 的部分。）</p>
 <p>于是第二天，我运行报错了，我以为是我前面没装好，就去搜索原因，说是<strong>opencv</strong>的原因，我的电脑里面有<strong>opencv4</strong>还有我自己下的<strong>opencv3.4.11</strong></p>
-<p>于是我自作主张直接把两三个**libopencv_xxxx.so.4.2 **这类的文件 rm 删除了，结果编译都编译不下来了。</p>
+<p>于是我自作主张直接把两三个<strong>libopencv_xxxx.so.4.2</strong>这类的文件 rm 删除了，结果编译都编译不下来了。</p>
 <p>就在我一筹莫展的时候，我看到原文章 有关段错误 的解决办法。。。</p>
 <p>于是按照步骤进行，但是估计是因为我先前删了一些文件，导致编译还是不过。</p>
 <p>然后就到处搜办法，还重新装了一次<strong>opencv3.4.11</strong></p>
@@ -712,7 +755,7 @@ mjx-container[display="true"] + br {
                                     </span>
                                     <span class="title flex-center">
                                         <span class="post-nav-title-item text-ellipsis">Hello World</span>
-                                        <span class="post-nav-item">上一篇</span>
+                                        <span class="post-nav-item">Prev posts</span>
                                     </span>
                                 </a>
                             </div>
@@ -734,6 +777,15 @@ mjx-container[display="true"] + br {
         </div>
 
         
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="nav-text">环境安装与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85OpenCV-3-4-11"><span class="nav-text">一、安装OpenCV-3.4.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85eigen3"><span class="nav-text">二、安装eigen3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BB%88%E7%AB%AFapt%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85"><span class="nav-text">2.1 终端apt命令安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-text">2.2 源码编译安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85ceres-solver%E5%BA%93"><span class="nav-text">三、安装ceres-solver库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%8B%E8%BD%BDVINS-FUSION%E7%9A%84%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-text">四、下载VINS-FUSION的代码库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-text">4.1 下载编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%A7%A3%E5%86%B3%E9%94%99%E8%AF%AF"><span class="nav-text">4.2 解决错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89OpenCV3%E5%86%B2%E7%AA%81"><span class="nav-text">（1）OpenCV3冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89integer-sequence"><span class="nav-text">（2）integer_sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%AD%A3%E5%9C%A8%E7%AD%89%E5%BE%85%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-text">（3）正在等待未完成的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89CV-FONT-HERSHEY-SIMPLEX"><span class="nav-text">（4）CV_FONT_HERSHEY_SIMPLEX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89CV-RGB2GRAY"><span class="nav-text">（5）CV_RGB2GRAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%886%EF%BC%89CV-LOAD-IMAGE-GRAYSCALE"><span class="nav-text">（6）CV_LOAD_IMAGE_GRAYSCALE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E5%AE%8C%E6%88%90%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-text">4.3 完成编译安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%B7%BB%E5%8A%A0%E5%88%B0bash%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">五、添加到bash配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%A7%A3%E5%86%B3%E6%AE%B5%E9%94%99%E8%AF%AF%EF%BC%88%E6%A0%B8%E5%BF%83%E5%B7%B2%E8%BD%AC%E5%82%A8%EF%BC%89"><span class="nav-text">六、解决段错误（核心已转储）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">七、下载数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%BF%90%E8%A1%8CVINS"><span class="nav-text">八、运行VINS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-Monocualr-camera-IMU"><span class="nav-text">8.1 Monocualr camera + IMU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-Stereo-cameras-IMU"><span class="nav-text">8.2 Stereo cameras + IMU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-Stereo-cameras"><span class="nav-text">8.3 Stereo cameras</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VSCODE-%E9%85%8D%E7%BD%AE"><span class="nav-text">VSCODE 配置</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
     </div>
 </div>
 
@@ -753,7 +805,7 @@ mjx-container[display="true"] + br {
     </div>
 
     <div class="theme-info info-item">
-        <a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;框架&nbsp;&&nbsp;主題&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
     </div>
 
     
@@ -768,13 +820,17 @@ mjx-container[display="true"] + br {
 
     <!-- post tools -->
     
-        <div class="post-tools right-toc">
+        <div class="post-tools left-toc">
             <div class="post-tools-container border-box">
     <ul class="post-tools-list border-box">
         <!-- PC encrypt again -->
         
 
         <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
         
 
         <!-- PC go comment -->
@@ -820,6 +876,10 @@ mjx-container[display="true"] + br {
 
     <ul class="exposed-tools-list border-box">
         
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
 
         
 
@@ -844,8 +904,48 @@ mjx-container[display="true"] + br {
 
     <!-- local search -->
     
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
 
     <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2"><span class="nav-text">环境安装与部署</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%AE%89%E8%A3%85OpenCV-3-4-11"><span class="nav-text">一、安装OpenCV-3.4.11</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85eigen3"><span class="nav-text">二、安装eigen3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E7%BB%88%E7%AB%AFapt%E5%91%BD%E4%BB%A4%E5%AE%89%E8%A3%85"><span class="nav-text">2.1 终端apt命令安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-text">2.2 源码编译安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85ceres-solver%E5%BA%93"><span class="nav-text">三、安装ceres-solver库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%8B%E8%BD%BDVINS-FUSION%E7%9A%84%E4%BB%A3%E7%A0%81%E5%BA%93"><span class="nav-text">四、下载VINS-FUSION的代码库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-text">4.1 下载编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-%E8%A7%A3%E5%86%B3%E9%94%99%E8%AF%AF"><span class="nav-text">4.2 解决错误</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%881%EF%BC%89OpenCV3%E5%86%B2%E7%AA%81"><span class="nav-text">（1）OpenCV3冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%882%EF%BC%89integer-sequence"><span class="nav-text">（2）integer_sequence</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%883%EF%BC%89%E6%AD%A3%E5%9C%A8%E7%AD%89%E5%BE%85%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9A%84%E4%BB%BB%E5%8A%A1"><span class="nav-text">（3）正在等待未完成的任务</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%884%EF%BC%89CV-FONT-HERSHEY-SIMPLEX"><span class="nav-text">（4）CV_FONT_HERSHEY_SIMPLEX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%885%EF%BC%89CV-RGB2GRAY"><span class="nav-text">（5）CV_RGB2GRAY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%EF%BC%886%EF%BC%89CV-LOAD-IMAGE-GRAYSCALE"><span class="nav-text">（6）CV_LOAD_IMAGE_GRAYSCALE</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-%E5%AE%8C%E6%88%90%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85"><span class="nav-text">4.3 完成编译安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%B7%BB%E5%8A%A0%E5%88%B0bash%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="nav-text">五、添加到bash配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%A7%A3%E5%86%B3%E6%AE%B5%E9%94%99%E8%AF%AF%EF%BC%88%E6%A0%B8%E5%BF%83%E5%B7%B2%E8%BD%AC%E5%82%A8%EF%BC%89"><span class="nav-text">六、解决段错误（核心已转储）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E4%B8%8B%E8%BD%BD%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="nav-text">七、下载数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E8%BF%90%E8%A1%8CVINS"><span class="nav-text">八、运行VINS</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#8-1-Monocualr-camera-IMU"><span class="nav-text">8.1 Monocualr camera + IMU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-2-Stereo-cameras-IMU"><span class="nav-text">8.2 Stereo cameras + IMU</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-3-Stereo-cameras"><span class="nav-text">8.3 Stereo cameras</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VSCODE-%E9%85%8D%E7%BD%AE"><span class="nav-text">VSCODE 配置</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
     
 </main>
 
@@ -872,6 +972,10 @@ mjx-container[display="true"] + br {
 
 <!-- local search -->
 
+    
+<script src="/programBlog/js/local-search.js"></script>
+
+
 
 <!-- lazyload -->
 
@@ -888,6 +992,10 @@ mjx-container[display="true"] + br {
 
 
         <!-- toc -->
+        
+            
+<script src="/programBlog/js/post/toc.js"></script>
+
         
 
         <!-- copyright-info -->
@@ -949,6 +1057,14 @@ mjx-container[display="true"] + br {
 
 
 
+
+    
+        
+            
+<script class="custom-inject-js" src="/programBlog/js/custom-nav.js" data-pjax></script>
+
+        
+    
 
 </body>
 </html>
