@@ -9,7 +9,7 @@
     
     <title>
         
-            开始之前 |
+            OpenCalib-多传感器标定 |
         
         哦？
     </title>
@@ -364,7 +364,7 @@ mjx-container[display="true"] + br {
             <div class="post-content-bottom border-box">
                 
                     <div class="post-title">
-                        开始之前
+                        OpenCalib-多传感器标定
                     </div>
                 
 
@@ -392,13 +392,13 @@ mjx-container[display="true"] + br {
         
             <span class="meta-info-item post-create-date">
                 <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
-                <span class="datetime">2026-03-18 11:20:02</span>
+                <span class="datetime">2025-07-08 09:19:45</span>
             </span>
 
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Fri Mar 20 2026 13:54:28 GMT+0800">2026-03-20 13:54:28</span>
+                    <span class="datetime" data-updated="Fri Mar 20 2026 14:35:38 GMT+0800">2026-03-20 14:35:38</span>
                 </span>
             
         
@@ -407,13 +407,28 @@ mjx-container[display="true"] + br {
             <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul class="post-category-ul">
                     
-                            <li class="category-item"><a href="/programBlog/categories/%E6%97%A5%E5%B8%B8%E6%9D%82%E8%B0%88/">日常杂谈</a></li>
+                            <li class="category-item"><a href="/programBlog/categories/%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">教程笔记</a></li>
                         
                     
                 </ul>
             </span>
         
 
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/%E6%A0%87%E5%AE%9A/">标定</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/C/">C++</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/SLAM/">SLAM</a></li>
+                        
+                    
+                </ul>
+            </span>
         
 
         
@@ -434,42 +449,180 @@ mjx-container[display="true"] + br {
                     
 
                     
-                         <p>在开始之前，也就是_ “哦？”_网站的 ReadMe。————————————————————————</p>
+                         <p>该教程内容：开源项目 OpenCalib 多传感器标定方法的部署步骤————————————————</p>
 <hr>
 <p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
 <hr>
-<h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><p>我叫 <code>LiKCu</code></p>
-<p>也可以叫我 <code>NitrogenLi</code></p>
-<p>目前24岁了</p>
-<p>没什么成就，在这个计算机的领域</p>
-<p><em>当然如果不是计算机领域，以前学校运动会比赛拿奖算不算（？</em></p>
-<h4 id="写这个博客的目的"><a href="#写这个博客的目的" class="headerlink" title="写这个博客的目的"></a>写这个博客的目的</h4><p>记性不太好，有时候看过的东西、跑过的代码</p>
-<p>总是忘，某一天想再复现时一点也想不起来了</p>
-<p>总之可以说是备忘录吧</p>
-<p><em>虽然我本地也一直有记笔记，但是有一个这种自己的博客网页，听上去就很厉害</em></p>
-<p>其实并非厉害，只是套用了大佬写好的框架主题而已</p>
-<p>大概只有内容是我自己的？嗯，可能也会改一些页面设计</p>
-<p>先慢慢把以前的本地笔记上传上去吧，也是个不小的工程</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>至于为什么可以叫我 <code>NitrogenLi</code></p>
-<p>其实 <code>LiKCu</code> 的全称是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="10.795ex" height="1.916ex" role="img" focusable="false" viewBox="0 -697 4771.6 847"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D40D" d="M314 0Q296 3 181 3T48 0H39V62H147V624H39V686H171H265Q288 686 297 686T309 684T315 679Q317 676 500 455T684 233V624H576V686H585Q603 683 718 683T851 686H860V624H752V319Q752 15 750 11Q747 4 742 2T718 0H712Q708 0 706 0T700 0T696 1T693 2T690 4T687 7T684 11T679 16T674 23Q671 27 437 311L215 579V62H323V0H314Z"></path></g><g data-mml-node="mn" transform="translate(933,-150) scale(0.707)"><path data-c="1D7D0" d="M175 580Q175 578 185 572T205 551T215 510Q215 467 191 449T137 430Q107 430 83 448T58 511Q58 558 91 592T168 640T259 654Q328 654 383 637Q451 610 484 563T517 459Q517 401 482 360T368 262Q340 243 265 184L210 140H274Q416 140 429 145Q439 148 447 186T455 237H517V233Q516 230 501 119Q489 9 486 4V0H57V25Q57 51 58 54Q60 57 109 106T215 214T288 291Q364 377 364 458Q364 515 328 553T231 592Q214 592 201 589T181 584T175 580Z"></path></g></g><g data-mml-node="mi" transform="translate(1389.6,0)"><path data-c="1D40B" d="M643 285Q641 280 629 148T612 4V0H39V62H147V624H39V686H51Q75 683 228 683Q415 685 425 686H439V624H304V62H352H378Q492 62 539 138Q551 156 558 178T569 214T576 255T581 289H643V285Z"></path><path data-c="1D422" d="M72 610Q72 649 98 672T159 695Q193 693 217 670T241 610Q241 572 217 549T157 525Q120 525 96 548T72 610ZM46 442L136 446L226 450H232V62H294V0H286Q271 3 171 3Q67 3 49 0H40V62H109V209Q109 358 108 362Q103 380 55 380H43V442H46Z" transform="translate(692,0)"></path><path data-c="1D40A" d="M400 0Q376 3 226 3Q75 3 51 0H39V62H147V624H39V686H51Q75 683 226 683Q376 683 400 686H412V624H304V338L472 483L634 624H565V686H576Q597 683 728 683Q814 683 829 686H836V624H730L614 524Q507 432 497 422Q496 422 498 418T514 395T553 342T627 241L759 63L805 62H852V0H842Q830 3 701 3Q550 3 526 0H513V62H549Q584 62 584 63Q583 65 486 196T388 328L304 256V62H412V0H400Z" transform="translate(1011,0)"></path><path data-c="1D402" d="M64 343Q64 502 174 599T468 697Q502 697 533 691T586 674T623 655T647 639T657 632L694 663Q703 670 711 677T723 687T730 692T735 695T740 696T746 697Q759 697 762 692T766 668V627V489V449Q766 428 762 424T742 419H732H720Q699 419 697 436Q690 498 657 545Q611 618 532 632Q522 634 496 634Q356 634 286 553Q232 488 232 343T286 133Q355 52 497 52Q597 52 650 112T704 237Q704 248 709 251T729 254H735Q750 254 755 253T763 248T766 234Q766 136 680 63T469 -11Q285 -11 175 86T64 343Z" transform="translate(1912,0)"></path><path data-c="1D42E" d="M40 442L134 446Q228 450 229 450H235V273V165Q235 90 238 74T254 52Q268 46 304 46H319Q352 46 380 67T419 121L420 123Q424 135 425 199Q425 201 425 207Q425 233 425 249V316Q425 354 423 363T410 376Q396 380 369 380H356V442L554 450V267Q554 84 556 79Q561 62 610 62H623V31Q623 0 622 0Q603 0 527 -3T432 -6Q431 -6 431 25V56L420 45Q373 6 332 -1Q313 -6 281 -6Q208 -6 165 14T109 87L107 98L106 230Q106 358 104 366Q96 380 50 380H37V442H40Z" transform="translate(2743,0)"></path></g></g></g></g></svg></mjx-container></p>
-<p>这下应该懂了吧？</p>
-<hr>
-<p>就这样吧</p>
-<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#x37;&#48;&#57;&#55;&#x38;&#56;&#49;&#x33;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
-<hr>
-<h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bu411J7V6">b站介绍链接<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="工具下载编译"><a href="#工具下载编译" class="headerlink" title="工具下载编译"></a>工具下载编译</h2><p>源码网址：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/PJLab-ADG/SensorsCalibration/blob/master/">https://github.com/PJLab-ADG/SensorsCalibration/tree/master/<i class="fas fa-external-link-alt"></i></a></p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/%E6%BA%90%E7%A0%81%E7%BD%91%E7%AB%99.png" class="" title="源码网站">
+
+<p>我使用源码下载编译的方式，点这里下载并提取：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/%E6%BA%90%E7%A0%81%E4%B8%8B%E8%BD%BD.png" class="" title="源码下载">
+
+<p>其中有各种传感器之间的标定。</p>
+<p>我需要的是激光雷达的，所以在 <font style="color:#DF2A3F;background-color:#D8DAD9;">lidar2camera</font> 文件夹下。</p>
+<p>该文件夹下包含 <strong>自动标定</strong>（auto_calib）、<strong>手动标定</strong>（manual_calib）等等。</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A.png" class="" title="标定">
+
+<p>上图可以看到需要的其他库：</p>
+<blockquote>
+<p>Cmake、opencv 2.4、eigen 3、PCL 1.9、Pangolin</p>
+</blockquote>
+<p><strong>我编译成功的库版本为：</strong></p>
+<blockquote>
+<p>Cmake、opencv 3.4.11、eigen 3、PCL 1.10.0、Pangolin 0.6</p>
+</blockquote>
+<h4 id="Pangolin库"><a href="#Pangolin库" class="headerlink" title="Pangolin库"></a>Pangolin库</h4><p>pangolin 官网：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/stevenlovegrove/Pangolin">https://github.com/stevenlovegrove/Pangolin<i class="fas fa-external-link-alt"></i></a></p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/Pangolin.png" class="" title="Pangolin">
+
+<p>我一开始装 <strong>pangolin</strong>，0.5版本的报错，因为我的 <strong>ffmpeg</strong>版本太高。又试了装最新版 <strong>master</strong> 的，也没成功</p>
+<p>make 时报错：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Pangolin-0.5/src/video/drivers/ffmpeg.cpp:41:41: error: ‘AV_PIX_FMT_XVMC_MPEG2_IDCT’ was not declared <span class="keyword">in</span> this scope; did you mean ‘AV_PIX_FMT_VAAPI_IDCT’?</span><br><span class="line">   41 | <span class="comment">#  define TEST_PIX_FMT_RETURN(fmt) case AV_PIX_FMT_##fmt: return #fmt;</span></span><br><span class="line">      |</span><br></pre></td></tr></table></figure>
+
+<p>后来看了一下 <strong>manual_calib</strong> 的 <strong>CMakeLists</strong>文件，发现需要 <strong>0.6</strong>版本的<strong>Pangolin</strong>，就又下了 <strong>0.6</strong> 版本：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/0_6Pangolin.png" class="" title="“0_6Pangolin”">
+
+<p>（其实应该不是版本的关系，是编译命令的原因）</p>
+<p><strong>别忘了需要的依赖：</strong></p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/Pangolin%E4%BE%9D%E8%B5%96.png" class="" title="Pangolin依赖">
+
+<p>在 <strong>README</strong>中，是这样构建的：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/build.png" class="" title="build">
+
+<p>下载源码并提取：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Pangolin-0.6</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">cmake --build .</span><br></pre></td></tr></table></figure>
+
+<p>（我之前是用的  <strong>cmake ..</strong> 之后使用 <strong>make</strong>）</p>
+<p>现在用<strong>cmake –build .</strong> 构建成功了，可以运行这个示例验证一下：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/SimpleDisplay.png" class="" title="SimpleDisplay">
+
+
+
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/%E7%A4%BA%E4%BE%8B.png" class="" title="示例">
+
+
+
+<h4 id="PCL-库"><a href="#PCL-库" class="headerlink" title="PCL 库"></a>PCL 库</h4><p>另一个库 <strong>PCL</strong></p>
+<p>我是 <strong>Ubuntu20.04</strong>自带的 <strong>PCL 1.10.0</strong>，于是需要在 <strong>CMakeLists.txt</strong>文件中修改一下：</p>
+<p>查看 PCL 版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-cache show libpcl-dev</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/PCL.png" class="" title="PCL">
+
+
+
+<p>原文件：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/PCL%E6%BA%90%E6%96%87%E4%BB%B6.png" class="" title="PCL源文件">
+
+<p>修改后：（版本号要精确到第三位）</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/PCL%E4%BF%AE%E6%94%B9%E5%90%8E.png" class="" title="PCL修改后">
+
+<p>然后按照这个编译：</p>
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/Compile.png" class="" title="Compile">
+
+<p>编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> SensorsCalibration-master/lidar2camera/manual_calib</span><br><span class="line"><span class="built_in">mkdir</span> build</span><br><span class="line"><span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make</span><br></pre></td></tr></table></figure>
+
+<p>好了之后，可以先运行测试用例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~./manual_calib/</span><br><span class="line">./bin/run_lidar2camera data/0.png data/0.pcd data/center_camera-intrinsic.json data/top_center_lidar-to-center_camera-extrinsic.json</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/08/OpenCalib-%E5%A4%9A%E4%BC%A0%E6%84%9F%E5%99%A8%E6%A0%87%E5%AE%9A/%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B.png" class="" title="运行测试用例">
+
+<p>（之前好几次没编译成功，这个步骤一次性成功了。还试图用 docker 部署环境，结果 要下12 GB的文件，然而我的下载速度是 500kb/s )</p>
+<h2 id="工具使用"><a href="#工具使用" class="headerlink" title="工具使用"></a>工具使用</h2><h4 id="运行参数："><a href="#运行参数：" class="headerlink" title="运行参数："></a>运行参数：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Usage: ./run_lidar2camera &lt;image_path&gt; &lt;pcd_path&gt; &lt;intrinsic_json&gt; &lt;extrinsic_json&gt;</span><br></pre></td></tr></table></figure>
+
 <ul>
-<li>日常杂谈</li>
-<li>项目部署</li>
-<li>教程笔记<ul>
-<li>编程</li>
-<li>其他</li>
+<li><strong>image_path:</strong><font style="color:rgb(31, 35, 40);">       来自相机传感器的图像文件 </font></li>
+<li><strong>pcd_path</strong><font style="color:rgb(31, 35, 40);">            来自激光雷达传感器的 PCD 文件</font></li>
+<li><strong>intrinsic_json:</strong><font style="color:rgb(31, 35, 40);">   相机固有参数 JSON 文件</font></li>
+<li><strong>extrinsic_json:</strong><font style="color:rgb(31, 35, 40);">   传感器间外部参数初始值的JSON文件</font></li>
 </ul>
-</li>
-<li>游戏？</li>
-<li>备份</li>
-</ul>
-<p>Tag</p>
+<h4 id="使用"><a href="#使用" class="headerlink" title="使用"></a><font style="color:rgb(31, 35, 40);">使用</font></h4><p><strong>README</strong> 翻译如下：</p>
+<p>标定窗口由左侧控制面板（用于手动标定）和右侧点云投影图像组成。用户可以通过点击面板上的相应按钮或使用键盘输入调整外部参数来检查点云与图像是否对齐。当点云与图像对齐后，标定结束，点击保存按钮保存结果。</p>
+<table>
+<thead>
+<tr>
+<th align="left">Extrinsic Params</th>
+<th align="left">Keyboard_input</th>
+<th align="left">Extrinsic Params</th>
+<th align="left">Keyboard_input</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+x degree</font></td>
+<td align="left">q</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-x degree</font></td>
+<td align="left">a</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+y degree</font></td>
+<td align="left">w</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-y degree</font></td>
+<td align="left">s</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+z degree</font></td>
+<td align="left">e</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-z degree</font></td>
+<td align="left">d</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+x trans</font></td>
+<td align="left">r</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-x trans</font></td>
+<td align="left">f</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+y trans</font></td>
+<td align="left">t</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-y trans</font></td>
+<td align="left">g</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+z trans</font></td>
+<td align="left">y</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">-z trans</font></td>
+<td align="left">h</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left"><font style="color:rgb(31, 35, 40);">Intrinsic Params</font></th>
+<th align="left"><font style="color:rgb(31, 35, 40);">Keyboard_input</font></th>
+<th align="left"><font style="color:rgb(31, 35, 40);">Intrinsic Params</font></th>
+<th align="left"><font style="color:rgb(31, 35, 40);">Keyboard_input</font></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+ fy</font></td>
+<td align="left">i</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">- fy</font></td>
+<td align="left">k</td>
+</tr>
+<tr>
+<td align="left"><font style="color:rgb(31, 35, 40);">+ fx</font></td>
+<td align="left">u</td>
+<td align="left"><font style="color:rgb(31, 35, 40);">- fx</font></td>
+<td align="left">j</td>
+</tr>
+</tbody></table>
+<p><code>Intensity Color</code><font style="color:rgb(31, 35, 40);">:  </font><strong>LiDAR</strong>强度记录为激光束的回波强度，部分取决于被激光脉冲击中的物体的反射率。此按钮可将显示模式切换为强度图显示模式。这有助于检查地面车道线是否对齐。</p>
+<p><code>Intensity Color</code><font style="color:rgb(31, 35, 40);">: 消除0.4m深度范围内的重叠激光雷达点。</font></p>
+<p><code>deg step</code><font style="color:rgb(31, 35, 40);"> </font><code>t step </code><font style="color:rgb(31, 35, 40);"> </font><code>fxfy scale</code><font style="color:rgb(31, 35, 40);"> :这三个按钮会随着每次点击或键盘输入而改变调整步骤。</font></p>
+<p><code>point size</code><font style="color:rgb(31, 35, 40);">: 调整投影图像中激光雷达点的大小。</font></p>
+<p><code>Reset</code><font style="color:rgb(31, 35, 40);">: 按下按钮重置所有手动调整。</font></p>
+<p><code>Save Image</code><font style="color:rgb(31, 35, 40);">: 如果按下此按钮，结果（校准图像、外部和内部矩阵）默认存储在运行目录中</font></p>
+<p><code>~./manual_calib/</code><font style="color:rgb(31, 35, 40);">:</font></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Extrinsic:</span><br><span class="line">R:</span><br><span class="line">0.0121008 -0.999863 -0.0112902</span><br><span class="line">0.0133341 0.0114512 -0.999846</span><br><span class="line">0.999838 0.0119484 0.0134707</span><br><span class="line">t: 0.0134153 -0.352602 -0.575013</span><br><span class="line"></span><br><span class="line">Intrinsic:</span><br><span class="line">2120.29 0 949.828</span><br><span class="line">0 2071.72 576.237</span><br><span class="line">0 0 1</span><br><span class="line">************* json format *************</span><br><span class="line">Extrinsic:</span><br><span class="line">[0.0121008,-0.999863,-0.0112902,0.0134153],[0.0133341,0.0114512,-0.999846,-0.352602],[0.999838,0.0119484,0.0134707,-0.575013],[0,0,0,1]</span><br><span class="line"></span><br><span class="line">Intrinsic:</span><br><span class="line">[2120.29,0,949.828],[0,2071.72,576.237],[0,0,1]</span><br><span class="line"></span><br><span class="line">Distortion:</span><br><span class="line">[-0.108145,0.138668,-0.00379757,-0.00484127]</span><br></pre></td></tr></table></figure>
+
 
                     
                 </div>
@@ -478,6 +631,22 @@ mjx-container[display="true"] + br {
 
                 <div class="post-bottom-tags-and-share border-box">
                     <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/%E6%A0%87%E5%AE%9A/">标定</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/C/">C++</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/SLAM/">SLAM</a>
+                                    </li>
+                                
+                            </ul>
                         
                     </div>
                     <div>
@@ -493,14 +662,14 @@ mjx-container[display="true"] + br {
                             <div class="prev-post">
                                 <a class="prev"
                                    rel="prev"
-                                   href="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"
-                                   title="Hexo的使用手册"
+                                   href="/programBlog/2026/03/17/hello-world/"
+                                   title="Hello World"
                                 >
                                     <span class="left arrow-icon flex-center">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hexo的使用手册</span>
+                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
                                         <span class="post-nav-item">上一篇</span>
                                     </span>
                                 </a>
@@ -510,11 +679,11 @@ mjx-container[display="true"] + br {
                             <div class="next-post">
                                 <a class="next"
                                    rel="next"
-                                   href="/programBlog/2026/03/17/hello-world/"
-                                   title="Hello World"
+                                   href="/programBlog/2025/05/15/qt-C-%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81%E5%B0%81%E8%A3%85so%E5%8A%A8%E6%80%81%E9%93%BE%E6%8E%A5%E5%BA%93/"
+                                   title="qt_C++项目代码封装so动态链接库"
                                 >
                                     <span class="title flex-center">
-                                        <span class="post-nav-title-item text-ellipsis">Hello World</span>
+                                        <span class="post-nav-title-item text-ellipsis">qt_C++项目代码封装so动态链接库</span>
                                         <span class="post-nav-item">下一篇</span>
                                     </span>
                                     <span class="right arrow-icon flex-center">
@@ -542,7 +711,7 @@ mjx-container[display="true"] + br {
             <div class="pc-post-toc left-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-text">写这个博客的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%87%E5%BF%98"><span class="nav-text">备忘</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-text">工具下载编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pangolin%E5%BA%93"><span class="nav-text">Pangolin库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PCL-%E5%BA%93"><span class="nav-text">PCL 库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-text">工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-text">运行参数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -702,7 +871,7 @@ mjx-container[display="true"] + br {
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-text">自我介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%99%E8%BF%99%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-text">写这个博客的目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-text">其他</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%A4%87%E5%BF%98"><span class="nav-text">备忘</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%B8%8B%E8%BD%BD%E7%BC%96%E8%AF%91"><span class="nav-text">工具下载编译</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Pangolin%E5%BA%93"><span class="nav-text">Pangolin库</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PCL-%E5%BA%93"><span class="nav-text">PCL 库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8"><span class="nav-text">工具使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%8F%82%E6%95%B0%EF%BC%9A"><span class="nav-text">运行参数：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8"><span class="nav-text">使用</span></a></li></ol></li></ol>
     </div>
 </div>
 
