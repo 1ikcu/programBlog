@@ -1,6 +1,323 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>FAST-Calib-相机LiDAR外参标定</title>
+    <url>/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/</url>
+    <content><![CDATA[<p>该教程内容：开源项目 FAST-Calib 相机与LiDAR标定方法的部署步骤————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<p><font style="color:#DF2A3F;background-color:#E7E9E8;">（编译 FAST-Calib 需要用到 OpenCV-contrib 的 ArUco模块）——250724</font></p>
+<h2 id="OpenCV4-5-4-Contribute模块"><a href="#OpenCV4-5-4-Contribute模块" class="headerlink" title="OpenCV4.5.4 + Contribute模块"></a>OpenCV4.5.4 + Contribute模块</h2><p>更新：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get update</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装cmake及依赖环境"><a href="#安装cmake及依赖环境" class="headerlink" title="安装cmake及依赖环境"></a>安装cmake及依赖环境</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt-get install build-essential qt5-default ccache libv4l-dev libavresample-dev libgphoto2-dev libopenblas-base libopenblas-dev doxygen pylint libvtk6-dev</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="编译安装Opencv"><a href="#编译安装Opencv" class="headerlink" title="编译安装Opencv"></a>编译安装Opencv</h4><p>新建一个文件夹，存放下载的opencv压缩包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mkdir opencv4</span><br><span class="line">cd opencv4</span><br></pre></td></tr></table></figure>
+
+<p>解压压缩包</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd opencv-4.5.4</span><br><span class="line">mkdir build</span><br><span class="line">cd build</span><br></pre></td></tr></table></figure>
+
+<p>需要替换路径：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE \</span><br><span class="line">-D CMAKE_INSTALL_PREFIX=/usr/local \</span><br><span class="line">-D OPENCV_GENERATE_PKGCONFIG=ON \</span><br><span class="line">-D OPENCV_EXTRA_MODULES_PATH=/home/xxx/opencv4/opencv_contrib-4.5.4/modules \</span><br><span class="line">-D BUILD_opencv_aruco=ON \</span><br><span class="line">-DBUILD_LIST=aruco,calib3d,features2d,core,imgcodecs,imgproc,highgui ..</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">后来在笔记本上装，为了不跟原有的</font><strong><font style="color:#DF2A3F;background-color:#D8DAD9;"> OpenCV 3.4.11</font></strong><font style="color:#DF2A3F;background-color:#D8DAD9;"> 冲突，按照以下路径安装的：</font></p>
+<p>单行参考:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/home/xxx/OpenCV-4.5.4/opencv-4.5.4/build/installed -D OPENCV_GENERATE_PKGCONFIG=ON -D OPENCV_EXTRA_MODULES_PATH=/home/xxx/OpenCV-4.5.4/opencv_contrib-4.5.4/modules -D BUILD_opencv_aruco=ON -DBUILD_LIST=aruco,calib3d,features2d,core,imgcodecs,imgproc,highgui ..</span><br></pre></td></tr></table></figure>
+
+<p><code>CMAKE_INSTALL_PREFIX</code>：该选项为opencv安装的目录，可按实际目录进行修改，一般放在<code>/usr/local</code>目录下 </p>
+<p><code>OPENCV_GENERATE_PKGCONFIG</code>：打开 pkg-config </p>
+<p><code>OPENCV_EXTRA_MODULES_PATH</code>：该选项为opencv_contrib模块下module文件夹，按实际目录进行修改</p>
+<p><code>.. </code>：表示CMakeList.txt在上级目录,命令最后的 <code>..</code> 不能够省略，否则会出现找不到<code>CMakeList.txt</code></p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/opencv%E7%BC%96%E8%AF%91.png" class="" title="opencv编译">
+
+<p>等待 cmake 完成</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/opencvMake.png" class="" title="opencvMake">
+
+
+
+<p>make 完成：</p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/Make%E5%AE%8C%E6%88%90.png" class="" title="Make完成">
+
+<p>sudo make install 完成：</p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%88%90.png" class="" title="安装完成">
+
+<h6 id="配置编译环境"><a href="#配置编译环境" class="headerlink" title="配置编译环境"></a>配置编译环境</h6><p>在命令行中输入 <strong>gedit ~/.bashrc</strong> 打开<strong>~/.bashrc</strong> 文件 在<strong>~/.bashrc</strong>文件中添加下面一行内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=<span class="string">"/usr/local/lib/pkgconfig:<span class="variable">$PKG_CONFIG_PATH</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">export</span> CPLUS_INCLUDE_PATH=<span class="string">"/usr/include/opencv4:<span class="variable">$CPLUS_INCLUDE_PATH</span>"</span></span><br><span class="line"><span class="built_in">export</span> LIBRARY_PATH=<span class="string">"/usr/local/lib:<span class="variable">$LIBRARY_PATH</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#自己的安装路径参考：</span></span><br><span class="line"><span class="built_in">export</span> PKG_CONFIG_PATH=/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/pkgconfig</span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib</span><br></pre></td></tr></table></figure>
+
+<h6 id="使环境变量生效"><a href="#使环境变量生效" class="headerlink" title="使环境变量生效"></a>使环境变量生效</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">source ~/.bashrc</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用-pkg-config-进行测试验证"><a href="#使用-pkg-config-进行测试验证" class="headerlink" title="使用 pkg-config 进行测试验证"></a>使用 pkg-config 进行测试验证</h6><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pkg-config --libs --cflags opencv4</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/opencv%E9%AA%8C%E8%AF%81.png" class="" title="opencv验证">
+
+<h4 id="编译-Fast-Calib"><a href="#编译-Fast-Calib" class="headerlink" title="编译 Fast-Calib"></a>编译 Fast-Calib</h4><p>修改 <strong>CMakeLists.txt</strong></p>
+<p>cv_bridge:</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(cv_bridge_DIR /usr/local/share/cv_bridge/cmake)  <span class="comment">#在find_package前面</span></span><br><span class="line"><span class="keyword">find_package</span>(cv_bridge)</span><br><span class="line"><span class="comment">#cv_bridge 注释掉下面find_package里的cv_bridge</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#include_directories 里添加</span></span><br><span class="line"><span class="variable">${cv_bridge_INCLUDE_DIRS}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#target_link_libraries 里添加</span></span><br><span class="line"><span class="variable">${cv_bridge_LIBRARIES}</span></span><br></pre></td></tr></table></figure>
+
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">源码安装参考：</font><a class="link" href="https://www.yuque.com/likcu/uq45d7/rgs9ez813sudb4dg#">获取/dev/video数据并用ROS消息发布<i class="fas fa-external-link-alt"></i></a></p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%8C%87%E5%AE%9Acvbridge%E8%B7%AF%E5%BE%84.png" class="" title="指定cvbridge路径">
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/cvbridge1.png" class="" title="cvbridge1">
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/cvbridge2.png" class="" title="cvbridge2">
+
+
+
+<p>OpenCV:</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment"># pcl根据自己的版本号修改</span></span><br><span class="line"><span class="keyword">find_package</span>(PCL <span class="number">1.10</span> REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定opencv cmake路径、build路径、lib路径</span></span><br><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">"/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/cmake/opencv4"</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_PREFIX_PATH <span class="string">"/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build"</span>)</span><br><span class="line"><span class="keyword">link_directories</span>(<span class="string">"/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib"</span>)</span><br><span class="line"><span class="comment"># 如果只有一个版本的OpenCV，则不用指定路径</span></span><br><span class="line"><span class="keyword">find_package</span>(OpenCV <span class="number">4.5</span> REQUIRED)</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%8C%87%E5%AE%9Aopencv%E8%B7%AF%E5%BE%84.png" class="" title="指定opencv路径">
+
+
+
+<p>common_lib.h：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//void sortPatternCenters() 函数</span></span><br><span class="line"><span class="comment">//图达通雷达的坐标系为 x朝上，y朝右，z朝前</span></span><br><span class="line"><span class="keyword">if</span> (is_lidar_mode)</span><br><span class="line">  {</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span>&amp; point : pc-&gt;points) </span><br><span class="line">    {</span><br><span class="line">      <span class="comment">// float x_new = -point.y;   // LiDAR Y → 相机 -X</span></span><br><span class="line">      <span class="comment">// float y_new = -point.z;   // LiDAR Z → 相机 -Y</span></span><br><span class="line">      <span class="comment">// float z_new = point.x;    // LiDAR X → 相机  Z</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">//[likcu]图达通雷达：</span></span><br><span class="line">      <span class="type">float</span> x_new = point.y;   <span class="comment">// LiDAR Y → 相机 -X</span></span><br><span class="line">      <span class="type">float</span> y_new = -point.x;   <span class="comment">// LiDAR Z → 相机 -Y</span></span><br><span class="line">      <span class="type">float</span> z_new = point.z;    <span class="comment">// LiDAR X → 相机  Z</span></span><br><span class="line"></span><br><span class="line">      point.x = x_new;</span><br><span class="line">      point.y = y_new;</span><br><span class="line">      point.z = z_new;</span><br><span class="line">    }</span><br><span class="line">  }</span><br></pre></td></tr></table></figure>
+
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">PS：20250827记录。</font></p>
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">不用修改此处↑</font></p>
+<p>编译：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/catkin_make.png" class="" title="catkin_make">
+
+
+
+<p>刷新： </p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line">source devel/setup.bash</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行Fast-Calib"><a href="#运行Fast-Calib" class="headerlink" title="运行Fast-Calib"></a>运行Fast-Calib</h2><h4 id="录制数据包"><a href="#录制数据包" class="headerlink" title="录制数据包"></a>录制数据包</h4><p>打开 <strong>lidar</strong> 和相机的 <strong>ROS</strong> 驱动，开始录制 <strong>rosbag</strong> 包</p>
+<p>时长建议 <strong>30s</strong> 左右</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosbag record -a</span><br><span class="line">rosbag record /iv_points  <span class="comment"># 只录主lidar话题</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#rosrecord /livox/imu /livox/lidar /camera/image</span></span><br></pre></td></tr></table></figure>
+
+<p>保存一帧图片到本地：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosrun image_view image_view image:=/camera/image_raw _image_transport:=raw</span><br><span class="line"><span class="comment">#出现画面后 Ctrl+S保存</span></span><br></pre></td></tr></table></figure>
+
+<p>将 <strong>rosbag</strong> 包和图片放在指定目录下</p>
+<blockquote>
+<p>../Fast-Calib_ws/src/FAST-Calib-main/calib_data</p>
+</blockquote>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%95%B0%E6%8D%AE.png" class="" title="标定数据">
+
+
+
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><blockquote>
+<p>../Fast-Calib_ws/src/FAST-Calib-main/launch/calib.launch</p>
+</blockquote>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" class="" title="配置文件">
+
+
+
+<p><font style="background-color:#D8DAD9;">将相机的内参填进去</font></p>
+<p>参考相机内参矩阵和畸变系数：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ fx, 0, cx;</span><br><span class="line">  0, fy, cy;</span><br><span class="line">  0,  0,  1 ]</span><br><span class="line"></span><br><span class="line">[ k1, k2, p1, p2, k3 ]</span><br></pre></td></tr></table></figure>
+
+
+
+
+<p><font style="background-color:#D8DAD9;">修改标定板尺寸（单位米)</font></p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%9D%BF.png" class="" title="标定板">
+
+
+
+<p><font style="background-color:#D8DAD9;">如果按上图打印的则不用改</font></p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%8F%82%E6%95%B0%E6%96%87%E4%BB%B6%E6%A0%87%E5%AE%9A%E6%9D%BF%E5%8F%82%E6%95%B0.png" class="" title="参数文件标定板参数">
+
+
+
+<p>参数解释:</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="strong">**Distance filter**</span> 标定板在点云中的距离约束（缩小搜索标定板平面的点云范围）</span><br><span class="line"></span><br><span class="line"><span class="strong">**lidar<span class="emphasis">_topic**     激光雷达话题名</span></span></span><br><span class="line"><span class="emphasis"><span class="strong"></span></span></span><br><span class="line"><span class="emphasis"><span class="strong">**bag_</span>path**</span>        lidar bag 包路径</span><br><span class="line"></span><br><span class="line"><span class="strong">**image<span class="emphasis">_path**      图片路径</span></span></span><br><span class="line"><span class="emphasis"><span class="strong"></span></span></span><br><span class="line"><span class="emphasis"><span class="strong">**output_</span>path**</span>     输出结果路径</span><br></pre></td></tr></table></figure>
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%8F%82%E6%95%B0%E6%96%87%E4%BB%B6%E5%85%B6%E5%AE%83%E5%8F%82%E6%95%B0.png" class="" title="参数文件其它参数">
+
+<p>启动 FAST-Calib:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">roslaunch fast_calib calib.launch</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="报错及修改记录"><a href="#报错及修改记录" class="headerlink" title="报错及修改记录"></a>报错及修改记录</h2><h4 id="Filtered-cloud-size-0"><a href="#Filtered-cloud-size-0" class="headerlink" title="Filtered cloud size: 0"></a>Filtered cloud size: 0</h4><ol>
+<li></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">4 centers found. Iterating over 1 possible sets of candidates</span><br><span class="line">[ INFO] [1755668710.172541195]: Filtered cloud size: 0</span><br><span class="line">[ INFO] [1755668710.176017480]: Filtered cloud size: 0</span><br><span class="line">[pcl::SampleConsensusModel::getSamples] Can not <span class="keyword">select</span> 0 unique points out of 0!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] No samples could be selected!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] RANSAC found no model.</span><br><span class="line">[pcl::SACSegmentation::segment] Error segmenting the model! No solution found.</span><br><span class="line">[ INFO] [1755668710.179454181]: Plane cloud size: 0</span><br><span class="line">[fast_calib-1] process has died [pid 8367, <span class="built_in">exit</span> code -11, cmd /home/nvidia/Desktop/lidar_cam/FastCalib_ws/devel/lib/fast_calib/fast_calib __name:=fast_calib __log:=/home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1.<span class="built_in">log</span>].</span><br><span class="line"><span class="built_in">log</span> file: /home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1*.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<p><strong><font style="background-color:#D8DAD9;">分析：</font></strong><font style="background-color:#D8DAD9;">过滤后的点云大小为0：算法无法获取有效的点云数据</font></p>
+<p>修改参数文件中的 **Distance filter **的 **x_min，x_max，y_min，y_max，z_min，z_max **参数项</p>
+<p><font style="background-color:#D8DAD9;">（图达通</font><strong><font style="background-color:#D8DAD9;">lidar  x </font></strong><font style="background-color:#D8DAD9;">指上方， </font><strong><font style="background-color:#D8DAD9;">y</font></strong><font style="background-color:#D8DAD9;"> 指右方， </font><strong><font style="background-color:#D8DAD9;">z</font></strong><font style="background-color:#D8DAD9;"> 指前方）</font></p>
+<h4 id="lidar-center-points-not-4"><a href="#lidar-center-points-not-4" class="headerlink" title="lidar center points not 4"></a>lidar center points not 4</h4><ol start="2">
+<li></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ INFO] [1755676248.318222394]: Loading the rosbag /home/nvidia/Desktop/lidar_cam/FastCalib_ws/src/FAST-Calib-main/calib_data/55.bag</span><br><span class="line">[ INFO] [1755676252.116932353]: Loaded 11050266 points from the rosbag.</span><br><span class="line">4 centers found. Iterating over 1 possible sets of candidates</span><br><span class="line">[ INFO] [1755676252.353518820]: Filtered cloud size: 1149607</span><br><span class="line">[ INFO] [1755676252.512433317]: Filtered cloud size: 476805</span><br><span class="line">[ INFO] [1755676252.627178442]: Plane cloud size: 16793</span><br><span class="line">[ INFO] [1755676252.775395700]: Extracted 13575 edge points.</span><br><span class="line">[ INFO] [1755676252.806330331]: Number of edge clusters: 69</span><br><span class="line">[sortPatternCenters] Number of lidar center points to be sorted is not 4.</span><br><span class="line">[pcl::TransformationEstimationSVD::estimateRigidTransformation] Number or points <span class="keyword">in</span> <span class="built_in">source</span> (0) differs than target (4)!</span><br><span class="line">[computeRMSE] Point cloud sizes <span class="keyword">do</span> not match, cannot compute RMSE.</span><br></pre></td></tr></table></figure>
+
+<p>分析：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Filtered cloud size: 476805    <span class="comment"># 过滤后存在点云</span></span><br><span class="line">Plane cloud size: 16793        <span class="comment"># 找到了平面</span></span><br><span class="line">Extracted 13575 edge points    <span class="comment"># 边缘提取成功</span></span><br><span class="line">Number of edge clusters: 69    <span class="comment"># 聚类了 69 种</span></span><br><span class="line"></span><br><span class="line">[sortPatternCenters] Number of lidar center points to be sorted is not 4.</span><br><span class="line"><span class="comment"># 但是圆拟合后识别到的圆孔聚类不是4</span></span><br></pre></td></tr></table></figure>
+
+<p><font style="background-color:#D8DAD9;">分析为代码中参数的问题。</font></p>
+<h4 id="参数问题"><a href="#参数问题" class="headerlink" title="参数问题"></a>参数问题</h4><table>
+<thead>
+<tr>
+<th>1</th>
+<th>RViz 识别到的平面非标定板平面（路面之类）</th>
+<th>修改参数文件中的点云过滤范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td>RViz 边缘提取后 edge_cloud 显示的边框不正确</td>
+<td>修改边缘点提取参数，或录制点云稠密数据</td>
+</tr>
+<tr>
+<td>3</td>
+<td>圆孔边缘成功提取但聚类无法聚成 4 个</td>
+<td>修改聚类参数</td>
+</tr>
+</tbody></table>
+<p>1：将路面识别了。修改过滤范围</p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E8%AF%86%E5%88%AB%E4%B8%BA%E8%B7%AF%E9%9D%A2.png" class="" title="识别为路面">
+
+
+
+<p>2：大的为提取出的边缘，可以看到把平面都识别为边缘了。点云太稀疏导致的。</p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%B9%B3%E9%9D%A2%E5%BD%93%E6%88%90%E8%BE%B9%E7%BC%98.png" class="" title="平面当成边缘">
+
+
+
+<p>lidar_detect.hpp 修改参数：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 4. 提取边缘点</span></span><br><span class="line">edge_cloud_-&gt;<span class="built_in">reserve</span>(aligned_cloud_-&gt;<span class="built_in">size</span>());</span><br><span class="line"></span><br><span class="line">pcl::NormalEstimation&lt;pcl::PointXYZ, pcl::Normal&gt; normal_estimator;</span><br><span class="line">pcl::PointCloud&lt;pcl::Normal&gt;::<span class="function">Ptr <span class="title">normals</span><span class="params">(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::Normal&gt;)</span></span>;</span><br><span class="line">normal_estimator.<span class="built_in">setInputCloud</span>(aligned_cloud_);</span><br><span class="line">normal_estimator.<span class="built_in">setRadiusSearch</span>(<span class="number">0.05</span>); <span class="comment">// 设置法线估计的搜索半径 0.03</span></span><br><span class="line">normal_estimator.<span class="built_in">compute</span>(*normals);</span><br><span class="line">    </span><br><span class="line">pcl::PointCloud&lt;pcl::Boundary&gt; boundaries;</span><br><span class="line">pcl::BoundaryEstimation&lt;pcl::PointXYZ, pcl::Normal, pcl::Boundary&gt; boundary_estimator;</span><br><span class="line">boundary_estimator.<span class="built_in">setInputCloud</span>(aligned_cloud_);</span><br><span class="line">boundary_estimator.<span class="built_in">setInputNormals</span>(normals);</span><br><span class="line">boundary_estimator.<span class="built_in">setRadiusSearch</span>(<span class="number">0.05</span>); <span class="comment">// 设置边界检测的搜索半径 0.03</span></span><br><span class="line">boundary_estimator.<span class="built_in">setAngleThreshold</span>(M_PI / <span class="number">3</span>); <span class="comment">// 设置角度阈值  M_PI / 4</span></span><br><span class="line">boundary_estimator.<span class="built_in">compute</span>(boundaries);</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%8F%90%E5%8F%96%E6%A0%87%E5%AE%9A%E6%9D%BF%E8%BE%B9%E7%BC%98.png" class="" title="提取标定板边缘">
+
+
+
+<p>3：将聚类的点云显示在 <strong>RViz</strong> 上，发现上面两个圆成功聚类，下面两个圆没有聚类。</p>
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E8%81%9A%E7%B1%BB%E7%BB%93%E6%9E%9C.png" class="" title="聚类结果">
+
+
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 5. 对边缘点进行聚类</span></span><br><span class="line">pcl::search::KdTree&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">tree</span><span class="params">(<span class="keyword">new</span> pcl::search::KdTree&lt;pcl::PointXYZ&gt;)</span></span>;</span><br><span class="line">tree-&gt;<span class="built_in">setInputCloud</span>(edge_cloud_);</span><br><span class="line">    </span><br><span class="line">std::vector&lt;pcl::PointIndices&gt; cluster_indices;</span><br><span class="line">pcl::EuclideanClusterExtraction&lt;pcl::PointXYZ&gt; ec;</span><br><span class="line">ec.<span class="built_in">setClusterTolerance</span>(<span class="number">0.02</span>); <span class="comment">// 设置聚类距离阈值 0.02</span></span><br><span class="line">ec.<span class="built_in">setMinClusterSize</span>(<span class="number">50</span>);     <span class="comment">// 最小点数 50</span></span><br><span class="line">ec.<span class="built_in">setMaxClusterSize</span>(<span class="number">600</span>);   <span class="comment">// 最大点数 1000</span></span><br><span class="line">ec.<span class="built_in">setSearchMethod</span>(tree);</span><br><span class="line">ec.<span class="built_in">setInputCloud</span>(edge_cloud_);</span><br><span class="line">ec.<span class="built_in">extract</span>(cluster_indices);</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改代码方便调试"><a href="#修改代码方便调试" class="headerlink" title="修改代码方便调试"></a>修改代码方便调试</h4><p>因为每次改完参数都要编译一下，很麻烦，所以将这些参数改为从参数文件读取。</p>
+<p>后来由于不知道聚类的效果，将聚类后的点云也作为中间结果发布出去。</p>
+<p>qr_params.yaml：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"># 点云参数</span><br><span class="line">  p_distance_threshold: <span class="number">0.01</span>  #平面分割阈值 <span class="number">0.01</span></span><br><span class="line">  n_radius_search: <span class="number">0.05</span> #法线估计的搜索半径 <span class="number">0.03</span></span><br><span class="line">  b_radius_search: <span class="number">0.05</span> #边界检测的搜索半径 <span class="number">0.03</span></span><br><span class="line">  cluster_tolerance: <span class="number">0.02</span> #聚类距离阈值 <span class="number">0.02</span></span><br><span class="line">  min_cluster_size: <span class="number">50.</span> #最小点数 <span class="number">50</span></span><br><span class="line">  max_cluster_size: <span class="number">600.</span> #最大点数 <span class="number">1000</span></span><br><span class="line">  distance_threshold: <span class="number">0.05</span> #圆拟合距离阈值 <span class="number">0.01</span></span><br><span class="line"></span><br><span class="line">  cluster_index: <span class="number">0</span> #聚类索引 <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%A2%9E%E5%8A%A0%E5%A4%96%E9%83%A8%E5%8F%AF%E4%BF%AE%E6%94%B9%E5%8F%82%E6%95%B0.png" class="" title="代码中增加外部可修改参数">
+
+<p>common_lib.h：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 修改参数结构体</span></span><br><span class="line">  <span class="type">double</span> p_distance_threshold, n_radius_search, b_radius_search;</span><br><span class="line">  <span class="type">double</span> cluster_tolerance, min_cluster_size, max_cluster_size;</span><br><span class="line">  <span class="type">double</span> distance_threshold;</span><br><span class="line">  <span class="type">int</span> cluster_index;</span><br><span class="line"><span class="comment">// 读取参数</span></span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"p_distance_threshold"</span>, params.p_distance_threshold, <span class="number">0.01</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"n_radius_search"</span>, params.n_radius_search, <span class="number">0.03</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"b_radius_search"</span>, params.b_radius_search, <span class="number">0.03</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"cluster_tolerance"</span>, params.cluster_tolerance, <span class="number">0.02</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"min_cluster_size"</span>, params.min_cluster_size, <span class="number">50.</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"max_cluster_size"</span>, params.max_cluster_size, <span class="number">1000.</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"distance_threshold"</span>, params.distance_threshold, <span class="number">0.01</span>);</span><br><span class="line">  nh.<span class="built_in">param</span>(<span class="string">"cluster_index"</span>, params.cluster_index, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F.png" class="" title="代码中添加参数变量">
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%AF%BB%E5%8F%96%E5%8F%82%E6%95%B0.png" class="" title="代码中添加读取参数">
+
+
+
+<p>lidar_detect.hpp   中  LidarDetect(){}：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// private</span></span><br><span class="line">    <span class="type">double</span> p_distance_threshold, n_radius_search, b_radius_search;</span><br><span class="line">    <span class="type">double</span> cluster_tolerance, min_cluster_size, max_cluster_size;</span><br><span class="line">    <span class="type">double</span> distance_threshold;</span><br><span class="line">    <span class="type">int</span> cluster_index;</span><br><span class="line"></span><br><span class="line"><span class="comment">//聚类点云</span></span><br><span class="line">    pcl::PointCloud&lt;pcl::PointXYZ&gt;::Ptr cluster_1_cloud_;</span><br><span class="line"></span><br><span class="line"><span class="comment">// public</span></span><br><span class="line">    ros::Publisher cluster_1_pub_;</span><br><span class="line"></span><br><span class="line">    ,<span class="built_in">cluster_1_cloud_</span>(<span class="keyword">new</span> pcl::PointCloud&lt;pcl::PointXYZ&gt;)</span><br><span class="line"></span><br><span class="line">    p_distance_threshold = params.p_distance_threshold;</span><br><span class="line">    n_radius_search = params.n_radius_search;</span><br><span class="line">    b_radius_search = params.b_radius_search;</span><br><span class="line">    cluster_tolerance = params.cluster_tolerance;</span><br><span class="line">    min_cluster_size = params.min_cluster_size;</span><br><span class="line">    max_cluster_size = params.max_cluster_size;</span><br><span class="line">    distance_threshold = params.distance_threshold;</span><br><span class="line">    cluster_index = params.cluster_index;</span><br><span class="line"></span><br><span class="line">    cluster_1_pub_ = nh.<span class="built_in">advertise</span>&lt;sensor_msgs::PointCloud2&gt;(<span class="string">"/cluster_1_cloud"</span>, <span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%8E%A5%E6%94%B6%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F.png" class="" title="代码中接收参数的变量">
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%AE%9A%E4%B9%89%E8%81%9A%E7%B1%BB%E7%82%B9%E4%BA%91.png" class="" title="代码中定义聚类点云">
+
+
+
+<p>lidar_detect.hpp  中   void detect_lidar()：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 用变量代替数值</span></span><br><span class="line"><span class="comment">// 2. 平面分割</span></span><br><span class="line">plane_segmentation.<span class="built_in">setDistanceThreshold</span>(p_distance_threshold);  <span class="comment">// 平面分割阈值 0.01</span></span><br><span class="line"><span class="comment">// 4. 提取边缘点</span></span><br><span class="line">normal_estimator.<span class="built_in">setRadiusSearch</span>(n_radius_search); <span class="comment">// 设置法线估计的搜索半径 0.03</span></span><br><span class="line">boundary_estimator.<span class="built_in">setRadiusSearch</span>(b_radius_search); <span class="comment">// 设置边界检测的搜索半径 0.03</span></span><br><span class="line"><span class="comment">// 5. 对边缘点进行聚类</span></span><br><span class="line">ec.<span class="built_in">setClusterTolerance</span>(cluster_tolerance); <span class="comment">// 设置聚类距离阈值 0.02</span></span><br><span class="line">ec.<span class="built_in">setMinClusterSize</span>(min_cluster_size);     <span class="comment">// 最小点数 50</span></span><br><span class="line">ec.<span class="built_in">setMaxClusterSize</span>(max_cluster_size);   <span class="comment">// 最大点数 1000</span></span><br><span class="line"><span class="comment">// 6. 对每个聚类进行圆拟合</span></span><br><span class="line"><span class="comment">//聚类点云 将聚类后的 第 cluster_index 个聚类 加入cluster_1_cloud_ 中</span></span><br><span class="line"><span class="keyword">if</span>(i==cluster_index){</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span>&amp; idx : cluster_indices[i].indices) {</span><br><span class="line">        cluster_1_cloud_-&gt;<span class="built_in">push_back</span>(edge_cloud_-&gt;points[idx]);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">ROS_INFO</span>(<span class="string">"Number of cluster_1_cloud_ Clouds: %ld"</span>, cluster_1_cloud_-&gt;<span class="built_in">size</span>());</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line">seg.<span class="built_in">setDistanceThreshold</span>(distance_threshold); <span class="comment">// 设置距离阈值 0.01</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取中间结果的点云</span></span><br><span class="line">pcl::PointCloud&lt;pcl::PointXYZ&gt;::<span class="function">Ptr <span class="title">getClusterCloud</span><span class="params">()</span> <span class="type">const</span> </span>{ <span class="keyword">return</span> cluster_1_cloud_; }</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2%E9%98%88%E5%80%BC%E5%8F%82%E6%95%B0.png" class="" title="代码平面分割阈值参数">
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E8%81%9A%E7%B1%BB%E7%BB%93%E6%9E%9C.png" class="" title="代码中获得聚类结果">
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%81%9A%E7%B1%BB%E5%87%BD%E6%95%B0.png" class="" title="代码中聚类函数">
+
+
+
+<p>main.cpp：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//发布聚类点云</span></span><br><span class="line"><span class="comment">//聚类点云</span></span><br><span class="line">        sensor_msgs::PointCloud2 cluster_1_msg;</span><br><span class="line">        pcl::<span class="built_in">toROSMsg</span>(*lidarDetectPtr-&gt;<span class="built_in">getClusterCloud</span>(), cluster_1_msg);</span><br><span class="line">        cluster_1_msg.header = qr_centers_msg.header;</span><br><span class="line">        lidarDetectPtr-&gt;cluster_1_pub_.<span class="built_in">publish</span>(cluster_1_msg);</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%81%9A%E7%B1%BB%E7%82%B9%E4%BA%91%E5%8F%91%E5%B8%83.png" class="" title="代码中聚类点云发布">
+
+
+
+<p><font style="background-color:#D8DAD9;">照着</font><strong><font style="background-color:#D8DAD9;"> /edge_cloud </font></strong><font style="background-color:#D8DAD9;">边缘点云的格式添加 </font><strong><font style="background-color:#D8DAD9;">/cluster_1_cloud</font></strong><font style="background-color:#D8DAD9;"> ，修改话题名即可 </font></p>
+<p>fast_livo2.rviz：</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">- Alpha: <span class="number">1</span></span><br><span class="line">      Autocompute Intensity Bounds: <span class="literal">true</span></span><br><span class="line">      Autocompute Value Bounds:</span><br><span class="line">        Max Value: <span class="number">10</span></span><br><span class="line">        Min Value: <span class="number">-10</span></span><br><span class="line">        Value: <span class="literal">true</span></span><br><span class="line">      Axis: Z</span><br><span class="line">      Channel Name: intensity</span><br><span class="line">      Class: rviz/PointCloud2</span><br><span class="line">      Color: <span class="number">255</span>; <span class="number">255</span>; <span class="number">255</span></span><br><span class="line">      Color Transformer: Intensity</span><br><span class="line">      Decay Time: <span class="number">0</span></span><br><span class="line">      Enabled: <span class="literal">false</span></span><br><span class="line">      Invert Rainbow: <span class="literal">false</span></span><br><span class="line">      Max Color: <span class="number">255</span>; <span class="number">255</span>; <span class="number">255</span></span><br><span class="line">      Min Color: <span class="number">0</span>; <span class="number">0</span>; <span class="number">0</span></span><br><span class="line">      Name: PointCloud2</span><br><span class="line">      Position Transformer: XYZ</span><br><span class="line">      Queue Size: <span class="number">10</span></span><br><span class="line">      Selectable: <span class="function"><span class="literal">true</span></span></span><br><span class="line"><span class="function">      <span class="title">Size</span> <span class="params">(Pixels)</span>: <span class="number">4</span></span></span><br><span class="line"><span class="function">      Size (m): <span class="number">0.009999999776482582</span></span></span><br><span class="line"><span class="function">      Style: Points</span></span><br><span class="line"><span class="function">      Topic: /cluster_1_cloud</span></span><br><span class="line"><span class="function">      Unreliable: false</span></span><br><span class="line"><span class="function">      Use Fixed Frame: true</span></span><br><span class="line"><span class="function">      Use rainbow: true</span></span><br><span class="line"><span class="function">      Value: false</span></span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%9C%A8rviz%E6%96%87%E4%BB%B6%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%81%9A%E7%B1%BB%E7%82%B9%E4%BA%91.png" class="" title="在rviz文件中添加聚类点云">
+
+
+
+<p><font style="background-color:#D8DAD9;">编译运行，修改参数时直接修改</font><strong><font style="background-color:#D8DAD9;"> qr_params.yaml </font></strong><font style="background-color:#D8DAD9;">中的即可。</font></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br><span class="line">roslaunch fast_calib calib.launch</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E7%9B%B4%E6%8E%A5%E5%9C%A8%E5%8F%82%E6%95%B0%E6%96%87%E4%BB%B6%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%8F%82%E6%95%B0.png" class="" title="直接在参数文件中设置参数">
+
+
+
+
+
+<h2 id="运行结果"><a href="#运行结果" class="headerlink" title="运行结果"></a>运行结果</h2><p><font style="background-color:#D8DAD9;">2025-08-26</font></p>
+<p>calib_result.txt：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># FAST-LIVO2 calibration format</span><br><span class="line">cam_model: Pinhole</span><br><span class="line">cam_width: 1920</span><br><span class="line">cam_height: 1080</span><br><span class="line">scale: 1.0</span><br><span class="line">cam_fx: 729.057</span><br><span class="line">cam_fy: 727.6</span><br><span class="line">cam_cx: 959.56</span><br><span class="line">cam_cy: 540.923</span><br><span class="line">cam_d0: -0.0579694</span><br><span class="line">cam_d1: -0.0506718</span><br><span class="line">cam_d2: -0.00736638</span><br><span class="line">cam_d3: -0.00398231</span><br><span class="line"></span><br><span class="line">Rcl: [ -0.008905,   0.997560,   0.069246,</span><br><span class="line">       -0.996950,  -0.014226,   0.076733,</span><br><span class="line">        0.077531,  -0.068351,   0.994644]</span><br><span class="line">Pcl: [ -0.709758,   0.545003,  -3.000290]</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%E7%82%B9%E4%BA%91.png" class="" title="运行结果点云">
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C%E5%9B%BE%E7%89%87.png" class="" title="运行结果图片">
+
+
+
+<p>只识别到了三个二维码？离得太远了二维码很模糊。并且只成功了一次，再试时提示我：</p>
+<p>推断点云赋颜色的函数出错：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[saveCalibrationResults] Colored point cloud is empty!</span><br></pre></td></tr></table></figure>
+
+<p>本次使用的参数为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">p_distance_threshold: 0.01  <span class="comment">#平面分割阈值 0.01</span></span><br><span class="line">n_radius_search: 0.05 <span class="comment">#法线估计的搜索半径 0.03</span></span><br><span class="line">b_radius_search: 0.05 <span class="comment">#边界检测的搜索半径 0.03</span></span><br><span class="line">cluster_tolerance: 0.02 <span class="comment">#聚类距离阈值 0.02</span></span><br><span class="line">min_cluster_size: 50. <span class="comment">#最小点数 50</span></span><br><span class="line">max_cluster_size: 600. <span class="comment">#最大点数 1000</span></span><br><span class="line">distance_threshold: 0.05 <span class="comment">#圆拟合距离阈值 0.01</span></span><br><span class="line"></span><br><span class="line">cluster_index: 0 <span class="comment">#聚类索引 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#代码中：</span></span><br><span class="line"><span class="comment">#设置角度阈值  M_PI / 3</span></span><br><span class="line"><span class="comment">#设置最大迭代次数 1500</span></span><br><span class="line"><span class="comment">#拟合误差 error &lt; 0.04</span></span><br></pre></td></tr></table></figure>
+
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">PS：20250827 记录。</font></p>
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">把 common_lib.h 的修改取消，成功复现了，外参结果与第一次的一致。（不知道为什么不用修正坐标系）</font></p>
+<p><font style="color:#DF2A3F;background-color:#D8DAD9;">（根据结果来看，平移矩阵的 t_z  = -3.. 不太合理，因为实际上lidar与相机安装的很近）</font></p>
+<p>输入格式和 <strong>FAST-LIVO2</strong> 的输入格式一致</p>
+<blockquote>
+<p>/FAST-LIVO2/config/avia.yaml</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+      </categories>
+      <tags>
+        <tag>标定</tag>
+        <tag>C++</tag>
+        <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo的使用手册</title>
     <url>/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<p>在 Hexo 上传的第一篇文章，自然简单记录一下 Hexo 吧！   ————————————————————</p>
@@ -35,7 +352,7 @@
 <img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/keep%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" class="" title="keep配置文件">
 
 <p><code>keep/_config.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">base_info:</span></span><br><span class="line">  <span class="comment"># 主题颜色</span></span><br><span class="line">  <span class="attr">primary_color:</span> <span class="string">"#dcdcd6"</span></span><br><span class="line">  <span class="comment"># 博客名字</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的名字</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的头像</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">/images/avatar.svg</span></span><br><span class="line">  <span class="comment"># 博客LOGO</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment"># Website favicon, You can use local image path or image link</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/images/logo.svg</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span>  <span class="comment">#按需修改</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span>                       <span class="comment"># || fa-solid fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span>           <span class="comment"># || fa-solid fa-box-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span>                 <span class="comment"># tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories</span>     <span class="comment">#   分类</span></span><br><span class="line">  <span class="comment"># links: /links               # 链接</span></span><br><span class="line">  <span class="comment"># photos: /photos             # 相册</span></span><br><span class="line">  <span class="comment"># tools: /tools               # 工具</span></span><br><span class="line">  <span class="comment"># about: /about               # 关于</span></span><br><span class="line">  <span class="comment"># ......</span></span><br><span class="line">  <span class="comment"># MainSite: https://1ikcu.github.io/ || fa-solid fa-house-user # 指向 Jekyll 主站</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">pjax:</span>  <span class="comment">#启用局部刷新，加载主页会快一点</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">base_info:</span></span><br><span class="line">  <span class="comment"># 主题颜色</span></span><br><span class="line">  <span class="attr">primary_color:</span> <span class="string">"#dcdcd6"</span></span><br><span class="line">  <span class="comment"># 博客名字</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的名字</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的头像</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">/images/avatar.svg</span></span><br><span class="line">  <span class="comment"># 博客LOGO</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment"># Website favicon, You can use local image path or image link</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/images/logo.svg</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span>  <span class="comment">#按需修改</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span>                       <span class="comment"># || fa-solid fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span>           <span class="comment"># || fa-solid fa-box-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span>                 <span class="comment"># tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories</span>     <span class="comment">#   分类</span></span><br><span class="line">  <span class="comment"># links: /links               # 链接</span></span><br><span class="line">  <span class="comment"># photos: /photos             # 相册</span></span><br><span class="line">  <span class="comment"># tools: /tools               # 工具</span></span><br><span class="line">  <span class="comment"># about: /about               # 关于</span></span><br><span class="line">  <span class="comment"># ......</span></span><br><span class="line">  <span class="comment"># MainSite: https://xxx.github.io/ || fa-solid fa-house-user # 指向 Jekyll 主站</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">pjax:</span>  <span class="comment">#启用局部刷新，加载主页会快一点</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <h5 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h5><p>手动开启tag页支持：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
@@ -91,12 +408,12 @@
 
 
 
-<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://1ikcu.github.io/programBlog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/programBlog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment">#创建新文章时会创建同名文件夹，用来放对应的图片等资源</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://github.com/1ikcu/programBlog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 建议部署到 gh-pages 分支，把 main 分支留着存源代码</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span>     <span class="comment">#显示 LaTeX 数学公式</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://xxx.github.io/programBlog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/programBlog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment">#创建新文章时会创建同名文件夹，用来放对应的图片等资源</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://xxx.com/xxx/programBlog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 建议部署到 gh-pages 分支，把 main 分支留着存源代码</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span>     <span class="comment">#显示 LaTeX 数学公式</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 
 
 <h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><p>在 <code>Hexo/hexo-site/</code>目录下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#写文章</span></span><br><span class="line">hexo new post <span class="string">"xxx文章名"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成静态文件，存在 public文件夹下</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#下一次输入 Token 后，系统会将其保存在本地:</span></span><br><span class="line"><span class="comment">#Token: Settings-&gt;Developer settings-&gt;Personal access tokens</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#会提示输入github的name和Token</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#写文章</span></span><br><span class="line">hexo new post xxx文章名</span><br><span class="line"></span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成静态文件，存在 public文件夹下</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#下一次输入 Token 后，系统会将其保存在本地:</span></span><br><span class="line"><span class="comment">#Token: Settings-&gt;Developer settings-&gt;Personal access tokens</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#会提示输入github的name和Token</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="MarkDown标题"><a href="#MarkDown标题" class="headerlink" title="MarkDown标题"></a>MarkDown标题</h4><p>示例：</p>
 <figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章</span><br><span class="line">date: 2026-03-18 10:00:00</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> Ubuntu</span><br><span class="line"><span class="bullet">  -</span> ROS</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">  -</span> 技术笔记</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
@@ -122,7 +439,7 @@
 <p>先在<code>keep/source/js</code>和<code>keep/source/css/</code>目录下创建这两个文件：</p>
 <p><code>custom-nav.js</code>、<code>custom.css</code></p>
 <p>custom-nav.js：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 window 挂载或 var 声明，避免 PJAX 重复加载时报 SyntaxError</span></span><br><span class="line">window.initMainSiteHold = window.initMainSiteHold || function() <span class="punctuation">{</span></span><br><span class="line">  <span class="comment">// 增加选择器兼容性，匹配包含主站地址的链接</span></span><br><span class="line">  const mainSiteBtn = document.querySelector('a<span class="punctuation">[</span>href*=<span class="string">"1ikcu.github.io"</span><span class="punctuation">]</span>');</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只有找到按钮且未绑定过逻辑时才执行</span></span><br><span class="line">  if (mainSiteBtn &amp;&amp; !mainSiteBtn.dataset.holdBound) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.dataset.holdBound = <span class="string">"true"</span>; </span><br><span class="line">  mainSiteBtn.style.position = 'relative';</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注入进度条 SVG</span></span><br><span class="line">  if (!mainSiteBtn.querySelector('.hold-progress-wrap')) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.insertAdjacentHTML('beforeend'<span class="punctuation">,</span> `</span><br><span class="line">  &lt;div class=<span class="string">"hold-progress-wrap"</span>&gt;</span><br><span class="line">  &lt;svg viewBox=<span class="string">"0 0 36 36"</span> style=<span class="string">"width:26px; height:26px;"</span>&gt;</span><br><span class="line">  &lt;path class=<span class="string">"hold-progress-circle"</span> </span><br><span class="line">  d=<span class="string">"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"</span> /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">const progressWrap = mainSiteBtn.querySelector('.hold-progress-wrap');</span><br><span class="line">let pressTimer;</span><br><span class="line"></span><br><span class="line">const startPress = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  if (e.type === 'mousedown' &amp;&amp; e.button !== <span class="number">0</span>) return;</span><br><span class="line">  progressWrap.classList.add('active');</span><br><span class="line">  pressTimer = setTimeout(() =&gt; <span class="punctuation">{</span></span><br><span class="line">  window.location.href = mainSiteBtn.getAttribute('href');</span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span> <span class="number">2500</span>);</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line">const cancelPress = () =&gt; <span class="punctuation">{</span></span><br><span class="line">  clearTimeout(pressTimer);</span><br><span class="line">  progressWrap.classList.remove('active');</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截点击：由双击或长按接管</span></span><br><span class="line">mainSiteBtn.onclick = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  return <span class="literal"><span class="keyword">false</span></span>;</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双击逻辑</span></span><br><span class="line"><span class="comment">//mainSiteBtn.addEventListener('dblclick', (e) =&gt; {</span></span><br><span class="line">  <span class="comment">//    e.preventDefault();</span></span><br><span class="line">  <span class="comment">//    window.location.href = mainSiteBtn.getAttribute('href');</span></span><br><span class="line">  <span class="comment">//});</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定交互事件</span></span><br><span class="line">mainSiteBtn.addEventListener('mousedown'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseup'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseleave'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchstart'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchend'<span class="punctuation">,</span> cancelPress);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即执行并注册到 PJAX 回调</span></span><br><span class="line">if (document.readyState === 'loading') <span class="punctuation">{</span></span><br><span class="line">  document.addEventListener('DOMContentLoaded'<span class="punctuation">,</span> window.initMainSiteHold);</span><br><span class="line"><span class="punctuation">}</span> else <span class="punctuation">{</span></span><br><span class="line">  window.initMainSiteHold();</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 针对 Keep 主题内置的 PJAX 事件进行监听</span></span><br><span class="line">document.addEventListener('pjax<span class="punctuation">:</span>complete'<span class="punctuation">,</span> window.initMainSiteHold);</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 window 挂载或 var 声明，避免 PJAX 重复加载时报 SyntaxError</span></span><br><span class="line">window.initMainSiteHold = window.initMainSiteHold || function() <span class="punctuation">{</span></span><br><span class="line">  <span class="comment">// 增加选择器兼容性，匹配包含主站地址的链接</span></span><br><span class="line">  const mainSiteBtn = document.querySelector('a<span class="punctuation">[</span>href*=<span class="string">"xxx.github.io"</span><span class="punctuation">]</span>');</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只有找到按钮且未绑定过逻辑时才执行</span></span><br><span class="line">  if (mainSiteBtn &amp;&amp; !mainSiteBtn.dataset.holdBound) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.dataset.holdBound = <span class="string">"true"</span>; </span><br><span class="line">  mainSiteBtn.style.position = 'relative';</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注入进度条 SVG</span></span><br><span class="line">  if (!mainSiteBtn.querySelector('.hold-progress-wrap')) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.insertAdjacentHTML('beforeend'<span class="punctuation">,</span> `</span><br><span class="line">  &lt;div class=<span class="string">"hold-progress-wrap"</span>&gt;</span><br><span class="line">  &lt;svg viewBox=<span class="string">"0 0 36 36"</span> style=<span class="string">"width:26px; height:26px;"</span>&gt;</span><br><span class="line">  &lt;path class=<span class="string">"hold-progress-circle"</span> </span><br><span class="line">  d=<span class="string">"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"</span> /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">const progressWrap = mainSiteBtn.querySelector('.hold-progress-wrap');</span><br><span class="line">let pressTimer;</span><br><span class="line"></span><br><span class="line">const startPress = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  if (e.type === 'mousedown' &amp;&amp; e.button !== <span class="number">0</span>) return;</span><br><span class="line">  progressWrap.classList.add('active');</span><br><span class="line">  pressTimer = setTimeout(() =&gt; <span class="punctuation">{</span></span><br><span class="line">  window.location.href = mainSiteBtn.getAttribute('href');</span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span> <span class="number">2500</span>);</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line">const cancelPress = () =&gt; <span class="punctuation">{</span></span><br><span class="line">  clearTimeout(pressTimer);</span><br><span class="line">  progressWrap.classList.remove('active');</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截点击：由双击或长按接管</span></span><br><span class="line">mainSiteBtn.onclick = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  return <span class="literal"><span class="keyword">false</span></span>;</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双击逻辑</span></span><br><span class="line"><span class="comment">//mainSiteBtn.addEventListener('dblclick', (e) =&gt; {</span></span><br><span class="line">  <span class="comment">//    e.preventDefault();</span></span><br><span class="line">  <span class="comment">//    window.location.href = mainSiteBtn.getAttribute('href');</span></span><br><span class="line">  <span class="comment">//});</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定交互事件</span></span><br><span class="line">mainSiteBtn.addEventListener('mousedown'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseup'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseleave'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchstart'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchend'<span class="punctuation">,</span> cancelPress);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即执行并注册到 PJAX 回调</span></span><br><span class="line">if (document.readyState === 'loading') <span class="punctuation">{</span></span><br><span class="line">  document.addEventListener('DOMContentLoaded'<span class="punctuation">,</span> window.initMainSiteHold);</span><br><span class="line"><span class="punctuation">}</span> else <span class="punctuation">{</span></span><br><span class="line">  window.initMainSiteHold();</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 针对 Keep 主题内置的 PJAX 事件进行监听</span></span><br><span class="line">document.addEventListener('pjax<span class="punctuation">:</span>complete'<span class="punctuation">,</span> window.initMainSiteHold);</span><br></pre></td></tr></table></figure>
 
 <p>custom.css：</p>
 <figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 确保进度条在文字上方或旁边 */</span></span><br><span class="line"><span class="selector-class">.menu-item</span>, <span class="selector-class">.drawer-menu-item</span> {</span><br><span class="line">  <span class="attribute">position</span>: relative <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/*right: -5px; /* 调整到文字右侧 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">9000</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">220</span>, <span class="number">220</span>, <span class="number">214</span>, <span class="number">0.6</span>)); <span class="comment">/* 增加外发光 */</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span><span class="selector-class">.active</span> {</span><br><span class="line">  <span class="attribute">display</span>: block <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-circle</span> {</span><br><span class="line">  <span class="attribute">fill</span>: none;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#0c0a6e</span>; <span class="comment">/* 深蓝 */</span></span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">stroke-dasharray</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">stroke-dashoffset</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">transition</span>: stroke-dashoffset <span class="number">2.5s</span> linear;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -840,7 +1157,7 @@
 <p>这下应该懂了吧？</p>
 <hr>
 <p>就这样吧</p>
-<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#x37;&#48;&#57;&#55;&#x38;&#56;&#49;&#x33;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#55;&#48;&#57;&#55;&#56;&#56;&#49;&#x33;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
 <hr>
 <h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
 <ul>
