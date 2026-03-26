@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="LiKCu">
+    
+    <title>
+        
+            《视觉SLAM十四讲》ch5点云拼接实例 |
+        
+        哦？
+    </title>
+    
+<link rel="stylesheet" href="/programBlog/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/programBlog/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/programBlog/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/programBlog/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags/","categories":"/categories/","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":"我随便写写，你随便逛逛","category":false,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true,"selectors":["head title",".main-inner",".pjax"]},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":["/js/custom-nav.js"]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/programBlog/">
+                    <img src="/programBlog/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/programBlog/">
+               哦？
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/tags/">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/categories/">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="https://1ikcu.github.io/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-house-user"></i>
+                                
+                                MAINSITE
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/tags/">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories/">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="https://1ikcu.github.io/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-house-user"></i>
+                                </span>
+                            
+                            MAINSITE
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        《视觉SLAM十四讲》ch5点云拼接实例
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/programBlog/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">LiKCu</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2025-02-18 10:34:10</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Thu Mar 26 2026 10:13:21 GMT+0800">2026-03-26 10:13:21</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/programBlog/categories/%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">教程笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/C/">C++</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/SLAM/">SLAM</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/%E8%A7%86%E8%A7%89/">视觉</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>该教程内容：《视觉SLAM十四讲》中ch5-joinMap点云拼接示例代码的部署步骤———————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<p>《视觉SLAM十四讲》书中所有源代码地址：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/gaoxiang12/slambook">https://github.com/gaoxiang12/slambook<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="一、前提情要："><a href="#一、前提情要：" class="headerlink" title="一、前提情要："></a>一、前提情要：</h2><p>系统 <code>Ubuntu 20.04</code>，<code>OpenCV 3.4.11</code>，<code>PCL 1.12.1</code></p>
+<p>照着书中的步骤编译 点云拼接的实例：<strong>joinMap</strong>。但是编译不过，make 后弹出了一连串的报错，类似下图这种：</p>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E6%8A%A5%E9%94%99.png" class="" title="报错">
+
+
+
+<blockquote>
+<p>error: ‘divscalar2’ is not a member of ‘pcl::traits’</p>
+<p>error: ‘pcl::traits::HasNoNormal’ has not been declared</p>
+<p>error: ‘pcl::traits::HasXY’ has not been declared</p>
+<p>error: ‘pcl::traits::HasXYZ’ has not been declared</p>
+<p>error: ‘pcl::traits::HasNormal’ has not been declared</p>
+<p>error: no match for call to ‘(pcl::getFieldsList(const pcl::PCLPointCloud2&amp;)</p>
+<p>error: no matching function for call to ‘isXYZFinite(const pcl::PointXYZ&amp;)</p>
+</blockquote>
+<p>于是我到处搜这些 error，基本都是说 pcl 版本的原因，所以就重新卸载 pcl，又装回来再试，来来回回装了四五次。。中途甚至还以为是OpenCV的问题，也重新装了一次。最后装了 pcl 1.12.1 版本的。</p>
+<h2 id="二、转机"><a href="#二、转机" class="headerlink" title="二、转机"></a>二、转机</h2><p>有一次编译的时候，我 make 之后，偶然见闪过的一个错：<code>PCL requires C++ 14 or above</code></p>
+<p>这个错是最先出现的，然后紧跟着是上面第一张图的那些报错，会有很多，因此导致之前我从后往前翻记录的时候，并没有翻到这个 <strong>PCL</strong> <strong>requires</strong> 的报错。</p>
+<p>于是我又 <strong>make</strong> 了一次，并立马 <code>Ctrl+C</code> 终止，发现报错是这样的：</p>
+<blockquote>
+<p>error: #error PCL requires C++14 or above</p>
+</blockquote>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/C++14.png" class="" title="C++14">
+
+<p>搜这个报错，搜到了一篇文章，按照评论区老哥给的办法解决了：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39779233/article/details/102648435">https://blog.csdn.net/qq_39779233/article/details/102648435<i class="fas fa-external-link-alt"></i></a></p>
+<p>报错原因是 <strong>CMakeLists</strong> 中的这一行：</p>
+<blockquote>
+<p>set( CMAKE_CXX_FLAGS “-std=c++11 -O3” )</p>
+</blockquote>
+<p>因此进行如下修改：</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )</span></span><br><span class="line"><span class="keyword">add_compile_options</span>(-std=c++<span class="number">11</span>)</span><br><span class="line"><span class="keyword">add_compile_options</span>(-std=c++<span class="number">14</span>)</span><br><span class="line"><span class="keyword">set</span>( CMAKE_CXX_STANDARD <span class="number">14</span> )</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/CmakeLists.png" class="" title="CmakeLists">
+
+
+
+<p>然后重新编译，这个报错就解决了，但是出来了新的报错：</p>
+<blockquote>
+<p>error: ‘savePCDFileBinary’ is not a member of ‘pcl::io’</p>
+</blockquote>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/pclio.png" class="" title="pclio">
+
+
+
+<p>这个很难搜到，但是找到了一篇类似的文章：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://blog.csdn.net/wyj372/article/details/131459193">https://blog.csdn.net/wyj372/article/details/131459193<i class="fas fa-external-link-alt"></i></a></p>
+<p>说是新老版本 PCL 的问题（这下真的是版本的问题了，大概），版本不兼容吧。</p>
+<p>虽然没搞懂这篇文章的办法，但是提供了个思路，于是我搜了一下 <code>savePCDFileBinary</code> 这个函数，发现所使用的头文件是这两个：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/io/pcd_io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>但是 joinMap.cpp 中的头文件是这两个：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/common/io.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>于是进行了修改，把 <code>#include &lt;pcl/io/pcd_io.h&gt;</code> 加进去：</p>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E4%BF%AE%E6%94%B9.png" class="" title="修改">
+
+
+
+
+
+<h2 id="三、结果"><a href="#三、结果" class="headerlink" title="三、结果"></a>三、结果</h2><p>重新编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">./build/joinMap</span><br><span class="line">pcl_viewer map.pcd  <span class="comment">#用 PCL 提供的可视化程序打开 map.pcd</span></span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E7%BC%96%E8%AF%91.png" class="" title="编译">
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E7%BB%93%E6%9E%9C.png" class="" title="结果">
+
+<p>成功咯，左右键拖动可以查看不同角度。</p>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/C/">C++</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/SLAM/">SLAM</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/%E8%A7%86%E8%A7%89/">视觉</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                            <div class="prev-post">
+                                <a class="prev"
+                                   rel="prev"
+                                   href="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/"
+                                   title="在Win10系统下安装Ubuntu20.04双系统"
+                                >
+                                    <span class="left arrow-icon flex-center">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">在Win10系统下安装Ubuntu20.04双系统</span>
+                                        <span class="post-nav-item">Prev posts</span>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%8F%90%E6%83%85%E8%A6%81%EF%BC%9A"><span class="nav-text">一、前提情要：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%AC%E6%9C%BA"><span class="nav-text">二、转机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%9C"><span class="nav-text">三、结果</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/programBlog/">LiKCu</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E6%8F%90%E6%83%85%E8%A6%81%EF%BC%9A"><span class="nav-text">一、前提情要：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E8%BD%AC%E6%9C%BA"><span class="nav-text">二、转机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E6%9E%9C"><span class="nav-text">三、结果</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/programBlog/js/utils.js"></script>
+
+<script src="/programBlog/js/header-shrink.js"></script>
+
+<script src="/programBlog/js/back2top.js"></script>
+
+<script src="/programBlog/js/toggle-theme.js"></script>
+
+<script src="/programBlog/js/code-block.js"></script>
+
+<script src="/programBlog/js/main.js"></script>
+
+<script src="/programBlog/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/programBlog/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/programBlog/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/programBlog/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/programBlog/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/programBlog/js/custom-nav.js" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

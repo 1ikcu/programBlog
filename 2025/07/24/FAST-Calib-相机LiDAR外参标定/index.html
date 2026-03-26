@@ -379,7 +379,7 @@ mjx-container[display="true"] + br {
                             <div class="author border-box">
                                 <span class="name">LiKCu</span>
                                 
-                                    <span class="author-badge">Lv1</span>
+                                    <span class="author-badge">Lv2</span>
                                 
                             </div>
                             <div class="meta-info border-box">
@@ -398,7 +398,7 @@ mjx-container[display="true"] + br {
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Tue Mar 24 2026 11:56:29 GMT+0800">2026-03-24 11:56:29</span>
+                    <span class="datetime" data-updated="Thu Mar 26 2026 11:41:33 GMT+0800">2026-03-26 11:41:33</span>
                 </span>
             
         
@@ -573,10 +573,10 @@ mjx-container[display="true"] + br {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[ fx, 0, cx;</span><br><span class="line">  0, fy, cy;</span><br><span class="line">  0,  0,  1 ]</span><br><span class="line"></span><br><span class="line">[ k1, k2, p1, p2, k3 ]</span><br></pre></td></tr></table></figure>
 
 
-
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%86%85%E5%8F%82.png" class="" title="内参">
 
 <p><font style="background-color:#D8DAD9;">修改标定板尺寸（单位米)</font></p>
-<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%9D%BF.png" class="" title="标定板">
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%9D%BF.jpg" class="" title="标定板">
 
 
 
@@ -602,7 +602,7 @@ mjx-container[display="true"] + br {
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">4 centers found. Iterating over 1 possible sets of candidates</span><br><span class="line">[ INFO] [1755668710.172541195]: Filtered cloud size: 0</span><br><span class="line">[ INFO] [1755668710.176017480]: Filtered cloud size: 0</span><br><span class="line">[pcl::SampleConsensusModel::getSamples] Can not <span class="keyword">select</span> 0 unique points out of 0!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] No samples could be selected!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] RANSAC found no model.</span><br><span class="line">[pcl::SACSegmentation::segment] Error segmenting the model! No solution found.</span><br><span class="line">[ INFO] [1755668710.179454181]: Plane cloud size: 0</span><br><span class="line">[fast_calib-1] process has died [pid 8367, <span class="built_in">exit</span> code -11, cmd /home/nvidia/Desktop/lidar_cam/FastCalib_ws/devel/lib/fast_calib/fast_calib __name:=fast_calib __log:=/home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1.<span class="built_in">log</span>].</span><br><span class="line"><span class="built_in">log</span> file: /home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1*.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
 <p><strong><font style="background-color:#D8DAD9;">分析：</font></strong><font style="background-color:#D8DAD9;">过滤后的点云大小为0：算法无法获取有效的点云数据</font></p>
-<p>修改参数文件中的 **Distance filter **的 **x_min，x_max，y_min，y_max，z_min，z_max **参数项</p>
+<p>修改参数文件中的 <strong>Distance filter</strong>的 <strong>x_min，x_max，y_min，y_max，z_min，z_max</strong>参数项</p>
 <p><font style="background-color:#D8DAD9;">（图达通</font><strong><font style="background-color:#D8DAD9;">lidar  x </font></strong><font style="background-color:#D8DAD9;">指上方， </font><strong><font style="background-color:#D8DAD9;">y</font></strong><font style="background-color:#D8DAD9;"> 指右方， </font><strong><font style="background-color:#D8DAD9;">z</font></strong><font style="background-color:#D8DAD9;"> 指前方）</font></p>
 <h4 id="lidar-center-points-not-4"><a href="#lidar-center-points-not-4" class="headerlink" title="lidar center points not 4"></a>lidar center points not 4</h4><ol start="2">
 <li></li>
@@ -671,8 +671,7 @@ mjx-container[display="true"] + br {
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F.png" class="" title="代码中添加参数变量">
 
-
-
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%AF%BB%E5%8F%96%E5%8F%82%E6%95%B0.png" class="" title="代码中添加读取参数">
 
 
@@ -684,6 +683,7 @@ mjx-container[display="true"] + br {
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%8E%A5%E6%94%B6%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F.png" class="" title="代码中接收参数的变量">
 
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%AE%9A%E4%B9%89%E8%81%9A%E7%B1%BB%E7%82%B9%E4%BA%91.png" class="" title="代码中定义聚类点云">
 
 
@@ -695,9 +695,10 @@ mjx-container[display="true"] + br {
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2%E9%98%88%E5%80%BC%E5%8F%82%E6%95%B0.png" class="" title="代码平面分割阈值参数">
 
-
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E8%81%9A%E7%B1%BB%E7%BB%93%E6%9E%9C.png" class="" title="代码中获得聚类结果">
 
+<p>–</p>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%81%9A%E7%B1%BB%E5%87%BD%E6%95%B0.png" class="" title="代码中聚类函数">
 
 

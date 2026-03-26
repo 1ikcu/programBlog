@@ -127,10 +127,10 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[ fx, 0, cx;</span><br><span class="line">  0, fy, cy;</span><br><span class="line">  0,  0,  1 ]</span><br><span class="line"></span><br><span class="line">[ k1, k2, p1, p2, k3 ]</span><br></pre></td></tr></table></figure>
 
 
-
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E5%86%85%E5%8F%82.png" class="" title="内参">
 
 <p><font style="background-color:#D8DAD9;">修改标定板尺寸（单位米)</font></p>
-<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%9D%BF.png" class="" title="标定板">
+<img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E6%A0%87%E5%AE%9A%E6%9D%BF.jpg" class="" title="标定板">
 
 
 
@@ -156,7 +156,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">4 centers found. Iterating over 1 possible sets of candidates</span><br><span class="line">[ INFO] [1755668710.172541195]: Filtered cloud size: 0</span><br><span class="line">[ INFO] [1755668710.176017480]: Filtered cloud size: 0</span><br><span class="line">[pcl::SampleConsensusModel::getSamples] Can not <span class="keyword">select</span> 0 unique points out of 0!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] No samples could be selected!</span><br><span class="line">[pcl::RandomSampleConsensus::computeModel] RANSAC found no model.</span><br><span class="line">[pcl::SACSegmentation::segment] Error segmenting the model! No solution found.</span><br><span class="line">[ INFO] [1755668710.179454181]: Plane cloud size: 0</span><br><span class="line">[fast_calib-1] process has died [pid 8367, <span class="built_in">exit</span> code -11, cmd /home/nvidia/Desktop/lidar_cam/FastCalib_ws/devel/lib/fast_calib/fast_calib __name:=fast_calib __log:=/home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1.<span class="built_in">log</span>].</span><br><span class="line"><span class="built_in">log</span> file: /home/nvidia/.ros/log/61082750-2ce8-11ef-b9be-bf2e220178da/fast_calib-1*.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
 <p><strong><font style="background-color:#D8DAD9;">分析：</font></strong><font style="background-color:#D8DAD9;">过滤后的点云大小为0：算法无法获取有效的点云数据</font></p>
-<p>修改参数文件中的 **Distance filter **的 **x_min，x_max，y_min，y_max，z_min，z_max **参数项</p>
+<p>修改参数文件中的 <strong>Distance filter</strong>的 <strong>x_min，x_max，y_min，y_max，z_min，z_max</strong>参数项</p>
 <p><font style="background-color:#D8DAD9;">（图达通</font><strong><font style="background-color:#D8DAD9;">lidar  x </font></strong><font style="background-color:#D8DAD9;">指上方， </font><strong><font style="background-color:#D8DAD9;">y</font></strong><font style="background-color:#D8DAD9;"> 指右方， </font><strong><font style="background-color:#D8DAD9;">z</font></strong><font style="background-color:#D8DAD9;"> 指前方）</font></p>
 <h4 id="lidar-center-points-not-4"><a href="#lidar-center-points-not-4" class="headerlink" title="lidar center points not 4"></a>lidar center points not 4</h4><ol start="2">
 <li></li>
@@ -225,8 +225,7 @@
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%8F%82%E6%95%B0%E5%8F%98%E9%87%8F.png" class="" title="代码中添加参数变量">
 
-
-
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%B7%BB%E5%8A%A0%E8%AF%BB%E5%8F%96%E5%8F%82%E6%95%B0.png" class="" title="代码中添加读取参数">
 
 
@@ -238,6 +237,7 @@
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E6%8E%A5%E6%94%B6%E5%8F%82%E6%95%B0%E7%9A%84%E5%8F%98%E9%87%8F.png" class="" title="代码中接收参数的变量">
 
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E5%AE%9A%E4%B9%89%E8%81%9A%E7%B1%BB%E7%82%B9%E4%BA%91.png" class="" title="代码中定义聚类点云">
 
 
@@ -249,9 +249,10 @@
 
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E5%B9%B3%E9%9D%A2%E5%88%86%E5%89%B2%E9%98%88%E5%80%BC%E5%8F%82%E6%95%B0.png" class="" title="代码平面分割阈值参数">
 
-
+<hr>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%8E%B7%E5%BE%97%E8%81%9A%E7%B1%BB%E7%BB%93%E6%9E%9C.png" class="" title="代码中获得聚类结果">
 
+<p>–</p>
 <img src="/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/%E4%BB%A3%E7%A0%81%E4%B8%AD%E8%81%9A%E7%B1%BB%E5%87%BD%E6%95%B0.png" class="" title="代码中聚类函数">
 
 
@@ -647,6 +648,133 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu20_04安装Matlab2018a</title>
+    <url>/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/</url>
+    <content><![CDATA[<p>该教程内容：Ubuntu 20.04 安装 Matlab2018a 的步骤—————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h2 id="一、下载Matlab2018-Linux"><a href="#一、下载Matlab2018-Linux" class="headerlink" title="一、下载Matlab2018_Linux"></a>一、下载Matlab2018_Linux</h2><p><a class="link" href="https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2">https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2<i class="fas fa-external-link-alt"></i></a></p>
+<p>提取码 kve2</p>
+<p>安装文件目录:</p>
+
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/programBlog/2026/03/17/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>《视觉SLAM十四讲》ch5点云拼接实例</title>
+    <url>/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[<p>该教程内容：《视觉SLAM十四讲》中ch5-joinMap点云拼接示例代码的部署步骤———————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<p>《视觉SLAM十四讲》书中所有源代码地址：</p>
+<p><a class="link" href="https://github.com/gaoxiang12/slambook">https://github.com/gaoxiang12/slambook<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="一、前提情要："><a href="#一、前提情要：" class="headerlink" title="一、前提情要："></a>一、前提情要：</h2><p>系统 <code>Ubuntu 20.04</code>，<code>OpenCV 3.4.11</code>，<code>PCL 1.12.1</code></p>
+<p>照着书中的步骤编译 点云拼接的实例：<strong>joinMap</strong>。但是编译不过，make 后弹出了一连串的报错，类似下图这种：</p>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E6%8A%A5%E9%94%99.png" class="" title="报错">
+
+
+
+<blockquote>
+<p>error: ‘divscalar2’ is not a member of ‘pcl::traits’</p>
+<p>error: ‘pcl::traits::HasNoNormal’ has not been declared</p>
+<p>error: ‘pcl::traits::HasXY’ has not been declared</p>
+<p>error: ‘pcl::traits::HasXYZ’ has not been declared</p>
+<p>error: ‘pcl::traits::HasNormal’ has not been declared</p>
+<p>error: no match for call to ‘(pcl::getFieldsList(const pcl::PCLPointCloud2&amp;)</p>
+<p>error: no matching function for call to ‘isXYZFinite(const pcl::PointXYZ&amp;)</p>
+</blockquote>
+<p>于是我到处搜这些 error，基本都是说 pcl 版本的原因，所以就重新卸载 pcl，又装回来再试，来来回回装了四五次。。中途甚至还以为是OpenCV的问题，也重新装了一次。最后装了 pcl 1.12.1 版本的。</p>
+<h2 id="二、转机"><a href="#二、转机" class="headerlink" title="二、转机"></a>二、转机</h2><p>有一次编译的时候，我 make 之后，偶然见闪过的一个错：<code>PCL requires C++ 14 or above</code></p>
+<p>这个错是最先出现的，然后紧跟着是上面第一张图的那些报错，会有很多，因此导致之前我从后往前翻记录的时候，并没有翻到这个 <strong>PCL</strong> <strong>requires</strong> 的报错。</p>
+<p>于是我又 <strong>make</strong> 了一次，并立马 <code>Ctrl+C</code> 终止，发现报错是这样的：</p>
+<blockquote>
+<p>error: #error PCL requires C++14 or above</p>
+</blockquote>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/C++14.png" class="" title="C++14">
+
+<p>搜这个报错，搜到了一篇文章，按照评论区老哥给的办法解决了：</p>
+<p><a class="link" href="https://blog.csdn.net/qq_39779233/article/details/102648435">https://blog.csdn.net/qq_39779233/article/details/102648435<i class="fas fa-external-link-alt"></i></a></p>
+<p>报错原因是 <strong>CMakeLists</strong> 中的这一行：</p>
+<blockquote>
+<p>set( CMAKE_CXX_FLAGS “-std=c++11 -O3” )</p>
+</blockquote>
+<p>因此进行如下修改：</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="comment">#set( CMAKE_CXX_FLAGS "-std=c++11 -O3" )</span></span><br><span class="line"><span class="keyword">add_compile_options</span>(-std=c++<span class="number">11</span>)</span><br><span class="line"><span class="keyword">add_compile_options</span>(-std=c++<span class="number">14</span>)</span><br><span class="line"><span class="keyword">set</span>( CMAKE_CXX_STANDARD <span class="number">14</span> )</span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/CmakeLists.png" class="" title="CmakeLists">
+
+
+
+<p>然后重新编译，这个报错就解决了，但是出来了新的报错：</p>
+<blockquote>
+<p>error: ‘savePCDFileBinary’ is not a member of ‘pcl::io’</p>
+</blockquote>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/pclio.png" class="" title="pclio">
+
+
+
+<p>这个很难搜到，但是找到了一篇类似的文章：</p>
+<p><a class="link" href="https://blog.csdn.net/wyj372/article/details/131459193">https://blog.csdn.net/wyj372/article/details/131459193<i class="fas fa-external-link-alt"></i></a></p>
+<p>说是新老版本 PCL 的问题（这下真的是版本的问题了，大概），版本不兼容吧。</p>
+<p>虽然没搞懂这篇文章的办法，但是提供了个思路，于是我搜了一下 <code>savePCDFileBinary</code> 这个函数，发现所使用的头文件是这两个：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/io/pcd_io.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>但是 joinMap.cpp 中的头文件是这两个：</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/common/io.h&gt;</span> </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;pcl/point_types.h&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>于是进行了修改，把 <code>#include &lt;pcl/io/pcd_io.h&gt;</code> 加进去：</p>
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E4%BF%AE%E6%94%B9.png" class="" title="修改">
+
+
+
+
+
+<h2 id="三、结果"><a href="#三、结果" class="headerlink" title="三、结果"></a>三、结果</h2><p>重新编译：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">./build/joinMap</span><br><span class="line">pcl_viewer map.pcd  <span class="comment">#用 PCL 提供的可视化程序打开 map.pcd</span></span><br></pre></td></tr></table></figure>
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E7%BC%96%E8%AF%91.png" class="" title="编译">
+
+<img src="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/%E7%BB%93%E6%9E%9C.png" class="" title="结果">
+
+<p>成功咯，左右键拖动可以查看不同角度。</p>
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+      </categories>
+      <tags>
+        <tag>C++</tag>
+        <tag>SLAM</tag>
+        <tag>视觉</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>VINS-FUSION部署</title>
     <url>/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/</url>
     <content><![CDATA[<p><strong>FINS-Fusion</strong> 是一个视觉-惯性融合的 <strong>SLAM</strong>，本文是部署流程以及报错记录——————————————</p>
@@ -954,22 +1082,261 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/programBlog/2026/03/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a class="link"   href="https://hexo.io/" >Hexo<i class="fas fa-external-link-alt"></i></a>! This is your very first post. Check <a class="link"   href="https://hexo.io/docs/" >documentation<i class="fas fa-external-link-alt"></i></a> for more info. If you get any problems when using Hexo, you can find the answer in <a class="link"   href="https://hexo.io/docs/troubleshooting.html" >troubleshooting<i class="fas fa-external-link-alt"></i></a> or you can ask me on <a class="link"   href="https://github.com/hexojs/hexo/issues" >GitHub<i class="fas fa-external-link-alt"></i></a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>在Win10系统下安装Ubuntu20.04双系统</title>
+    <url>/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>该教程内容：在Win10系统下安装Ubuntu20.04双系统的步骤—————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h2 id="一、准备工作-1——制作-Ubuntu-启动-U盘"><a href="#一、准备工作-1——制作-Ubuntu-启动-U盘" class="headerlink" title="一、准备工作 1——制作 Ubuntu 启动 U盘"></a>一、准备工作 1——制作 Ubuntu 启动 U盘</h2><h3 id="1、一个-8GB-或以上的-U盘"><a href="#1、一个-8GB-或以上的-U盘" class="headerlink" title="1、一个 8GB 或以上的 U盘"></a>1、一个 8GB 或以上的 U盘</h3><p>最好是空的，因为制作启动 U盘会格式化。（也最好不要太大：64、128GB。格式化会比较慢）</p>
+<h3 id="2、下载-Ubuntu-镜像-文件"><a href="#2、下载-Ubuntu-镜像-文件" class="headerlink" title="2、下载 Ubuntu 镜像 文件"></a>2、下载 Ubuntu 镜像 文件</h3><p>官网：<a class="link" href="https://cn.ubuntu.com/download">https://cn.ubuntu.com/download<i class="fas fa-external-link-alt"></i></a></p>
+<p>点那个“ 下载Ubuntu 桌面版”：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/Ubuntu%E5%AE%98%E7%BD%91.png" class="" title="Ubuntu官网">
 
-<p>More info: <a class="link"   href="https://hexo.io/docs/writing.html" >Writing<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   href="https://hexo.io/docs/server.html" >Server<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a class="link"   href="https://hexo.io/docs/generating.html" >Generating<i class="fas fa-external-link-alt"></i></a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>如果想下载旧版本的，点这个“其他下载”，比如我要下Ubuntu20.04的：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%85%B6%E4%BB%96%E4%B8%8B%E8%BD%BD.png" class="" title="其他下载">
 
-<p>More info: <a class="link"   href="https://hexo.io/docs/one-command-deployment.html" >Deployment<i class="fas fa-external-link-alt"></i></a></p>
+
+
+<p>最下面有个历史版本：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC.png" class="" title="历史版本">
+
+
+
+<h3 id="3、使用-Rufus-工具制作启动-U盘"><a href="#3、使用-Rufus-工具制作启动-U盘" class="headerlink" title="3、使用 Rufus 工具制作启动 U盘"></a>3、使用 Rufus 工具制作启动 U盘</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">PS:启动盘制作可以用Ventoy，很多人说比Rufus好用</span><br></pre></td></tr></table></figure>
+
+<p>网址：<a class="link" href="https://rufus.ie/zh/">https://rufus.ie/zh/<i class="fas fa-external-link-alt"></i></a></p>
+<p>下载 Rufus，将 U盘插入电脑，运行 Rufus：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/Rufus.png" class="" title="Rufus">
+
+
+
+<blockquote>
+<p>分区类型中：</p>
+<p>MBR：兼容所有Windows版本及大多数操作系统，使用BIOS引导，仅支持32位UEFI</p>
+<p>GPT：需要64位Windows（如Vista及更高版本）或现代操作系统支持，老旧系统可能不兼容‌。使用UEFI引导，支持64位UEFI，提供更快的启动速度和更多功能。</p>
+</blockquote>
+<p>可以按照图示进行选择。</p>
+<p>点击“<strong>开始</strong>”，Rufus会提示数据将被清除，确认后开始制作启动盘。制作过程可能需要几分钟，完成后Rufus会提示“<strong>准备就绪</strong>”，安全移除U盘。</p>
+<h2 id="二、准备工作-2——电脑相关设置"><a href="#二、准备工作-2——电脑相关设置" class="headerlink" title="二、准备工作 2——电脑相关设置"></a>二、准备工作 2——电脑相关设置</h2><h3 id="1、‌检查-Windows-系统引导方式"><a href="#1、‌检查-Windows-系统引导方式" class="headerlink" title="1、‌检查 Windows 系统引导方式"></a>1、‌检查 Windows 系统引导方式</h3><p>确认Windows系统是以<strong>UEFI</strong>还是 <strong>Legacy</strong> 模式引导。可以通过右键点击【此电脑】-【管理】-【 磁盘管理 】查看是否有EFI系统分区，如果没有，需要将<strong>Legacy</strong>引导改为<strong>UEFI</strong>引导‌。</p>
+<p>可以看到我的有 EFI 系统分区：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/EFI.png" class="" title="EFI">
+
+<h3 id="2、为-Ubuntu-系统准备空闲空间"><a href="#2、为-Ubuntu-系统准备空闲空间" class="headerlink" title="2、为 Ubuntu 系统准备空闲空间"></a>2、为 Ubuntu 系统准备空闲空间</h3><p>如果你的磁盘没有空闲空间（有空闲空间时上图中下侧的小框上会显示灰色框）：还是在 磁盘管理 中，找到一个剩余空间较大的磁盘，比如我这个 E 盘，还有 90 G，打算给 Ubuntu 分出 80 G。</p>
+<p>选择一个分区，右键“压缩卷”，输入分配的大小（80GB），点击压缩：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%8E%8B%E7%BC%A9%E5%8D%B7.png" class="" title="压缩卷">
+
+
+
+<p>压缩完可以看到有 80G 左右的空闲空间了</p>
+<p>（后来觉得 80G 可能不够用，于是加装了一个固态硬盘，用来专门放 Ubuntu 。只要保证是空闲状态就行，不然后面没办法进行分区）</p>
+<h3 id="3、取消快速启动"><a href="#3、取消快速启动" class="headerlink" title="3、取消快速启动"></a>3、取消快速启动</h3><p>打开“控制面板”→“电源选项”→“选择电源按钮的功能”→“更改当前不可用的设置”</p>
+<p><strong>取消勾选</strong>“启用快速启动”，保存：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%8F%96%E6%B6%88%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8.png" class="" title="取消快速启动">
+
+
+
+<h3 id="4、关闭独显模式"><a href="#4、关闭独显模式" class="headerlink" title="4、关闭独显模式"></a>4、关闭独显模式</h3><p>如果电脑有独显模式，建议关闭独显模式，使用混合模式以避免安装过程中出现花屏问题</p>
+<p>我的就有，在电脑管家里面可以关：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%85%B3%E9%97%AD%E7%8B%AC%E6%98%BE.png" class="" title="关闭独显">
+
+
+
+<h3 id="5、禁用-Secure-Boot"><a href="#5、禁用-Secure-Boot" class="headerlink" title="5、禁用 Secure Boot"></a>5、禁用 Secure Boot</h3><p>重启电脑，进入 <strong>BIOS/UEFI</strong> 设置：</p>
+<p>重启电脑，当屏幕显示品牌标志（Lenovo等）时，快速多次按下对应快捷键（联想Fn+F2，惠普、戴尔等F2）进入 BIOS 。</p>
+<p>找到“<strong>Secure Boot</strong>”选项将其禁用，F10 保存并退出 BIOS/UEFI 设置：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/SecureBoot.png" class="" title="SecureBoot">
+
+<p>到这准备工作差不多了</p>
+<h2 id="三、安装-Ubuntu"><a href="#三、安装-Ubuntu" class="headerlink" title="三、安装 Ubuntu"></a>三、安装 Ubuntu</h2><h3 id="1、选择-U盘启动"><a href="#1、选择-U盘启动" class="headerlink" title="1、选择 U盘启动"></a>1、选择 U盘启动</h3><p>插入 <strong>Ubuntu</strong> 启动 U盘，重启电脑，进入启动菜单（联想为 F12），选择从U盘启动：</p>
+<p>（包含 windows 的一项的是 Windows 系统，选择包含 USB 的选项（一般是第二项））</p>
+<blockquote>
+<p>注意，如果你常用的是 Ubuntu 系统，可以在 BIOS 中将 Ubuntu 的优先级调为最上面的，这样每次开机如果不选择 windows，默认会打开 Ubuntu：如上图中选择左侧 Boot 栏，划到最底下，可以将 Ubuntu项，用 F5/F6 调整优先级。</p>
+</blockquote>
+<h3 id="2、安装-Ubuntu"><a href="#2、安装-Ubuntu" class="headerlink" title="2、安装 Ubuntu"></a>2、安装 Ubuntu</h3><p>进入黑色背景的界面后，左上角有几个选项，选择第一个“Ubuntu”开始安装。等待</p>
+<p>进入如下界面：首先选择语言</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%AE%89%E8%A3%85.png" class="" title="安装">
+
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E8%AF%AD%E8%A8%80.jpeg" class="" title="语言">
+
+
+
+<p>我勾选暂时不联网：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E4%B8%8D%E8%81%94%E7%BD%91.jpeg" class="" title="不联网">
+
+<p>选择 “<strong>正常安装</strong>”，（如果上一项连接了网络，此处可以勾选“安装 Ubuntu 时下载更新”）：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E6%AD%A3%E5%B8%B8%E5%AE%89%E8%A3%85.jpeg" class="" title="正常安装">
+
+<p>注意，“<strong>安装类型</strong>”这里勾选“<strong>其他选项</strong>”：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%85%B6%E4%BB%96%E9%80%89%E9%A1%B9.jpeg" class="" title="其他选项">
+
+
+
+<h3 id="3、创建分区"><a href="#3、创建分区" class="headerlink" title="3、创建分区"></a>3、创建分区</h3><p>一般为四个分区</p>
+<p>（1）<code>/</code>(Root Partition) &lt;主分区&gt;</p>
+<blockquote>
+<p>是操作系统的核心部分所在的地方，包含了所有的程序和服务数据，推荐至少20GB以上</p>
+</blockquote>
+<p>（2）<code>swap</code>  交换区域 &lt;逻辑分区&gt;</p>
+<blockquote>
+<p>充当 虚拟内存 的角色，帮助处理超出物理RAM能力的任务负载情况。大小可以参考电脑的内存，我的笔记本是 16G，所以也分配 16G。</p>
+</blockquote>
+<p>（3）<code>/boot/efi</code> 引导分区 &lt;逻辑分区&gt;</p>
+<blockquote>
+<p>efi 是 UEFI 引导，它的作用和 boot 引导分区一样，但是 boot 引导默认 grub 引导。1G够了</p>
+</blockquote>
+<p>（4）<code>/home</code> 用户目录 &lt;逻辑分区&gt;</p>
+<blockquote>
+<p>保存个人文件、文档和其他用户特定的数据。可以根据实际需要分配较大空间，尤其是如果计划长期保留大量媒体或其他大容量文件的话。因为我一共 80GB，所以分配下来 home 差不多 40GB。</p>
+</blockquote>
+<p>上述是按照一共 80GB的空间分配的，后来我换了 1T的固态，于是分别采用了 150GB，16GB，1GB，/home的为剩下的所有。</p>
+<p>仅供参考，如果不知道怎么分配，可以参考：</p>
+<p><a class="link" href="https://blog.csdn.net/weixin_45761762/article/details/136124889">https://blog.csdn.net/weixin_45761762/article/details/136124889<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<p>开始分区：</p>
+<p>选取你要分配的空闲空间，确认空间大小，点击 + ：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%88%86%E5%8C%BA.jpeg" class="" title="分区">
+
+
+
+<p>首先是根目录/（150GB）：注意大小单位是MB，选择<strong>主分区</strong>类型，挂载点填 <code>/</code>：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E6%A0%B9%E7%9B%AE%E5%BD%95.jpeg" class="" title="根目录">
+
+
+
+<p>交换分区（16GB），选择<strong>逻辑分区</strong>，用于<strong>交换空间</strong>：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E4%BA%A4%E6%8D%A2%E5%88%86%E5%8C%BA.jpeg" class="" title="交换分区">
+
+
+
+<p>引导分区（1G），<strong>逻辑分区</strong>，用于<strong>EFI系统分区</strong>：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E7%B3%BB%E7%BB%9F%E5%88%86%E5%8C%BA.jpeg" class="" title="系统分区">
+
+
+
+<p>最后是<code>/home</code>，剩下的空间都给它，<strong>逻辑分区</strong>：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/home.jpeg" class="" title="home">
+
+<hr>
+<p>确认分区设置，点击“现在安装”</p>
+<p>确认时区（都是上海）：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E6%97%B6%E5%8C%BA.jpeg" class="" title="时区">
+
+
+
+<p>设置用户名密码：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E7%94%A8%E6%88%B7%E5%AF%86%E7%A0%81.jpeg" class="" title="用户密码">
+
+
+
+<p>开始安装，等待：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%BC%80%E5%A7%8B%E5%AE%89%E8%A3%85.jpeg" class="" title="开始安装">
+
+
+
+<p>安装完成，重启：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E9%87%8D%E5%90%AF.jpeg" class="" title="重启">
+
+
+
+<p>重启时可能会提示你拔掉启动 U盘后按 Enter 键</p>
+<p>成功：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E6%A1%8C%E9%9D%A2.png" class="" title="桌面">
+
+
+
+<h2 id="四、其他"><a href="#四、其他" class="headerlink" title="四、其他"></a>四、其他</h2><p>开机时会短暂出现几秒如下界面：</p>
+<img src="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/%E5%BC%80%E6%9C%BA%E9%80%89%E9%A1%B9.jpeg" class="" title="开机选项">
+
+<p>第一个即为 Ubuntu 系统，如果没有操作，则默认进入此系统</p>
+<p>第三个为 Windows 系统，第四个是修复系统</p>
+<h2 id="五、常用软件安装"><a href="#五、常用软件安装" class="headerlink" title="五、常用软件安装"></a>五、常用软件安装</h2><p><a class="link" href="https://blog.csdn.net/qq_44684757/article/details/135991216">Ubuntu安装搜狗输入法<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" href="https://blog.csdn.net/weixin_45063703/article/details/117536136">Ubuntu系统上安装WPS<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" href="https://blog.csdn.net/m0_73745340/article/details/135281023">ROS的最简单安装——鱼香一键安装<i class="fas fa-external-link-alt"></i></a></p>
+<p><a class="link" href="https://blog.csdn.net/howard2005/article/details/124906494">Ubuntu上安装Chrome浏览器<i class="fas fa-external-link-alt"></i></a></p>
+<h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><p>（节选自其他网友的提问）</p>
+<table>
+<thead>
+<tr>
+<th>问</th>
+<th>答</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>我的ubuntu下载完成后没有联网怎么解决</td>
+<td><a class="link" href="https://blog.csdn.net/cheng1a/article/details/139966717%E6%88%96%E8%80%85%E6%90%9C%E7%B4%A2%E2%80%9Cubuntu%E6%B2%A1%E6%9C%89wifi%E5%9B%BE%E6%A0%87%E2%80%9D">https://blog.csdn.net/cheng1a/article/details/139966717或者搜索“ubuntu没有wifi图标”<i class="fas fa-external-link-alt"></i></a></td>
+</tr>
+<tr>
+<td>分区的时候我的空闲只有1MB为什么</td>
+<td>没留出空间，你得在Windows里面留出来，不能新建卷，新建卷就成了Windows的空间了，不属于空闲空间</td>
+</tr>
+<tr>
+<td>现在还需要关闭boot secure吗</td>
+<td>如果基本只使用Ubuntu或者win和ubuntu都用，建议关闭</td>
+</tr>
+<tr>
+<td>安装成功后重启，拔掉u盘，然后直接进入window系统怎么办</td>
+<td>是因为你没关闭“启用快速启动”，在上面的3里面有讲</td>
+</tr>
+<tr>
+<td></td>
+<td>目前看拯救者开混合模式有问题。我装完后重启，在win11里重启独显模式，然后切换Ubuntu，直接就打不开了，开机界面显示正在检查一个磁盘。个人推测是寻找集显的驱动，因为win11再切换回混合模式Ubuntu能正常打开。</td>
+</tr>
+</tbody></table>
 ]]></content>
+      <categories>
+        <category>教程笔记</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>开始之前</title>
+    <url>/programBlog/2026/03/18/%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/</url>
+    <content><![CDATA[<p>在开始之前，也就是_ “哦？”_网站的 ReadMe。————————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><p>我叫 <code>LiKCu</code></p>
+<p>也可以叫我 <code>NitrogenLi</code></p>
+<p>目前24岁了</p>
+<p>没什么成就，在这个计算机的领域</p>
+<p><em>当然如果不是计算机领域，以前学校运动会比赛拿奖算不算（？</em></p>
+<h4 id="写这个博客的目的"><a href="#写这个博客的目的" class="headerlink" title="写这个博客的目的"></a>写这个博客的目的</h4><p>记性不太好，有时候看过的东西、跑过的代码</p>
+<p>总是忘，某一天想再复现时一点也想不起来了</p>
+<p>总之可以说是备忘录吧</p>
+<p><em>虽然我本地也一直有记笔记，但是有一个这种自己的博客网页，听上去就很厉害</em></p>
+<p>其实并非厉害，只是套用了大佬写好的框架主题而已</p>
+<p>大概只有内容是我自己的？嗯，可能也会改一些页面设计</p>
+<p>先慢慢把以前的本地笔记上传上去吧，也是个不小的工程</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>至于为什么可以叫我 <code>NitrogenLi</code></p>
+<p>其实 <code>LiKCu</code> 的全称是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="10.795ex" height="1.916ex" role="img" focusable="false" viewBox="0 -697 4771.6 847"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D40D" d="M314 0Q296 3 181 3T48 0H39V62H147V624H39V686H171H265Q288 686 297 686T309 684T315 679Q317 676 500 455T684 233V624H576V686H585Q603 683 718 683T851 686H860V624H752V319Q752 15 750 11Q747 4 742 2T718 0H712Q708 0 706 0T700 0T696 1T693 2T690 4T687 7T684 11T679 16T674 23Q671 27 437 311L215 579V62H323V0H314Z"></path></g><g data-mml-node="mn" transform="translate(933,-150) scale(0.707)"><path data-c="1D7D0" d="M175 580Q175 578 185 572T205 551T215 510Q215 467 191 449T137 430Q107 430 83 448T58 511Q58 558 91 592T168 640T259 654Q328 654 383 637Q451 610 484 563T517 459Q517 401 482 360T368 262Q340 243 265 184L210 140H274Q416 140 429 145Q439 148 447 186T455 237H517V233Q516 230 501 119Q489 9 486 4V0H57V25Q57 51 58 54Q60 57 109 106T215 214T288 291Q364 377 364 458Q364 515 328 553T231 592Q214 592 201 589T181 584T175 580Z"></path></g></g><g data-mml-node="mi" transform="translate(1389.6,0)"><path data-c="1D40B" d="M643 285Q641 280 629 148T612 4V0H39V62H147V624H39V686H51Q75 683 228 683Q415 685 425 686H439V624H304V62H352H378Q492 62 539 138Q551 156 558 178T569 214T576 255T581 289H643V285Z"></path><path data-c="1D422" d="M72 610Q72 649 98 672T159 695Q193 693 217 670T241 610Q241 572 217 549T157 525Q120 525 96 548T72 610ZM46 442L136 446L226 450H232V62H294V0H286Q271 3 171 3Q67 3 49 0H40V62H109V209Q109 358 108 362Q103 380 55 380H43V442H46Z" transform="translate(692,0)"></path><path data-c="1D40A" d="M400 0Q376 3 226 3Q75 3 51 0H39V62H147V624H39V686H51Q75 683 226 683Q376 683 400 686H412V624H304V338L472 483L634 624H565V686H576Q597 683 728 683Q814 683 829 686H836V624H730L614 524Q507 432 497 422Q496 422 498 418T514 395T553 342T627 241L759 63L805 62H852V0H842Q830 3 701 3Q550 3 526 0H513V62H549Q584 62 584 63Q583 65 486 196T388 328L304 256V62H412V0H400Z" transform="translate(1011,0)"></path><path data-c="1D402" d="M64 343Q64 502 174 599T468 697Q502 697 533 691T586 674T623 655T647 639T657 632L694 663Q703 670 711 677T723 687T730 692T735 695T740 696T746 697Q759 697 762 692T766 668V627V489V449Q766 428 762 424T742 419H732H720Q699 419 697 436Q690 498 657 545Q611 618 532 632Q522 634 496 634Q356 634 286 553Q232 488 232 343T286 133Q355 52 497 52Q597 52 650 112T704 237Q704 248 709 251T729 254H735Q750 254 755 253T763 248T766 234Q766 136 680 63T469 -11Q285 -11 175 86T64 343Z" transform="translate(1912,0)"></path><path data-c="1D42E" d="M40 442L134 446Q228 450 229 450H235V273V165Q235 90 238 74T254 52Q268 46 304 46H319Q352 46 380 67T419 121L420 123Q424 135 425 199Q425 201 425 207Q425 233 425 249V316Q425 354 423 363T410 376Q396 380 369 380H356V442L554 450V267Q554 84 556 79Q561 62 610 62H623V31Q623 0 622 0Q603 0 527 -3T432 -6Q431 -6 431 25V56L420 45Q373 6 332 -1Q313 -6 281 -6Q208 -6 165 14T109 87L107 98L106 230Q106 358 104 366Q96 380 50 380H37V442H40Z" transform="translate(2743,0)"></path></g></g></g></g></svg></mjx-container></p>
+<p>这下应该懂了吧？</p>
+<hr>
+<p>就这样吧</p>
+<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#x37;&#x30;&#57;&#x37;&#x38;&#x38;&#x31;&#51;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
+<hr>
+<h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
+<ul>
+<li>日常杂谈</li>
+<li>项目部署</li>
+<li>教程笔记<ul>
+<li>编程</li>
+<li>其他</li>
+</ul>
+</li>
+<li>游戏？</li>
+<li>备份</li>
+</ul>
+<p>Tag</p>
+]]></content>
+      <categories>
+        <category>日常杂谈</category>
+      </categories>
   </entry>
   <entry>
     <title>qt_C++项目代码封装so动态链接库</title>
@@ -1132,49 +1499,5 @@
         <tag>封装</tag>
         <tag>qt</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>开始之前</title>
-    <url>/programBlog/2026/03/18/%E5%BC%80%E5%A7%8B%E4%B9%8B%E5%89%8D/</url>
-    <content><![CDATA[<p>在开始之前，也就是_ “哦？”_网站的 ReadMe。————————————————————————</p>
-<hr>
-<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
-<hr>
-<h4 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h4><p>我叫 <code>LiKCu</code></p>
-<p>也可以叫我 <code>NitrogenLi</code></p>
-<p>目前24岁了</p>
-<p>没什么成就，在这个计算机的领域</p>
-<p><em>当然如果不是计算机领域，以前学校运动会比赛拿奖算不算（？</em></p>
-<h4 id="写这个博客的目的"><a href="#写这个博客的目的" class="headerlink" title="写这个博客的目的"></a>写这个博客的目的</h4><p>记性不太好，有时候看过的东西、跑过的代码</p>
-<p>总是忘，某一天想再复现时一点也想不起来了</p>
-<p>总之可以说是备忘录吧</p>
-<p><em>虽然我本地也一直有记笔记，但是有一个这种自己的博客网页，听上去就很厉害</em></p>
-<p>其实并非厉害，只是套用了大佬写好的框架主题而已</p>
-<p>大概只有内容是我自己的？嗯，可能也会改一些页面设计</p>
-<p>先慢慢把以前的本地笔记上传上去吧，也是个不小的工程</p>
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><p>至于为什么可以叫我 <code>NitrogenLi</code></p>
-<p>其实 <code>LiKCu</code> 的全称是 <mjx-container class="MathJax" jax="SVG"><svg style="vertical-align: -0.339ex;" xmlns="http://www.w3.org/2000/svg" width="10.795ex" height="1.916ex" role="img" focusable="false" viewBox="0 -697 4771.6 847"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="TeXAtom" data-mjx-texclass="ORD"><g data-mml-node="msub"><g data-mml-node="mi"><path data-c="1D40D" d="M314 0Q296 3 181 3T48 0H39V62H147V624H39V686H171H265Q288 686 297 686T309 684T315 679Q317 676 500 455T684 233V624H576V686H585Q603 683 718 683T851 686H860V624H752V319Q752 15 750 11Q747 4 742 2T718 0H712Q708 0 706 0T700 0T696 1T693 2T690 4T687 7T684 11T679 16T674 23Q671 27 437 311L215 579V62H323V0H314Z"></path></g><g data-mml-node="mn" transform="translate(933,-150) scale(0.707)"><path data-c="1D7D0" d="M175 580Q175 578 185 572T205 551T215 510Q215 467 191 449T137 430Q107 430 83 448T58 511Q58 558 91 592T168 640T259 654Q328 654 383 637Q451 610 484 563T517 459Q517 401 482 360T368 262Q340 243 265 184L210 140H274Q416 140 429 145Q439 148 447 186T455 237H517V233Q516 230 501 119Q489 9 486 4V0H57V25Q57 51 58 54Q60 57 109 106T215 214T288 291Q364 377 364 458Q364 515 328 553T231 592Q214 592 201 589T181 584T175 580Z"></path></g></g><g data-mml-node="mi" transform="translate(1389.6,0)"><path data-c="1D40B" d="M643 285Q641 280 629 148T612 4V0H39V62H147V624H39V686H51Q75 683 228 683Q415 685 425 686H439V624H304V62H352H378Q492 62 539 138Q551 156 558 178T569 214T576 255T581 289H643V285Z"></path><path data-c="1D422" d="M72 610Q72 649 98 672T159 695Q193 693 217 670T241 610Q241 572 217 549T157 525Q120 525 96 548T72 610ZM46 442L136 446L226 450H232V62H294V0H286Q271 3 171 3Q67 3 49 0H40V62H109V209Q109 358 108 362Q103 380 55 380H43V442H46Z" transform="translate(692,0)"></path><path data-c="1D40A" d="M400 0Q376 3 226 3Q75 3 51 0H39V62H147V624H39V686H51Q75 683 226 683Q376 683 400 686H412V624H304V338L472 483L634 624H565V686H576Q597 683 728 683Q814 683 829 686H836V624H730L614 524Q507 432 497 422Q496 422 498 418T514 395T553 342T627 241L759 63L805 62H852V0H842Q830 3 701 3Q550 3 526 0H513V62H549Q584 62 584 63Q583 65 486 196T388 328L304 256V62H412V0H400Z" transform="translate(1011,0)"></path><path data-c="1D402" d="M64 343Q64 502 174 599T468 697Q502 697 533 691T586 674T623 655T647 639T657 632L694 663Q703 670 711 677T723 687T730 692T735 695T740 696T746 697Q759 697 762 692T766 668V627V489V449Q766 428 762 424T742 419H732H720Q699 419 697 436Q690 498 657 545Q611 618 532 632Q522 634 496 634Q356 634 286 553Q232 488 232 343T286 133Q355 52 497 52Q597 52 650 112T704 237Q704 248 709 251T729 254H735Q750 254 755 253T763 248T766 234Q766 136 680 63T469 -11Q285 -11 175 86T64 343Z" transform="translate(1912,0)"></path><path data-c="1D42E" d="M40 442L134 446Q228 450 229 450H235V273V165Q235 90 238 74T254 52Q268 46 304 46H319Q352 46 380 67T419 121L420 123Q424 135 425 199Q425 201 425 207Q425 233 425 249V316Q425 354 423 363T410 376Q396 380 369 380H356V442L554 450V267Q554 84 556 79Q561 62 610 62H623V31Q623 0 622 0Q603 0 527 -3T432 -6Q431 -6 431 25V56L420 45Q373 6 332 -1Q313 -6 281 -6Q208 -6 165 14T109 87L107 98L106 230Q106 358 104 366Q96 380 50 380H37V442H40Z" transform="translate(2743,0)"></path></g></g></g></g></svg></mjx-container></p>
-<p>这下应该懂了吧？</p>
-<hr>
-<p>就这样吧</p>
-<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#55;&#48;&#57;&#55;&#56;&#56;&#49;&#x33;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
-<hr>
-<h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
-<ul>
-<li>日常杂谈</li>
-<li>项目部署</li>
-<li>教程笔记<ul>
-<li>编程</li>
-<li>其他</li>
-</ul>
-</li>
-<li>游戏？</li>
-<li>备份</li>
-</ul>
-<p>Tag</p>
-]]></content>
-      <categories>
-        <category>日常杂谈</category>
-      </categories>
   </entry>
 </search>
