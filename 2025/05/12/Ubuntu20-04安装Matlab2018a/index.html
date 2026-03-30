@@ -398,7 +398,7 @@ mjx-container[display="true"] + br {
             
                 <span class="meta-info-item post-update-date">
                     <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                    <span class="datetime" data-updated="Thu Mar 26 2026 11:29:48 GMT+0800">2026-03-26 11:29:48</span>
+                    <span class="datetime" data-updated="Mon Mar 30 2026 16:50:09 GMT+0800">2026-03-30 16:50:09</span>
                 </span>
             
         
@@ -449,14 +449,125 @@ mjx-container[display="true"] + br {
                     
 
                     
-                         <p>该教程内容：Ubuntu 20.04 安装 Matlab2018a 的步骤—————————————————————</p>
+                         <p>该教程内容：Ubuntu 20.04 安装 Matlab2018a 的步骤———————————————————————</p>
 <hr>
 <p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
 <hr>
 <h2 id="一、下载Matlab2018-Linux"><a href="#一、下载Matlab2018-Linux" class="headerlink" title="一、下载Matlab2018_Linux"></a>一、下载Matlab2018_Linux</h2><p><a class="link" target="_blank" rel="noopener" href="https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2">https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2<i class="fas fa-external-link-alt"></i></a></p>
 <p>提取码 kve2</p>
 <p>安装文件目录:</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" class="" title="文件目录">
 
+
+
+<h2 id="二、挂载镜像1"><a href="#二、挂载镜像1" class="headerlink" title="二、挂载镜像1"></a>二、挂载镜像1</h2><p>右键 “<strong>R2018a_glnxa64_dvd1.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，此时会将 <strong>dvd1</strong> 盘挂载到 <code>/media/用户名/MATHWORK S_R2018A</code>目录。</p>
+<h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a><strong>三、安装</strong></h2><p>打开终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /media/用户名/MATHWORKS_R2018A/install</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>选择<strong>使用文件安装密钥</strong>，点击下一步：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5.png" class="" title="使用密钥">
+
+
+
+<p>输入密钥，点击下一步。</p>
+<blockquote>
+<p>09806-07443-53955-64350-21751-41297</p>
+</blockquote>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AF%86%E9%92%A5.png" class="" title="输入密钥">
+
+
+
+<p>安装位置可进行修改，本次安装采用默认路径。然后一直 “<strong>下一步</strong>” ,安装：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="安装路径">
+
+<hr>
+<p>PS：如果这里报错“无法创建文件夹”：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%99.png" class="" title="报错">
+
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%992.png" class="" title="报错2">
+
+<p>是权限问题，安装时没有使用 <strong>sudo</strong>。点击 “<strong>取消</strong>” 重新使用 <strong>sudo</strong> 安装</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85.png" class="" title="安装">
+
+<hr>
+<p>一直点“下一步”：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%B8%8B%E4%B8%80%E6%AD%A5.png" class="" title="下一步">
+
+
+
+<p>进度安装到 “59%” ，提示 “<strong>弹出 DVD 1 并插入 DVD 2 以继续</strong>” 的提示对话框。</p>
+<p>千万<strong>不要点击 确定</strong>，首先将 <strong>dvd1</strong> 卸载：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E9%9C%80%E8%A6%81DVD2.png" class="" title="需要DVD2">
+
+<p>右键已挂载的 <strong>dvd1</strong>，<strong>卸载dvd1</strong>，</p>
+<p>右键 “<strong>R2018a_glnxa64_dvd2.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，挂载 <strong>dvd2</strong> 盘</p>
+<p>然后用 <strong>磁盘映像挂载器</strong> 方法挂载 <strong>dvd2</strong>。回到安装界面，点击 <strong>确定</strong> 按钮继续安装：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8C%82%E8%BD%BD2%E5%90%8E%E7%BB%A7%E7%BB%AD%E5%AE%89%E8%A3%85.png" class="" title="挂载2后继续安装">
+
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BA%A7%E5%93%81%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.png" class="" title="产品配置说明">
+
+
+
+<p>安装完成：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%AF%95.png" class="" title="安装完毕">
+
+
+
+<h2 id="四、Crack"><a href="#四、Crack" class="headerlink" title="四、Crack"></a>四、Crack</h2><p>解压 “<strong>Matlab2018bLinux64Crack.tar.gz</strong>” 文件</p>
+<p>复制文件夹中的 <code>license_standalone.lic</code> 到安装目录中：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%A7%A3%E5%8E%8B%E5%A4%8D%E5%88%B6.png" class="" title="解压复制">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> license_standalone.lic /usr/local/MATLAB/R2018a/licenses/</span><br></pre></td></tr></table></figure>
+
+
+
+<p>导入解压后的文件夹中 <code>libmwlmgrimpl.so</code> 文件：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6.png" class="" title="导入文件">
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、安装matlab-support"><a href="#五、安装matlab-support" class="headerlink" title="五、安装matlab-support"></a>五、安装matlab-support</h2><p>安装之后的 <strong>Matlab</strong> 只能在安装目录下打开，安装 <strong>matlab-support</strong> 实现在任意文件目录下打开。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install matlab-support</span><br></pre></td></tr></table></figure>
+
+<p>出现如下界面：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/matlab-support.png" class="" title="matlab-support">
+
+
+
+<p>输入 <strong>MATLAB</strong> 的安装位置：</p>
+<blockquote>
+<p>/usr/local/MATLAB/R2018a</p>
+</blockquote>
+<p>按 <strong>↓</strong> ，选中 <strong>&lt;确定&gt;</strong> 后按回车键：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="输入安装路径">
+
+
+
+<p>设置启动账户，空代表任何账户：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8E%88%E6%9D%83%E8%B4%A6%E6%88%B7.png" class="" title="授权账户">
+
+
+
+<p>不用对 <strong>GCC</strong> 库重命名：（<strong>注意这里选 &lt;否&gt;</strong> ）</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/GCC.png" class="" title="GCC">
+
+
+
+<p>完成：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%8C%E6%88%90.png" class="" title="完成">
+
+
+
+<p>终端输入 <strong>matlab</strong>，即可启动软件：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%90%AF%E5%8A%A8.png" class="" title="启动">
 
                     
                 </div>
@@ -541,7 +652,7 @@ mjx-container[display="true"] + br {
             <div class="pc-post-toc left-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BDMatlab2018-Linux"><span class="nav-text">一、下载Matlab2018_Linux</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BDMatlab2018-Linux"><span class="nav-text">一、下载Matlab2018_Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8C%82%E8%BD%BD%E9%95%9C%E5%83%8F1"><span class="nav-text">二、挂载镜像1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-text">三、安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Crack"><span class="nav-text">四、Crack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%85matlab-support"><span class="nav-text">五、安装matlab-support</span></a></li></ol>
     </div>
 </div>
 
@@ -701,7 +812,7 @@ mjx-container[display="true"] + br {
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap border-box">
     <div class="post-toc border-box">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BDMatlab2018-Linux"><span class="nav-text">一、下载Matlab2018_Linux</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%8B%E8%BD%BDMatlab2018-Linux"><span class="nav-text">一、下载Matlab2018_Linux</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%8C%82%E8%BD%BD%E9%95%9C%E5%83%8F1"><span class="nav-text">二、挂载镜像1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%89%E8%A3%85"><span class="nav-text">三、安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Crack"><span class="nav-text">四、Crack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%85matlab-support"><span class="nav-text">五、安装matlab-support</span></a></li></ol>
     </div>
 </div>
 
