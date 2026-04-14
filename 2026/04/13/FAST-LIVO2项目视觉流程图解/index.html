@@ -9,6 +9,8 @@
     
     <title>
         
+            FAST-LIVO2项目视觉流程图解 |
+        
         哦？
     </title>
     
@@ -180,7 +182,7 @@ mjx-container[display="true"] + br {
     
 
     <!-- page content -->
-    <div class="page-main-content border-box is-home">
+    <div class="page-main-content border-box">
         <div class="page-main-content-top">
             
 <header class="header-wrapper">
@@ -353,249 +355,251 @@ mjx-container[display="true"] + br {
             <div class="main-content border-box">
                 
 
-                    <div class="home-content-container fade-in-down-animation">
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        FAST-LIVO2项目视觉流程图解
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/programBlog/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">LiKCu</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-04-13 17:45:26</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Tue Apr 14 2026 14:41:14 GMT+0800">2026-04-14 14:41:14</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/programBlog/categories/%E7%AC%94%E8%AE%B0/">笔记</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/SLAM/">SLAM</a></li>
+                        
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/FASTLIVO2/">FASTLIVO2</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
     
-        <div class="website-announcement border-box">
-            <i class="icon left fa-solid fa-bullhorn"></i>
-            <div class="announcement border-box text-ellipsis">
-                <p>我随便写写，你随便逛逛</p>
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>该教程内容：开源项目 FAST-LIVO2 的 视觉流程图解 ——————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<p>项目地址：</p>
+<p><a class="link" target="_blank" rel="noopener" href="https://github.com/hku-mars/FAST-LIVO2">https://github.com/hku-mars/FAST-LIVO2<i class="fas fa-external-link-alt"></i></a></p>
+<p>（根据论文总结出的流程）</p>
+<h3 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6.png" class="" title="整体框架">
+
+<ul>
+<li></li>
+</ul>
+<p>与论文相同，改成中文版的了</p>
+<hr>
+<h3 id="视觉测量模型框架"><a href="#视觉测量模型框架" class="headerlink" title="视觉测量模型框架"></a>视觉测量模型框架</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6.png" class="" title="视觉测量模型框架">
+
+<ul>
+<li></li>
+</ul>
+<p>与视觉有关的部分，分为<strong>视觉地图点选择</strong>和<strong>稀疏直接视觉测量模型</strong></p>
+<hr>
+<h3 id="视觉地图点选择"><a href="#视觉地图点选择" class="headerlink" title="视觉地图点选择"></a>视觉地图点选择</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E8%A7%86%E8%A7%89%E5%9C%B0%E5%9B%BE%E7%82%B9%E9%80%89%E6%8B%A9.png" class="" title="视觉地图点选择">
+
+<ul>
+<li></li>
+</ul>
+<p>视觉地图点选择：整体流程</p>
+<hr>
+<h3 id="相关结构体类"><a href="#相关结构体类" class="headerlink" title="相关结构体类"></a>相关结构体类</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%9B%B8%E5%85%B3%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB.png" class="" title="相关结构体类">
+
+<ul>
+<li></li>
+</ul>
+<p>代码中相关的结构体和类</p>
+<hr>
+<h3 id="可见体素查询"><a href="#可见体素查询" class="headerlink" title="可见体素查询"></a>可见体素查询</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E5%8F%AF%E8%A7%81%E4%BD%93%E7%B4%A0%E6%9F%A5%E8%AF%A2.png" class="" title="可见体素查询">
+
+<ul>
+<li></li>
+</ul>
+<p>可见体素查询</p>
+<hr>
+<h3 id="按需光线投射"><a href="#按需光线投射" class="headerlink" title="按需光线投射"></a>按需光线投射</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E6%8C%89%E9%9C%80%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84.png" class="" title="按需光线投射">
+
+<ul>
+<li></li>
+</ul>
+<p>按需光线投射</p>
+<hr>
+<h3 id="离群值剔除-选择参考图像块"><a href="#离群值剔除-选择参考图像块" class="headerlink" title="离群值剔除-选择参考图像块"></a>离群值剔除-选择参考图像块</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%A6%BB%E7%BE%A4%E5%80%BC%E5%89%94%E9%99%A4-%E9%80%89%E6%8B%A9%E5%8F%82%E8%80%83%E5%9B%BE%E5%83%8F%E5%9D%97.png" class="" title="离群值剔除-选择参考图像块">
+
+<ul>
+<li></li>
+</ul>
+<p>离群值剔除、选择参考图像块</p>
+<hr>
+<h3 id="仿射变换-NCC-异常值过滤"><a href="#仿射变换-NCC-异常值过滤" class="headerlink" title="仿射变换-NCC+异常值过滤"></a>仿射变换-NCC+异常值过滤</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2-NCC+%E5%BC%82%E5%B8%B8%E5%80%BC%E8%BF%87%E6%BB%A4.png" class="" title="仿射变换-NCC+异常值过滤">
+
+<ul>
+<li></li>
+</ul>
+<p>仿射变换、异常值过滤</p>
+<hr>
+<h3 id="稀疏直接视觉测量模型"><a href="#稀疏直接视觉测量模型" class="headerlink" title="稀疏直接视觉测量模型"></a>稀疏直接视觉测量模型</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%A8%80%E7%96%8F%E7%9B%B4%E6%8E%A5%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B.png" class="" title="稀疏直接视觉测量模型">
+
+<ul>
+<li></li>
+</ul>
+<p>稀疏直接视觉测量模型</p>
+<p>视觉光度误差函数</p>
+<hr>
+<h3 id="ESIKF"><a href="#ESIKF" class="headerlink" title="ESIKF"></a>ESIKF</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/ESIKF.png" class="" title="ESIKF">
+
+<ul>
+<li></li>
+</ul>
+<p>ESIKF</p>
+<p>图像金字塔</p>
+<hr>
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/SLAM/">SLAM</a>
+                                    </li>
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/FASTLIVO2/">FASTLIVO2</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"
+                                   title="Hexo的使用手册"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">Hexo的使用手册</span>
+                                        <span class="post-nav-item">下一篇</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6"><span class="nav-text">视觉测量模型框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E5%9C%B0%E5%9B%BE%E7%82%B9%E9%80%89%E6%8B%A9"><span class="nav-text">视觉地图点选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB"><span class="nav-text">相关结构体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A7%81%E4%BD%93%E7%B4%A0%E6%9F%A5%E8%AF%A2"><span class="nav-text">可见体素查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%9C%80%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84"><span class="nav-text">按需光线投射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E7%BE%A4%E5%80%BC%E5%89%94%E9%99%A4-%E9%80%89%E6%8B%A9%E5%8F%82%E8%80%83%E5%9B%BE%E5%83%8F%E5%9D%97"><span class="nav-text">离群值剔除-选择参考图像块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2-NCC-%E5%BC%82%E5%B8%B8%E5%80%BC%E8%BF%87%E6%BB%A4"><span class="nav-text">仿射变换-NCC+异常值过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E7%9B%B4%E6%8E%A5%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B"><span class="nav-text">稀疏直接视觉测量模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ESIKF"><span class="nav-text">ESIKF</span></a></li></ol>
+    </div>
+</div>
 
             </div>
-            <i class="icon right close fa-solid fa-close"></i>
-        </div>
-    
-    <ul class="home-post-list border-box">
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/">
-                            VINS-FUSION部署
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            FINS-Fusion 是一个视觉-惯性融合的 SLAM，本文是部署流程以及报错记录——————————————
-
-———————————————————————————————————————————————————————————————————...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Wed Apr 30 2025 15:47:52 GMT+0800"
-                >2025-04-30 15:47:52</span>
-            </span>
-        
-
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/C/">C++</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/SLAM/">SLAM</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
         
     </div>
-
-    
-        <a class="home-read-more" href="/programBlog/2025/04/30/VINS-FUSION%E9%83%A8%E7%BD%B2/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/">
-                            在Win10系统下安装Ubuntu20.04双系统
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            该教程内容：在Win10系统下安装Ubuntu20.04双系统的步骤—————————————————————
-
-————————————————————————————————————————————————————————————————————...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Mon Mar 24 2025 15:18:50 GMT+0800"
-                >2025-03-24 15:18:50</span>
-            </span>
-        
-
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/Ubuntu/">Ubuntu</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/programBlog/2025/03/24/%E5%9C%A8Win10%E7%B3%BB%E7%BB%9F%E4%B8%8B%E5%AE%89%E8%A3%85Ubuntu20-04%E5%8F%8C%E7%B3%BB%E7%BB%9F/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-            <li class="home-post-item">
-
-                
-
-                <div class="home-post-item-bottom border-box">
-                    
-                    <h3 class="home-post-title border-box">
-                        <a href="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/">
-                            《视觉SLAM十四讲》ch5点云拼接实例
-                        </a>
-                    </h3>
-
-                    <div class="home-post-content keep-markdown-body">
-                        
-                            该教程内容：《视觉SLAM十四讲》中ch5-joinMap点云拼接示例代码的部署步骤———————————————
-
-——————————————————————————————————————————————————————————————————...
-                        
-                    </div>
-
-                    
-
-<div class="post-meta-info-container border-box home">
-    <div class="post-meta-info border-box">
-        
-            <span class="meta-info-item border-box">
-                <i class="icon fa-solid fa-file-circle-plus"></i>&nbsp;<span class="home-post-history"
-                                                                                data-updated="Tue Feb 18 2025 10:34:10 GMT+0800"
-                >2025-02-18 10:34:10</span>
-            </span>
-        
-
-        
-
-        
-
-        
-            <span class="post-tag meta-info-item border-box">
-                <ul class="post-tag-ul">
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/C/">C++</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/SLAM/">SLAM</a></li>
-                        
-                    
-                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/%E8%A7%86%E8%A7%89/">视觉</a></li>
-                        
-                    
-                </ul>
-            </span>
-        
-
-        
-        
-        
-        
-    </div>
-
-    
-        <a class="home-read-more" href="/programBlog/2025/02/18/%E3%80%8A%E8%A7%86%E8%A7%89SLAM%E5%8D%81%E5%9B%9B%E8%AE%B2%E3%80%8Bch5%E7%82%B9%E4%BA%91%E6%8B%BC%E6%8E%A5%E5%AE%9E%E4%BE%8B/">阅读全文&nbsp;<i class="icon fas fa-angle-right"></i></a>
-    
-</div>
-
-                </div>
-            </li>
-        
-    </ul>
-    
-    <div class="paginator border-box flex-center">
-        <div class="border-box first-page paginator-btn allowed">
-            <a class="border-box"><i class="fa-solid fa-angle-double-left"></i></a>
-        </div>
-
-        <div class="border-box paginator-btn allowed">
-            <a class="border-box"
-               href="/programBlog/"
-            ><i class="fa-solid fa-chevron-left"></i></a>
-        </div>
-
-
-        <div class="page-number-box border-box flex-center">
-            <input class="page-number-input border-box base-style"
-                   type="number"
-                   value="2"
-                   min="1"
-                   max="2"
-            /><span class="delimiter base-style">/</span><span class="base-style">2</span>
-        </div>
-
-
-        <div class="border-box paginator-btn">
-            <a class="border-box"
-               href="/programBlog/"
-            ><i class="fa-solid fa-chevron-right"></i></a>
-        </div>
-
-        <div class="border-box last-page paginator-btn not-allow">
-            <a class="border-box"><i class="fa-solid fa-angle-double-right"></i></a>
-        </div>
-    </div>
-
-
-
-
 </div>
 
 
@@ -629,10 +633,35 @@ mjx-container[display="true"] + br {
 
     <!-- post tools -->
     
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
 
     <!-- side tools -->
     <div class="side-tools">
-        <div class="side-tools-container border-box side-tools-show-handle">
+        <div class="side-tools-container border-box ">
     <ul class="side-tools-list side-tools-show-handle border-box">
         <li class="tools-item tool-font-adjust-plus flex-center">
             <i class="fas fa-search-plus"></i>
@@ -659,6 +688,10 @@ mjx-container[display="true"] + br {
     </ul>
 
     <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
         
 
         
@@ -716,8 +749,18 @@ mjx-container[display="true"] + br {
 
     <!-- tablet toc -->
     
-</main>
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6"><span class="nav-text">整体框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6"><span class="nav-text">视觉测量模型框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%86%E8%A7%89%E5%9C%B0%E5%9B%BE%E7%82%B9%E9%80%89%E6%8B%A9"><span class="nav-text">视觉地图点选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB"><span class="nav-text">相关结构体类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E8%A7%81%E4%BD%93%E7%B4%A0%E6%9F%A5%E8%AF%A2"><span class="nav-text">可见体素查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%9C%80%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84"><span class="nav-text">按需光线投射</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%BB%E7%BE%A4%E5%80%BC%E5%89%94%E9%99%A4-%E9%80%89%E6%8B%A9%E5%8F%82%E8%80%83%E5%9B%BE%E5%83%8F%E5%9D%97"><span class="nav-text">离群值剔除-选择参考图像块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2-NCC-%E5%BC%82%E5%B8%B8%E5%80%BC%E8%BF%87%E6%BB%A4"><span class="nav-text">仿射变换-NCC+异常值过滤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A8%80%E7%96%8F%E7%9B%B4%E6%8E%A5%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B"><span class="nav-text">稀疏直接视觉测量模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ESIKF"><span class="nav-text">ESIKF</span></a></li></ol>
+    </div>
+</div>
 
+            </div>
+        </div>
+    
+</main>
 
 
 
@@ -753,12 +796,26 @@ mjx-container[display="true"] + br {
 <div class="pjax">
     <!-- home page -->
     
-        
-<script src="/programBlog/js/page/home-page.js"></script>
-
-    
 
     <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/programBlog/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/programBlog/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
     
 
     <!-- categories page -->

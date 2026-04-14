@@ -165,154 +165,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo的使用手册</title>
-    <url>/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
-    <content><![CDATA[<p>在 Hexo 上传的第一篇文章，自然简单记录一下 Hexo 吧！   ————————————————————</p>
-<hr>
-<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
-<hr>
-<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>安装nvm（需要墙）：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
-
-<p>安装node：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到最新的 v24 版本</span></span><br><span class="line">nvm use v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 v24 设置为默认版本（这样下次开机不用重新切换）</span></span><br><span class="line">nvm <span class="built_in">alias</span> default v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证当前版本</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
-
-<p>安装npm：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install npm git-core</span><br></pre></td></tr></table></figure>
-
-<p>安装hexo：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
-
-
-
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%AE%89%E8%A3%85Hexo.png" class="" title="安装Hexo">
-
-
-
-<h4 id="安装Keep主题"><a href="#安装Keep主题" class="headerlink" title="安装Keep主题"></a>安装Keep主题</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>在 hexo-site目录下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 Keep 主题到 themes 文件夹</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/XPoet/hexo-theme-keep.git themes/keep</span><br></pre></td></tr></table></figure>
-
-<p>先修改 <strong>Hexo 配置文件</strong>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">keep</span></span><br></pre></td></tr></table></figure>
-
-<p>修改 <strong>keep 配置文件</strong>：</p>
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/keep%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" class="" title="keep配置文件">
-
-<p><code>keep/_config.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">base_info:</span></span><br><span class="line">  <span class="comment"># 主题颜色</span></span><br><span class="line">  <span class="attr">primary_color:</span> <span class="string">"#dcdcd6"</span></span><br><span class="line">  <span class="comment"># 博客名字</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的名字</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的头像</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">/images/avatar.svg</span></span><br><span class="line">  <span class="comment"># 博客LOGO</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment"># Website favicon, You can use local image path or image link</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/images/logo.svg</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span>  <span class="comment">#按需修改</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span>                       <span class="comment"># || fa-solid fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span>           <span class="comment"># || fa-solid fa-box-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span>                 <span class="comment"># tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories</span>     <span class="comment">#   分类</span></span><br><span class="line">  <span class="comment"># links: /links               # 链接</span></span><br><span class="line">  <span class="comment"># photos: /photos             # 相册</span></span><br><span class="line">  <span class="comment"># tools: /tools               # 工具</span></span><br><span class="line">  <span class="comment"># about: /about               # 关于</span></span><br><span class="line">  <span class="comment"># ......</span></span><br><span class="line">  <span class="comment"># MainSite: https://xxx.github.io/ || fa-solid fa-house-user # 指向 Jekyll 主站</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">pjax:</span>  <span class="comment">#启用局部刷新，加载主页会快一点</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h5><p>手动开启tag页支持：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
-
-<p>编辑文件<code>source/tags/index.md</code>，内容如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tag   #不能用中文</span><br><span class="line">date: 2026-03-19 15:23:00</span><br><span class="line"><span class="section">type: tags</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>手动开启分类页支持：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<p>编辑文件<code>source/categories/index.md</code>，内容如下：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Category</span><br><span class="line">date: 2026-03-17 19:37:00</span><br><span class="line"><span class="section">type: categories</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p>文章Markdown：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> SLAM</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">categories: [SLAM]</span><br></pre></td></tr></table></figure>
-
-<p>示例：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的一篇技术笔记</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-03-19 15:30:00</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">机器人</span>          <span class="comment"># 只能有一个主分类，或按层级缩进</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">SLAM</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">C++</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ROS</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">传感器同步</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment"># 默认解析为“机器人”目录下的“SLAM”子目录</span></span><br><span class="line"></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">机器人</span>, <span class="string">SLAM</span>, <span class="string">FAST-LIVO2</span>]  <span class="comment"># 层级：机器人 -&gt; SLAM -&gt; FAST-LIVO2</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">硬件</span>, <span class="string">STM32</span>]               <span class="comment"># 层级：硬件 -&gt; STM32</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h5><p>自己画 <strong>svg</strong>：</p>
-<p><a class="link" href="https://www.jyshare.com/more/svgeditor/">https://www.jyshare.com/more/svgeditor/<i class="fas fa-external-link-alt"></i></a></p>
-<p>在这放自己的头像Logo等：</p>
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E8%B7%AF%E5%BE%84.png" class="" title="loge路径"> 
-
-<p>效果：</p>
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E6%95%88%E6%9E%9C.png" class="" title="loge效果.">
-
-<h5 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>       </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否给目录加上数字编号</span></span><br><span class="line">  <span class="comment"># 如果设为 true，目录会显示成 1. 2. 2.1. 这种格式</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span>      </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否展开所有层级</span></span><br><span class="line">  <span class="comment"># false: 只高亮当前阅读到的章节，收起其他不相关的</span></span><br><span class="line">  <span class="comment"># true: 始终把所有标题都列出来</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">false</span>  </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 每次进入页面时是否默认打开目录栏</span></span><br><span class="line">  <span class="attr">init_open:</span> <span class="literal">true</span>    </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 目录显示的位置</span></span><br><span class="line">  <span class="comment"># 对于习惯从左往右读的人，建议设为 right，以免遮挡正文视线</span></span><br><span class="line">  <span class="attr">layout:</span> <span class="string">right</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h5><p>在 <code>Hexo/hexo-site</code>目录下运行以下命令安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
-
-<p>然后在<strong>站点配置文件</strong>（根目录下的 <code>_config.yml</code>）末尾添加：</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">scroll:</span></span><br><span class="line">  <span class="comment"># 在页面最顶部出现一根细长的进度条，往下滚动进度条会向右延伸</span></span><br><span class="line">  <span class="attr">progress_bar:</span> <span class="literal">false</span>  <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 通常在右下角的“回到顶部”按钮附近显示当前阅读进度的百分比</span></span><br><span class="line">  <span class="attr">percent:</span> <span class="literal">false</span>       <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 向下滚动时，顶部的导航栏自动向上收起；向上微滑时重新出现</span></span><br><span class="line">  <span class="attr">hide_header:</span> <span class="literal">true</span>    <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">home:</span>  <span class="comment">#博客首页</span></span><br><span class="line">  <span class="comment"># 公告栏</span></span><br><span class="line">  <span class="attr">announcement:</span> <span class="string">"欢迎来到我的技术博客，xxxx"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 决定是否在首页的文章预览卡片上直接显示该文章所属的分类和标签</span></span><br><span class="line">  <span class="attr">category:</span> <span class="literal">false</span>           <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Show tags in home page post block</span></span><br><span class="line">  <span class="attr">tag:</span> <span class="literal">false</span>                <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 文章显示时间</span></span><br><span class="line">  <span class="attr">post_datetime:</span> <span class="string">updated</span>    <span class="comment"># Option values: updated | created</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h5 id="配置文件备份"><a href="#配置文件备份" class="headerlink" title="配置文件备份"></a>配置文件备份</h5><p>顺便复制一下刚才的 <code>_config.yml</code>到Hexo主目录下<code>_config.keep.yml</code>，防止Keep更新时配置文件被覆盖：</p>
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD.png" class="" title="配置文件备份">
-
-
-
-<h4 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h4><p>显示 LaTeX：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 marked</span></span><br><span class="line">npm i hexo-renderer-marked --save</span><br><span class="line"><span class="comment"># 安装专为数学公式设计的过滤器</span></span><br><span class="line">npm i hexo-filter-mathjax --save</span><br></pre></td></tr></table></figure>
-
-<p>并在<code>_config.yml</code>和<code>xxx.md</code>中添加相应参数</p>
-<p>效果：</p>
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%85%AC%E5%BC%8F%E6%95%88%E6%9E%9C.png" class="" title="公式效果">
-
-
-
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">====2026-04-03====</span><br><span class="line"><span class="section">## 公式块写在</span></span><br><span class="line">{% raw %}</span><br><span class="line">···</span><br><span class="line">{% endraw %}</span><br><span class="line">中</span><br><span class="line">就不会有解析失败的问题</span><br><span class="line"></span><br><span class="line"><span class="section">## 例如：</span></span><br><span class="line">{% raw %}</span><br><span class="line">${\color{magenta}k}= \mathbf{F}<span class="emphasis">_k{\color{navy}k-1}$</span></span><br><span class="line"><span class="emphasis">{% endraw %}</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://xxx.github.io/programBlog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/programBlog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment">#创建新文章时会创建同名文件夹，用来放对应的图片等资源</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://xxx.com/xxx/programBlog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 建议部署到 gh-pages 分支，把 main 分支留着存源代码</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span>     <span class="comment">#显示 LaTeX 数学公式</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><p>在 <code>Hexo/hexo-site/</code>目录下：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#写文章</span></span><br><span class="line">hexo new post xxx文章名</span><br><span class="line"></span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成静态文件，存在 public文件夹下</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#下一次输入 Token 后，系统会将其保存在本地:</span></span><br><span class="line"><span class="comment">#Token: Settings-&gt;Developer settings-&gt;Personal access tokens</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#会提示输入github的name和Token</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="MarkDown标题"><a href="#MarkDown标题" class="headerlink" title="MarkDown标题"></a>MarkDown标题</h4><p>示例：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章</span><br><span class="line">date: 2026-03-18 10:00:00</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> Ubuntu</span><br><span class="line"><span class="bullet">  -</span> ROS</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">  -</span> 技术笔记</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h4><p>使用 optipng 或 jpegoptim 压缩图片：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install optipng</span><br><span class="line">optipng -o7 your_image.png</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h4><p>在markdown中：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">{% asset<span class="emphasis">_img xxx.png "this is xxx" %}</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h4><p>在markdown中：</p>
-<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">style</span>=<span class="string">"color:#585A5A;background-color:#E7E9E8;"</span>&gt;</span></span>catkin<span class="emphasis">_ws/src<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
-
-
-
-<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%A2%9C%E8%89%B2%E6%95%88%E6%9E%9C.png" class="" title="颜色效果">
-
-<p><strong>选颜色网站：</strong></p>
-<p><a class="link" href="https://www.coloraa.com/">https://www.coloraa.com/<i class="fas fa-external-link-alt"></i></a></p>
-<h4 id="长按效果"><a href="#长按效果" class="headerlink" title="长按效果"></a>长按效果</h4><p>给 <strong>MAINSITE</strong> 添加 长按跳转 功能</p>
-<p>先在<code>keep/source/js</code>和<code>keep/source/css/</code>目录下创建这两个文件：</p>
-<p><code>custom-nav.js</code>、<code>custom.css</code></p>
-<p>custom-nav.js：</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 window 挂载或 var 声明，避免 PJAX 重复加载时报 SyntaxError</span></span><br><span class="line">window.initMainSiteHold = window.initMainSiteHold || function() <span class="punctuation">{</span></span><br><span class="line">  <span class="comment">// 增加选择器兼容性，匹配包含主站地址的链接</span></span><br><span class="line">  const mainSiteBtn = document.querySelector('a<span class="punctuation">[</span>href*=<span class="string">"xxx.github.io"</span><span class="punctuation">]</span>');</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只有找到按钮且未绑定过逻辑时才执行</span></span><br><span class="line">  if (mainSiteBtn &amp;&amp; !mainSiteBtn.dataset.holdBound) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.dataset.holdBound = <span class="string">"true"</span>; </span><br><span class="line">  mainSiteBtn.style.position = 'relative';</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注入进度条 SVG</span></span><br><span class="line">  if (!mainSiteBtn.querySelector('.hold-progress-wrap')) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.insertAdjacentHTML('beforeend'<span class="punctuation">,</span> `</span><br><span class="line">  &lt;div class=<span class="string">"hold-progress-wrap"</span>&gt;</span><br><span class="line">  &lt;svg viewBox=<span class="string">"0 0 36 36"</span> style=<span class="string">"width:26px; height:26px;"</span>&gt;</span><br><span class="line">  &lt;path class=<span class="string">"hold-progress-circle"</span> </span><br><span class="line">  d=<span class="string">"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"</span> /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">const progressWrap = mainSiteBtn.querySelector('.hold-progress-wrap');</span><br><span class="line">let pressTimer;</span><br><span class="line"></span><br><span class="line">const startPress = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  if (e.type === 'mousedown' &amp;&amp; e.button !== <span class="number">0</span>) return;</span><br><span class="line">  progressWrap.classList.add('active');</span><br><span class="line">  pressTimer = setTimeout(() =&gt; <span class="punctuation">{</span></span><br><span class="line">  window.location.href = mainSiteBtn.getAttribute('href');</span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span> <span class="number">2500</span>);</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line">const cancelPress = () =&gt; <span class="punctuation">{</span></span><br><span class="line">  clearTimeout(pressTimer);</span><br><span class="line">  progressWrap.classList.remove('active');</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截点击：由双击或长按接管</span></span><br><span class="line">mainSiteBtn.onclick = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  return <span class="literal"><span class="keyword">false</span></span>;</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双击逻辑</span></span><br><span class="line"><span class="comment">//mainSiteBtn.addEventListener('dblclick', (e) =&gt; {</span></span><br><span class="line">  <span class="comment">//    e.preventDefault();</span></span><br><span class="line">  <span class="comment">//    window.location.href = mainSiteBtn.getAttribute('href');</span></span><br><span class="line">  <span class="comment">//});</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定交互事件</span></span><br><span class="line">mainSiteBtn.addEventListener('mousedown'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseup'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseleave'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchstart'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchend'<span class="punctuation">,</span> cancelPress);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即执行并注册到 PJAX 回调</span></span><br><span class="line">if (document.readyState === 'loading') <span class="punctuation">{</span></span><br><span class="line">  document.addEventListener('DOMContentLoaded'<span class="punctuation">,</span> window.initMainSiteHold);</span><br><span class="line"><span class="punctuation">}</span> else <span class="punctuation">{</span></span><br><span class="line">  window.initMainSiteHold();</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 针对 Keep 主题内置的 PJAX 事件进行监听</span></span><br><span class="line">document.addEventListener('pjax<span class="punctuation">:</span>complete'<span class="punctuation">,</span> window.initMainSiteHold);</span><br></pre></td></tr></table></figure>
-
-<p>custom.css：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 确保进度条在文字上方或旁边 */</span></span><br><span class="line"><span class="selector-class">.menu-item</span>, <span class="selector-class">.drawer-menu-item</span> {</span><br><span class="line">  <span class="attribute">position</span>: relative <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/*right: -5px; /* 调整到文字右侧 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">9000</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">220</span>, <span class="number">220</span>, <span class="number">214</span>, <span class="number">0.6</span>)); <span class="comment">/* 增加外发光 */</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span><span class="selector-class">.active</span> {</span><br><span class="line">  <span class="attribute">display</span>: block <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-circle</span> {</span><br><span class="line">  <span class="attribute">fill</span>: none;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#0c0a6e</span>; <span class="comment">/* 深蓝 */</span></span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">stroke-dasharray</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">stroke-dashoffset</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">transition</span>: stroke-dashoffset <span class="number">2.5s</span> linear;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>在 <code>keep/_config.yml</code>中最下方修改：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">  enable: true  # Option values: true | false</span><br><span class="line">  css:</span><br><span class="line">    - /css/custom.css</span><br><span class="line"></span><br><span class="line">  js:</span><br><span class="line">    - /js/custom-nav.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>教程步骤</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FAST-Calib-相机LiDAR外参标定</title>
     <url>/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/</url>
     <content><![CDATA[<p>该教程内容：开源项目 FAST-Calib 相机与LiDAR标定方法的部署步骤————————————————</p>
@@ -632,135 +484,242 @@
       </tags>
   </entry>
   <entry>
-    <title>Ubuntu20_04安装Matlab2018a</title>
-    <url>/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/</url>
-    <content><![CDATA[<p>该教程内容：Ubuntu 20.04 安装 Matlab2018a 的步骤———————————————————————</p>
+    <title>FAST-LIVO2项目视觉流程图解</title>
+    <url>/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/</url>
+    <content><![CDATA[<p>该教程内容：开源项目 FAST-LIVO2 的 视觉流程图解 ——————————————————</p>
 <hr>
 <p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
 <hr>
-<h2 id="一、下载Matlab2018-Linux"><a href="#一、下载Matlab2018-Linux" class="headerlink" title="一、下载Matlab2018_Linux"></a>一、下载Matlab2018_Linux</h2><p><a class="link" href="https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2">https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2<i class="fas fa-external-link-alt"></i></a></p>
-<p>提取码 kve2</p>
-<p>安装文件目录:</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" class="" title="文件目录">
+<p>项目地址：</p>
+<p><a class="link" href="https://github.com/hku-mars/FAST-LIVO2">https://github.com/hku-mars/FAST-LIVO2<i class="fas fa-external-link-alt"></i></a></p>
+<p>（根据论文总结出的流程）</p>
+<h3 id="整体框架"><a href="#整体框架" class="headerlink" title="整体框架"></a>整体框架</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E6%95%B4%E4%BD%93%E6%A1%86%E6%9E%B6.png" class="" title="整体框架">
 
-
-
-<h2 id="二、挂载镜像1"><a href="#二、挂载镜像1" class="headerlink" title="二、挂载镜像1"></a>二、挂载镜像1</h2><p>右键 “<strong>R2018a_glnxa64_dvd1.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，此时会将 <strong>dvd1</strong> 盘挂载到 <code>/media/用户名/MATHWORK S_R2018A</code>目录。</p>
-<h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a><strong>三、安装</strong></h2><p>打开终端</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /media/用户名/MATHWORKS_R2018A/install</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-<p>选择<strong>使用文件安装密钥</strong>，点击下一步：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5.png" class="" title="使用密钥">
-
-
-
-<p>输入密钥，点击下一步。</p>
-<blockquote>
-<p>09806-07443-53955-64350-21751-41297</p>
-</blockquote>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AF%86%E9%92%A5.png" class="" title="输入密钥">
-
-
-
-<p>安装位置可进行修改，本次安装采用默认路径。然后一直 “<strong>下一步</strong>” ,安装：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="安装路径">
-
+<ul>
+<li></li>
+</ul>
+<p>与论文相同，改成中文版的了</p>
 <hr>
-<p>PS：如果这里报错“无法创建文件夹”：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%99.png" class="" title="报错">
+<h3 id="视觉测量模型框架"><a href="#视觉测量模型框架" class="headerlink" title="视觉测量模型框架"></a>视觉测量模型框架</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E6%A1%86%E6%9E%B6.png" class="" title="视觉测量模型框架">
 
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%992.png" class="" title="报错2">
-
-<p>是权限问题，安装时没有使用 <strong>sudo</strong>。点击 “<strong>取消</strong>” 重新使用 <strong>sudo</strong> 安装</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85.png" class="" title="安装">
-
+<ul>
+<li></li>
+</ul>
+<p>与视觉有关的部分，分为<strong>视觉地图点选择</strong>和<strong>稀疏直接视觉测量模型</strong></p>
 <hr>
-<p>一直点“下一步”：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%B8%8B%E4%B8%80%E6%AD%A5.png" class="" title="下一步">
+<h3 id="视觉地图点选择"><a href="#视觉地图点选择" class="headerlink" title="视觉地图点选择"></a>视觉地图点选择</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E8%A7%86%E8%A7%89%E5%9C%B0%E5%9B%BE%E7%82%B9%E9%80%89%E6%8B%A9.png" class="" title="视觉地图点选择">
+
+<ul>
+<li></li>
+</ul>
+<p>视觉地图点选择：整体流程</p>
+<hr>
+<h3 id="相关结构体类"><a href="#相关结构体类" class="headerlink" title="相关结构体类"></a>相关结构体类</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%9B%B8%E5%85%B3%E7%BB%93%E6%9E%84%E4%BD%93%E7%B1%BB.png" class="" title="相关结构体类">
+
+<ul>
+<li></li>
+</ul>
+<p>代码中相关的结构体和类</p>
+<hr>
+<h3 id="可见体素查询"><a href="#可见体素查询" class="headerlink" title="可见体素查询"></a>可见体素查询</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E5%8F%AF%E8%A7%81%E4%BD%93%E7%B4%A0%E6%9F%A5%E8%AF%A2.png" class="" title="可见体素查询">
+
+<ul>
+<li></li>
+</ul>
+<p>可见体素查询</p>
+<hr>
+<h3 id="按需光线投射"><a href="#按需光线投射" class="headerlink" title="按需光线投射"></a>按需光线投射</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E6%8C%89%E9%9C%80%E5%85%89%E7%BA%BF%E6%8A%95%E5%B0%84.png" class="" title="按需光线投射">
+
+<ul>
+<li></li>
+</ul>
+<p>按需光线投射</p>
+<hr>
+<h3 id="离群值剔除-选择参考图像块"><a href="#离群值剔除-选择参考图像块" class="headerlink" title="离群值剔除-选择参考图像块"></a>离群值剔除-选择参考图像块</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%A6%BB%E7%BE%A4%E5%80%BC%E5%89%94%E9%99%A4-%E9%80%89%E6%8B%A9%E5%8F%82%E8%80%83%E5%9B%BE%E5%83%8F%E5%9D%97.png" class="" title="离群值剔除-选择参考图像块">
+
+<ul>
+<li></li>
+</ul>
+<p>离群值剔除、选择参考图像块</p>
+<hr>
+<h3 id="仿射变换-NCC-异常值过滤"><a href="#仿射变换-NCC-异常值过滤" class="headerlink" title="仿射变换-NCC+异常值过滤"></a>仿射变换-NCC+异常值过滤</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2-NCC+%E5%BC%82%E5%B8%B8%E5%80%BC%E8%BF%87%E6%BB%A4.png" class="" title="仿射变换-NCC+异常值过滤">
+
+<ul>
+<li></li>
+</ul>
+<p>仿射变换、异常值过滤</p>
+<hr>
+<h3 id="稀疏直接视觉测量模型"><a href="#稀疏直接视觉测量模型" class="headerlink" title="稀疏直接视觉测量模型"></a>稀疏直接视觉测量模型</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/%E7%A8%80%E7%96%8F%E7%9B%B4%E6%8E%A5%E8%A7%86%E8%A7%89%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B.png" class="" title="稀疏直接视觉测量模型">
+
+<ul>
+<li></li>
+</ul>
+<p>稀疏直接视觉测量模型</p>
+<p>视觉光度误差函数</p>
+<hr>
+<h3 id="ESIKF"><a href="#ESIKF" class="headerlink" title="ESIKF"></a>ESIKF</h3><img src="/programBlog/2026/04/13/FAST-LIVO2%E9%A1%B9%E7%9B%AE%E8%A7%86%E8%A7%89%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%A7%A3/ESIKF.png" class="" title="ESIKF">
+
+<ul>
+<li></li>
+</ul>
+<p>ESIKF</p>
+<p>图像金字塔</p>
+<hr>
+]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>SLAM</tag>
+        <tag>FASTLIVO2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo的使用手册</title>
+    <url>/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<p>在 Hexo 上传的第一篇文章，自然简单记录一下 Hexo 吧！   ————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h4 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h4><p>安装nvm（需要墙）：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<p>安装node：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm install 24</span><br><span class="line"></span><br><span class="line"><span class="comment"># 切换到最新的 v24 版本</span></span><br><span class="line">nvm use v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将 v24 设置为默认版本（这样下次开机不用重新切换）</span></span><br><span class="line">nvm <span class="built_in">alias</span> default v24.14.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证当前版本</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>安装npm：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install npm git-core</span><br></pre></td></tr></table></figure>
+
+<p>安装hexo：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">npm install hexo-renderer-pug hexo-renderer-stylus --save</span><br></pre></td></tr></table></figure>
 
 
 
-<p>进度安装到 “59%” ，提示 “<strong>弹出 DVD 1 并插入 DVD 2 以继续</strong>” 的提示对话框。</p>
-<p>千万<strong>不要点击 确定</strong>，首先将 <strong>dvd1</strong> 卸载：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E9%9C%80%E8%A6%81DVD2.png" class="" title="需要DVD2">
-
-<p>右键已挂载的 <strong>dvd1</strong>，<strong>卸载dvd1</strong>，</p>
-<p>右键 “<strong>R2018a_glnxa64_dvd2.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，挂载 <strong>dvd2</strong> 盘</p>
-<p>然后用 <strong>磁盘映像挂载器</strong> 方法挂载 <strong>dvd2</strong>。回到安装界面，点击 <strong>确定</strong> 按钮继续安装：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8C%82%E8%BD%BD2%E5%90%8E%E7%BB%A7%E7%BB%AD%E5%AE%89%E8%A3%85.png" class="" title="挂载2后继续安装">
-
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BA%A7%E5%93%81%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.png" class="" title="产品配置说明">
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%AE%89%E8%A3%85Hexo.png" class="" title="安装Hexo">
 
 
 
-<p>安装完成：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%AF%95.png" class="" title="安装完毕">
+<h4 id="安装Keep主题"><a href="#安装Keep主题" class="headerlink" title="安装Keep主题"></a>安装Keep主题</h4><h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>在 hexo-site目录下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> hexo-site</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 Keep 主题到 themes 文件夹</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/XPoet/hexo-theme-keep.git themes/keep</span><br></pre></td></tr></table></figure>
+
+<p>先修改 <strong>Hexo 配置文件</strong>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">keep</span></span><br></pre></td></tr></table></figure>
+
+<p>修改 <strong>keep 配置文件</strong>：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/keep%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6.png" class="" title="keep配置文件">
+
+<p><code>keep/_config.yml</code>：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">base_info:</span></span><br><span class="line">  <span class="comment"># 主题颜色</span></span><br><span class="line">  <span class="attr">primary_color:</span> <span class="string">"#dcdcd6"</span></span><br><span class="line">  <span class="comment"># 博客名字</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的名字</span></span><br><span class="line">  <span class="attr">author:</span> <span class="string">xxx</span></span><br><span class="line">  <span class="comment"># 你的头像</span></span><br><span class="line">  <span class="attr">avatar:</span> <span class="string">/images/avatar.svg</span></span><br><span class="line">  <span class="comment"># 博客LOGO</span></span><br><span class="line">  <span class="attr">logo:</span> <span class="string">/images/logo.svg</span></span><br><span class="line">  <span class="comment"># Website favicon, You can use local image path or image link</span></span><br><span class="line">  <span class="attr">favicon:</span> <span class="string">/images/logo.svg</span></span><br><span class="line"></span><br><span class="line"><span class="attr">menu:</span>  <span class="comment">#按需修改</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span>                       <span class="comment"># || fa-solid fa-home</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives</span>           <span class="comment"># || fa-solid fa-box-archive</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags</span>                 <span class="comment"># tag</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories</span>     <span class="comment">#   分类</span></span><br><span class="line">  <span class="comment"># links: /links               # 链接</span></span><br><span class="line">  <span class="comment"># photos: /photos             # 相册</span></span><br><span class="line">  <span class="comment"># tools: /tools               # 工具</span></span><br><span class="line">  <span class="comment"># about: /about               # 关于</span></span><br><span class="line">  <span class="comment"># ......</span></span><br><span class="line">  <span class="comment"># MainSite: https://xxx.github.io/ || fa-solid fa-house-user # 指向 Jekyll 主站</span></span><br><span class="line">  </span><br><span class="line"><span class="attr">pjax:</span>  <span class="comment">#启用局部刷新，加载主页会快一点</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h5><p>手动开启tag页支持：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">hexo</span> <span class="string">new</span> <span class="string">page</span> <span class="string">tags</span></span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>source/tags/index.md</code>，内容如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Tag   #不能用中文</span><br><span class="line">date: 2026-03-19 15:23:00</span><br><span class="line"><span class="section">type: tags</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h5><p>手动开启分类页支持：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>source/categories/index.md</code>，内容如下：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: Category</span><br><span class="line">date: 2026-03-17 19:37:00</span><br><span class="line"><span class="section">type: categories</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
 
 
 
-<h2 id="四、Crack"><a href="#四、Crack" class="headerlink" title="四、Crack"></a>四、Crack</h2><p>解压 “<strong>Matlab2018bLinux64Crack.tar.gz</strong>” 文件</p>
-<p>复制文件夹中的 <code>license_standalone.lic</code> 到安装目录中：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%A7%A3%E5%8E%8B%E5%A4%8D%E5%88%B6.png" class="" title="解压复制">
+<p>文章Markdown：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">  -</span> SLAM</span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">categories: [SLAM]</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> license_standalone.lic /usr/local/MATLAB/R2018a/licenses/</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">我的一篇技术笔记</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2026-03-19 15:30:00</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">机器人</span>          <span class="comment"># 只能有一个主分类，或按层级缩进</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">SLAM</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">C++</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">ROS</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">传感器同步</span></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="comment"># 默认解析为“机器人”目录下的“SLAM”子目录</span></span><br><span class="line"></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">机器人</span>, <span class="string">SLAM</span>, <span class="string">FAST-LIVO2</span>]  <span class="comment"># 层级：机器人 -&gt; SLAM -&gt; FAST-LIVO2</span></span><br><span class="line">  <span class="bullet">-</span> [<span class="string">硬件</span>, <span class="string">STM32</span>]               <span class="comment"># 层级：硬件 -&gt; STM32</span></span><br></pre></td></tr></table></figure>
 
+<h5 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h5><p>自己画 <strong>svg</strong>：</p>
+<p><a class="link" href="https://www.jyshare.com/more/svgeditor/">https://www.jyshare.com/more/svgeditor/<i class="fas fa-external-link-alt"></i></a></p>
+<p>在这放自己的头像Logo等：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E8%B7%AF%E5%BE%84.png" class="" title="loge路径"> 
 
+<p>效果：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/loge%E6%95%88%E6%9E%9C.png" class="" title="loge效果.">
 
-<p>导入解压后的文件夹中 <code>libmwlmgrimpl.so</code> 文件：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6.png" class="" title="导入文件">
+<h5 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>       </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否给目录加上数字编号</span></span><br><span class="line">  <span class="comment"># 如果设为 true，目录会显示成 1. 2. 2.1. 这种格式</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">false</span>      </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 是否展开所有层级</span></span><br><span class="line">  <span class="comment"># false: 只高亮当前阅读到的章节，收起其他不相关的</span></span><br><span class="line">  <span class="comment"># true: 始终把所有标题都列出来</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">false</span>  </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 每次进入页面时是否默认打开目录栏</span></span><br><span class="line">  <span class="attr">init_open:</span> <span class="literal">true</span>    </span><br><span class="line">  </span><br><span class="line">  <span class="comment"># 目录显示的位置</span></span><br><span class="line">  <span class="comment"># 对于习惯从左往右读的人，建议设为 right，以免遮挡正文视线</span></span><br><span class="line">  <span class="attr">layout:</span> <span class="string">right</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/</span><br></pre></td></tr></table></figure>
+<h5 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h5><p>在 <code>Hexo/hexo-site</code>目录下运行以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
 
-
-
-<h2 id="五、安装matlab-support"><a href="#五、安装matlab-support" class="headerlink" title="五、安装matlab-support"></a>五、安装matlab-support</h2><p>安装之后的 <strong>Matlab</strong> 只能在安装目录下打开，安装 <strong>matlab-support</strong> 实现在任意文件目录下打开。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install matlab-support</span><br></pre></td></tr></table></figure>
-
-<p>出现如下界面：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/matlab-support.png" class="" title="matlab-support">
-
-
-
-<p>输入 <strong>MATLAB</strong> 的安装位置：</p>
-<blockquote>
-<p>/usr/local/MATLAB/R2018a</p>
-</blockquote>
-<p>按 <strong>↓</strong> ，选中 <strong>&lt;确定&gt;</strong> 后按回车键：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="输入安装路径">
+<p>然后在<strong>站点配置文件</strong>（根目录下的 <code>_config.yml</code>）末尾添加：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>设置启动账户，空代表任何账户：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8E%88%E6%9D%83%E8%B4%A6%E6%88%B7.png" class="" title="授权账户">
+<h5 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h5><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">scroll:</span></span><br><span class="line">  <span class="comment"># 在页面最顶部出现一根细长的进度条，往下滚动进度条会向右延伸</span></span><br><span class="line">  <span class="attr">progress_bar:</span> <span class="literal">false</span>  <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 通常在右下角的“回到顶部”按钮附近显示当前阅读进度的百分比</span></span><br><span class="line">  <span class="attr">percent:</span> <span class="literal">false</span>       <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 向下滚动时，顶部的导航栏自动向上收起；向上微滑时重新出现</span></span><br><span class="line">  <span class="attr">hide_header:</span> <span class="literal">true</span>    <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">home:</span>  <span class="comment">#博客首页</span></span><br><span class="line">  <span class="comment"># 公告栏</span></span><br><span class="line">  <span class="attr">announcement:</span> <span class="string">"欢迎来到我的技术博客，xxxx"</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 决定是否在首页的文章预览卡片上直接显示该文章所属的分类和标签</span></span><br><span class="line">  <span class="attr">category:</span> <span class="literal">false</span>           <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Show tags in home page post block</span></span><br><span class="line">  <span class="attr">tag:</span> <span class="literal">false</span>                <span class="comment"># Option values: true | false</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 文章显示时间</span></span><br><span class="line">  <span class="attr">post_datetime:</span> <span class="string">updated</span>    <span class="comment"># Option values: updated | created</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="配置文件备份"><a href="#配置文件备份" class="headerlink" title="配置文件备份"></a>配置文件备份</h5><p>顺便复制一下刚才的 <code>_config.yml</code>到Hexo主目录下<code>_config.keep.yml</code>，防止Keep更新时配置文件被覆盖：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%A4%87%E4%BB%BD.png" class="" title="配置文件备份">
 
 
 
-<p>不用对 <strong>GCC</strong> 库重命名：（<strong>注意这里选 &lt;否&gt;</strong> ）</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/GCC.png" class="" title="GCC">
+<h4 id="LaTeX-公式"><a href="#LaTeX-公式" class="headerlink" title="LaTeX 公式"></a>LaTeX 公式</h4><p>显示 LaTeX：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 marked</span></span><br><span class="line">npm i hexo-renderer-marked --save</span><br><span class="line"><span class="comment"># 安装专为数学公式设计的过滤器</span></span><br><span class="line">npm i hexo-filter-mathjax --save</span><br></pre></td></tr></table></figure>
+
+<p>并在<code>_config.yml</code>和<code>xxx.md</code>中添加相应参数</p>
+<p>效果：</p>
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E5%85%AC%E5%BC%8F%E6%95%88%E6%9E%9C.png" class="" title="公式效果">
 
 
 
-<p>完成：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%8C%E6%88%90.png" class="" title="完成">
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">====2026-04-03====</span><br><span class="line"><span class="section">## 公式块写在</span></span><br><span class="line">{% raw %}</span><br><span class="line">···</span><br><span class="line">{% endraw %}</span><br><span class="line">中</span><br><span class="line">就不会有解析失败的问题</span><br><span class="line"></span><br><span class="line"><span class="section">## 例如：</span></span><br><span class="line">{% raw %}</span><br><span class="line">${\color{magenta}k}= \mathbf{F}<span class="emphasis">_k{\color{navy}k-1}$</span></span><br><span class="line"><span class="emphasis">{% endraw %}</span></span><br></pre></td></tr></table></figure>
 
 
 
-<p>终端输入 <strong>matlab</strong>，即可启动软件：</p>
-<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%90%AF%E5%8A%A8.png" class="" title="启动">
+
+
+<h4 id="config-yml"><a href="#config-yml" class="headerlink" title="_config.yml"></a>_config.yml</h4><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://xxx.github.io/programBlog</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/programBlog/</span></span><br><span class="line"></span><br><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span>  <span class="comment">#创建新文章时会创建同名文件夹，用来放对应的图片等资源</span></span><br><span class="line"></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://xxx.com/xxx/programBlog.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span>  <span class="comment"># 建议部署到 gh-pages 分支，把 main 分支留着存源代码</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mathjax:</span>     <span class="comment">#显示 LaTeX 数学公式</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h4><p>在 <code>Hexo/hexo-site/</code>目录下：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#写文章</span></span><br><span class="line">hexo new post xxx文章名</span><br><span class="line"></span><br><span class="line"><span class="comment">#清理</span></span><br><span class="line">hexo clean</span><br><span class="line"></span><br><span class="line"><span class="comment">#启动服务</span></span><br><span class="line">hexo s</span><br><span class="line"></span><br><span class="line"><span class="comment">#生成静态文件，存在 public文件夹下</span></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交</span></span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#下一次输入 Token 后，系统会将其保存在本地:</span></span><br><span class="line"><span class="comment">#Token: Settings-&gt;Developer settings-&gt;Personal access tokens</span></span><br><span class="line">git config --global credential.helper store</span><br><span class="line">hexo d</span><br><span class="line"><span class="comment">#会提示输入github的name和Token</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="MarkDown标题"><a href="#MarkDown标题" class="headerlink" title="MarkDown标题"></a>MarkDown标题</h4><p>示例：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章</span><br><span class="line">date: 2026-03-18 10:00:00</span><br><span class="line">tags: </span><br><span class="line"><span class="bullet">  -</span> Ubuntu</span><br><span class="line"><span class="bullet">  -</span> ROS</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">  -</span> 技术笔记</span><br><span class="line"><span class="section">mathjax: true</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="压缩图片"><a href="#压缩图片" class="headerlink" title="压缩图片"></a>压缩图片</h4><p>使用 optipng 或 jpegoptim 压缩图片：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install optipng</span><br><span class="line">optipng -o7 your_image.png</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h4><p>在markdown中：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">{% asset<span class="emphasis">_img xxx.png "this is xxx" %}</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="设置颜色"><a href="#设置颜色" class="headerlink" title="设置颜色"></a>设置颜色</h4><p>在markdown中：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">font</span> <span class="attr">style</span>=<span class="string">"color:#585A5A;background-color:#E7E9E8;"</span>&gt;</span></span>catkin<span class="emphasis">_ws/src<span class="language-xml"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span></span></span><br></pre></td></tr></table></figure>
+
+
+
+<img src="/programBlog/2026/03/19/Hexo%E7%9A%84%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/%E9%A2%9C%E8%89%B2%E6%95%88%E6%9E%9C.png" class="" title="颜色效果">
+
+<p><strong>选颜色网站：</strong></p>
+<p><a class="link" href="https://www.coloraa.com/">https://www.coloraa.com/<i class="fas fa-external-link-alt"></i></a></p>
+<h4 id="长按效果"><a href="#长按效果" class="headerlink" title="长按效果"></a>长按效果</h4><p>给 <strong>MAINSITE</strong> 添加 长按跳转 功能</p>
+<p>先在<code>keep/source/js</code>和<code>keep/source/css/</code>目录下创建这两个文件：</p>
+<p><code>custom-nav.js</code>、<code>custom.css</code></p>
+<p>custom-nav.js：</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 使用 window 挂载或 var 声明，避免 PJAX 重复加载时报 SyntaxError</span></span><br><span class="line">window.initMainSiteHold = window.initMainSiteHold || function() <span class="punctuation">{</span></span><br><span class="line">  <span class="comment">// 增加选择器兼容性，匹配包含主站地址的链接</span></span><br><span class="line">  const mainSiteBtn = document.querySelector('a<span class="punctuation">[</span>href*=<span class="string">"xxx.github.io"</span><span class="punctuation">]</span>');</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 只有找到按钮且未绑定过逻辑时才执行</span></span><br><span class="line">  if (mainSiteBtn &amp;&amp; !mainSiteBtn.dataset.holdBound) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.dataset.holdBound = <span class="string">"true"</span>; </span><br><span class="line">  mainSiteBtn.style.position = 'relative';</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 注入进度条 SVG</span></span><br><span class="line">  if (!mainSiteBtn.querySelector('.hold-progress-wrap')) <span class="punctuation">{</span></span><br><span class="line">  mainSiteBtn.insertAdjacentHTML('beforeend'<span class="punctuation">,</span> `</span><br><span class="line">  &lt;div class=<span class="string">"hold-progress-wrap"</span>&gt;</span><br><span class="line">  &lt;svg viewBox=<span class="string">"0 0 36 36"</span> style=<span class="string">"width:26px; height:26px;"</span>&gt;</span><br><span class="line">  &lt;path class=<span class="string">"hold-progress-circle"</span> </span><br><span class="line">  d=<span class="string">"M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"</span> /&gt;</span><br><span class="line">  &lt;/svg&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">  `);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line">const progressWrap = mainSiteBtn.querySelector('.hold-progress-wrap');</span><br><span class="line">let pressTimer;</span><br><span class="line"></span><br><span class="line">const startPress = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  if (e.type === 'mousedown' &amp;&amp; e.button !== <span class="number">0</span>) return;</span><br><span class="line">  progressWrap.classList.add('active');</span><br><span class="line">  pressTimer = setTimeout(() =&gt; <span class="punctuation">{</span></span><br><span class="line">  window.location.href = mainSiteBtn.getAttribute('href');</span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span> <span class="number">2500</span>);</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line">const cancelPress = () =&gt; <span class="punctuation">{</span></span><br><span class="line">  clearTimeout(pressTimer);</span><br><span class="line">  progressWrap.classList.remove('active');</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 拦截点击：由双击或长按接管</span></span><br><span class="line">mainSiteBtn.onclick = (e) =&gt; <span class="punctuation">{</span></span><br><span class="line">  e.preventDefault();</span><br><span class="line">  return <span class="literal"><span class="keyword">false</span></span>;</span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 双击逻辑</span></span><br><span class="line"><span class="comment">//mainSiteBtn.addEventListener('dblclick', (e) =&gt; {</span></span><br><span class="line">  <span class="comment">//    e.preventDefault();</span></span><br><span class="line">  <span class="comment">//    window.location.href = mainSiteBtn.getAttribute('href');</span></span><br><span class="line">  <span class="comment">//});</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 绑定交互事件</span></span><br><span class="line">mainSiteBtn.addEventListener('mousedown'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseup'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('mouseleave'<span class="punctuation">,</span> cancelPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchstart'<span class="punctuation">,</span> startPress);</span><br><span class="line">mainSiteBtn.addEventListener('touchend'<span class="punctuation">,</span> cancelPress);</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 立即执行并注册到 PJAX 回调</span></span><br><span class="line">if (document.readyState === 'loading') <span class="punctuation">{</span></span><br><span class="line">  document.addEventListener('DOMContentLoaded'<span class="punctuation">,</span> window.initMainSiteHold);</span><br><span class="line"><span class="punctuation">}</span> else <span class="punctuation">{</span></span><br><span class="line">  window.initMainSiteHold();</span><br><span class="line"><span class="punctuation">}</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 针对 Keep 主题内置的 PJAX 事件进行监听</span></span><br><span class="line">document.addEventListener('pjax<span class="punctuation">:</span>complete'<span class="punctuation">,</span> window.initMainSiteHold);</span><br></pre></td></tr></table></figure>
+
+<p>custom.css：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 确保进度条在文字上方或旁边 */</span></span><br><span class="line"><span class="selector-class">.menu-item</span>, <span class="selector-class">.drawer-menu-item</span> {</span><br><span class="line">  <span class="attribute">position</span>: relative <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span> {</span><br><span class="line">  <span class="attribute">position</span>: absolute;</span><br><span class="line">  <span class="attribute">left</span>: -<span class="number">10px</span>;</span><br><span class="line">  <span class="comment">/*right: -5px; /* 调整到文字右侧 */</span></span><br><span class="line">  <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">  <span class="attribute">transform</span>: <span class="built_in">translateY</span>(-<span class="number">50%</span>);</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">  <span class="attribute">z-index</span>: <span class="number">9000</span>;</span><br><span class="line">  <span class="attribute">filter</span>: <span class="built_in">drop-shadow</span>(<span class="number">0</span> <span class="number">0</span> <span class="number">4px</span> <span class="built_in">rgba</span>(<span class="number">220</span>, <span class="number">220</span>, <span class="number">214</span>, <span class="number">0.6</span>)); <span class="comment">/* 增加外发光 */</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-wrap</span><span class="selector-class">.active</span> {</span><br><span class="line">  <span class="attribute">display</span>: block <span class="meta">!important</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.hold-progress-circle</span> {</span><br><span class="line">  <span class="attribute">fill</span>: none;</span><br><span class="line">  <span class="attribute">stroke</span>: <span class="number">#0c0a6e</span>; <span class="comment">/* 深蓝 */</span></span><br><span class="line">  <span class="attribute">stroke-width</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">stroke-dasharray</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">stroke-dashoffset</span>: <span class="number">100</span>;</span><br><span class="line">  <span class="attribute">transition</span>: stroke-dashoffset <span class="number">2.5s</span> linear;</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>在 <code>keep/_config.yml</code>中最下方修改：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">inject:</span><br><span class="line">  enable: true  # Option values: true | false</span><br><span class="line">  css:</span><br><span class="line">    - /css/custom.css</span><br><span class="line"></span><br><span class="line">  js:</span><br><span class="line">    - /js/custom-nav.js</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
 ]]></content>
       <categories>
         <category>教程步骤</category>
-        <category>Ubuntu</category>
       </categories>
       <tags>
-        <tag>Ubuntu</tag>
-        <tag>Matlab</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -948,6 +907,138 @@
         <tag>标定</tag>
         <tag>C++</tag>
         <tag>SLAM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu20_04安装Matlab2018a</title>
+    <url>/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/</url>
+    <content><![CDATA[<p>该教程内容：Ubuntu 20.04 安装 Matlab2018a 的步骤———————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h2 id="一、下载Matlab2018-Linux"><a href="#一、下载Matlab2018-Linux" class="headerlink" title="一、下载Matlab2018_Linux"></a>一、下载Matlab2018_Linux</h2><p><a class="link" href="https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2">https://pan.baidu.com/s/14RgHWGjUTAB80HXtGgiLnA?pwd=kve2<i class="fas fa-external-link-alt"></i></a></p>
+<p>提取码 kve2</p>
+<p>安装文件目录:</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95.png" class="" title="文件目录">
+
+
+
+<h2 id="二、挂载镜像1"><a href="#二、挂载镜像1" class="headerlink" title="二、挂载镜像1"></a>二、挂载镜像1</h2><p>右键 “<strong>R2018a_glnxa64_dvd1.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，此时会将 <strong>dvd1</strong> 盘挂载到 <code>/media/用户名/MATHWORK S_R2018A</code>目录。</p>
+<h2 id="三、安装"><a href="#三、安装" class="headerlink" title="三、安装"></a><strong>三、安装</strong></h2><p>打开终端</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> /media/用户名/MATHWORKS_R2018A/install</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+<p>选择<strong>使用文件安装密钥</strong>，点击下一步：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BD%BF%E7%94%A8%E5%AF%86%E9%92%A5.png" class="" title="使用密钥">
+
+
+
+<p>输入密钥，点击下一步。</p>
+<blockquote>
+<p>09806-07443-53955-64350-21751-41297</p>
+</blockquote>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AF%86%E9%92%A5.png" class="" title="输入密钥">
+
+
+
+<p>安装位置可进行修改，本次安装采用默认路径。然后一直 “<strong>下一步</strong>” ,安装：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="安装路径">
+
+<hr>
+<p>PS：如果这里报错“无法创建文件夹”：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%99.png" class="" title="报错">
+
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8A%A5%E9%94%992.png" class="" title="报错2">
+
+<p>是权限问题，安装时没有使用 <strong>sudo</strong>。点击 “<strong>取消</strong>” 重新使用 <strong>sudo</strong> 安装</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85.png" class="" title="安装">
+
+<hr>
+<p>一直点“下一步”：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%B8%8B%E4%B8%80%E6%AD%A5.png" class="" title="下一步">
+
+
+
+<p>进度安装到 “59%” ，提示 “<strong>弹出 DVD 1 并插入 DVD 2 以继续</strong>” 的提示对话框。</p>
+<p>千万<strong>不要点击 确定</strong>，首先将 <strong>dvd1</strong> 卸载：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E9%9C%80%E8%A6%81DVD2.png" class="" title="需要DVD2">
+
+<p>右键已挂载的 <strong>dvd1</strong>，<strong>卸载dvd1</strong>，</p>
+<p>右键 “<strong>R2018a_glnxa64_dvd2.iso</strong>” 文件，选择打开方式为“<strong>磁盘映像挂载器</strong>”，挂载 <strong>dvd2</strong> 盘</p>
+<p>然后用 <strong>磁盘映像挂载器</strong> 方法挂载 <strong>dvd2</strong>。回到安装界面，点击 <strong>确定</strong> 按钮继续安装：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8C%82%E8%BD%BD2%E5%90%8E%E7%BB%A7%E7%BB%AD%E5%AE%89%E8%A3%85.png" class="" title="挂载2后继续安装">
+
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E4%BA%A7%E5%93%81%E9%85%8D%E7%BD%AE%E8%AF%B4%E6%98%8E.png" class="" title="产品配置说明">
+
+
+
+<p>安装完成：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%89%E8%A3%85%E5%AE%8C%E6%AF%95.png" class="" title="安装完毕">
+
+
+
+<h2 id="四、Crack"><a href="#四、Crack" class="headerlink" title="四、Crack"></a>四、Crack</h2><p>解压 “<strong>Matlab2018bLinux64Crack.tar.gz</strong>” 文件</p>
+<p>复制文件夹中的 <code>license_standalone.lic</code> 到安装目录中：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%A7%A3%E5%8E%8B%E5%A4%8D%E5%88%B6.png" class="" title="解压复制">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> license_standalone.lic /usr/local/MATLAB/R2018a/licenses/</span><br></pre></td></tr></table></figure>
+
+
+
+<p>导入解压后的文件夹中 <code>libmwlmgrimpl.so</code> 文件：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AF%BC%E5%85%A5%E6%96%87%E4%BB%B6.png" class="" title="导入文件">
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> <span class="built_in">cp</span> R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/libmwlmgrimpl.so /usr/local/MATLAB/R2018a/bin/glnxa64/matlab_startup_plugins/lmgrimpl/</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="五、安装matlab-support"><a href="#五、安装matlab-support" class="headerlink" title="五、安装matlab-support"></a>五、安装matlab-support</h2><p>安装之后的 <strong>Matlab</strong> 只能在安装目录下打开，安装 <strong>matlab-support</strong> 实现在任意文件目录下打开。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt install matlab-support</span><br></pre></td></tr></table></figure>
+
+<p>出现如下界面：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/matlab-support.png" class="" title="matlab-support">
+
+
+
+<p>输入 <strong>MATLAB</strong> 的安装位置：</p>
+<blockquote>
+<p>/usr/local/MATLAB/R2018a</p>
+</blockquote>
+<p>按 <strong>↓</strong> ，选中 <strong>&lt;确定&gt;</strong> 后按回车键：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E8%BE%93%E5%85%A5%E5%AE%89%E8%A3%85%E8%B7%AF%E5%BE%84.png" class="" title="输入安装路径">
+
+
+
+<p>设置启动账户，空代表任何账户：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E6%8E%88%E6%9D%83%E8%B4%A6%E6%88%B7.png" class="" title="授权账户">
+
+
+
+<p>不用对 <strong>GCC</strong> 库重命名：（<strong>注意这里选 &lt;否&gt;</strong> ）</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/GCC.png" class="" title="GCC">
+
+
+
+<p>完成：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%AE%8C%E6%88%90.png" class="" title="完成">
+
+
+
+<p>终端输入 <strong>matlab</strong>，即可启动软件：</p>
+<img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%90%AF%E5%8A%A8.png" class="" title="启动">
+]]></content>
+      <categories>
+        <category>教程步骤</category>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>Matlab</tag>
       </tags>
   </entry>
   <entry>
@@ -1763,7 +1854,7 @@
 <p>这下应该懂了吧？</p>
 <hr>
 <p>就这样吧</p>
-<p><strong>联系我：</strong> <a class="link" href="mailto:&#54;&#55;&#48;&#x39;&#x37;&#x38;&#56;&#49;&#x33;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#55;&#x30;&#57;&#x37;&#56;&#x38;&#49;&#x33;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
 <hr>
 <h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
 <ul>
