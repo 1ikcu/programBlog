@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="Hexo Theme Keep">
+    <meta name="description" content="Hexo Theme Keep">
+    <meta name="author" content="LiKCu">
+    
+    <title>
+        
+            Ubuntu常用指令 |
+        
+        哦？
+    </title>
+    
+<link rel="stylesheet" href="/programBlog/css/style.css">
+
+    
+        <link rel="shortcut icon" href="/programBlog/images/logo.svg">
+    
+    
+<link rel="stylesheet" href="/programBlog/font/css/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/regular.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/solid.min.css">
+
+    
+<link rel="stylesheet" href="/programBlog/font/css/brands.min.css">
+
+    
+        
+            
+                
+<link rel="stylesheet" href="/programBlog/css/custom.css">
+
+            
+        
+    
+    <script class="keep-theme-configurations">
+    const KEEP = window.KEEP || {}
+    KEEP.hexo_config = {"hostname":"1ikcu.github.io","root":"/programBlog/","language":"zh","path":"search.xml"}
+    KEEP.theme_config = {"base_info":{"primary_color":"#dcdcd6","title":"哦？","author":"LiKCu","avatar":"/images/avatar.svg","logo":"/images/logo.svg","favicon":"/images/logo.svg"},"menu":{"home":"/","archives":"/archives","tags":"/tags/","categories":"/categories/","MainSite":"https://1ikcu.github.io/ || fa-solid fa-house-user"},"first_screen":{"enable":false,"background_img":"/images/bg.svg","background_img_dark":"/images/bg.svg","description":"Keep writing and Keep loving.","hitokoto":false},"social_contact":{"enable":false,"links":{"github":null,"weixin":null,"qq":670978813,"weibo":null,"zhihu":null,"twitter":null,"x":null,"facebook":null,"email":"670978813@qq.com"}},"scroll":{"progress_bar":true,"percent":true,"hide_header":true},"home":{"announcement":"我随便写写，你随便逛逛","category":false,"tag":true,"post_datetime":"created"},"post":{"author_badge":{"enable":true,"level_badge":true,"custom_badge":["One","Two","Three"]},"word_count":{"wordcount":true,"min2read":false},"datetime_format":"YYYY-MM-DD HH:mm:ss","copyright_info":false,"share":false,"reward":{"enable":false,"img_link":null,"text":null,"icon":null}},"code_block":{"tools":{"enable":true,"style":"default"},"highlight_theme":"default"},"toc":{"enable":true,"number":false,"expand_all":false,"init_open":true,"layout":"left"},"website_count":{"busuanzi_count":{"enable":false,"site_uv":false,"site_pv":false,"page_pv":false}},"local_search":{"enable":true,"preload":false},"comment":{"enable":false,"use":"valine","valine":{"appid":null,"appkey":null,"server_urls":null,"placeholder":null},"gitalk":{"github_id":null,"github_admins":null,"repository":null,"client_id":null,"client_secret":null,"proxy":null},"twikoo":{"env_id":null,"region":null,"version":"1.6.39"},"waline":{"server_url":null,"reaction":false,"version":"3.3.2"},"giscus":{"repo":null,"repo_id":null,"category":"Announcements","category_id":null,"reactions_enabled":false},"artalk":{"server":null},"disqus":{"shortname":null}},"rss":{"enable":false},"lazyload":{"enable":false},"cdn":{"enable":false,"provider":"cdnjs"},"pjax":{"enable":true,"selectors":["head title",".main-inner",".pjax"]},"footer":{"since":2026,"word_count":false,"site_deploy":{"enable":false,"provider":"github","url":null},"record":{"enable":false,"list":[{"code":null,"link":null}]}},"inject":{"enable":true,"css":["/css/custom.css"],"js":["/js/custom-nav.js"]},"root":"/programBlog","source_data":{},"version":"4.2.5"}
+    KEEP.language_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"}
+    KEEP.language_code_block = {"copy":"Copy code","copied":"Copied","fold":"Fold code block","folded":"Folded"}
+    KEEP.language_copy_copyright = {"copy":"Copy copyright info","copied":"Copied","title":"Original post title","author":"Original post author","link":"Original post link"}
+  </script>
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <i class="pjax-progress-icon fas fa-circle-notch fa-spin"></i>
+    
+</div>
+
+
+
+<main class="page-container border-box">
+    <!-- home first screen  -->
+    
+
+    <!-- page content -->
+    <div class="page-main-content border-box">
+        <div class="page-main-content-top">
+            
+<header class="header-wrapper">
+
+    <div class="border-box header-content">
+        <div class="left flex-start border-box">
+            
+                <a class="logo-image border-box" href="/programBlog/">
+                    <img src="/programBlog/images/logo.svg">
+                </a>
+            
+            <a class="site-name border-box" href="/programBlog/">
+               哦？
+            </a>
+        </div>
+
+        <div class="right border-box">
+            <div class="pc border-box">
+                <ul class="menu-list border-box">
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/">
+                                
+                                HOME
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/archives">
+                                
+                                ARCHIVES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/tags/">
+                                
+                                TAGS
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="/programBlog/categories/">
+                                
+                                CATEGORIES
+                                
+                            </a>
+                            
+                        </li>
+                    
+                        
+                        <li class="menu-item flex-start border-box">
+                            <a class="menu-text-color border-box" href="https://1ikcu.github.io/">
+                                
+                                    <i class="menu-text-color menu-icon fa-solid fa-house-user"></i>
+                                
+                                MAINSITE
+                                
+                            </a>
+                            
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="menu-text-color fas search fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile border-box flex-start">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list border-box">
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/">
+                            
+                            HOME
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/archives">
+                            
+                            ARCHIVES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/tags/">
+                            
+                            TAGS
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="/programBlog/categories/">
+                            
+                            CATEGORIES
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+                
+                <li class="drawer-menu-item border-box not-sub-menu">
+                    <label class="drawer-menu-label border-box">
+                        <a class="drawer-menu-text-color left-side flex-start border-box" href="https://1ikcu.github.io/">
+                            
+                                <span class="menu-icon-wrap border-box flex-center">
+                                    <i class="drawer-menu-text-color menu-icon fa-solid fa-house-user"></i>
+                                </span>
+                            
+                            MAINSITE
+                        </a>
+                        
+                    </label>
+                    
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle border-box">
+
+            <div class="main-content border-box">
+                
+
+                    
+<div class="fade-in-down-animation">
+    <div class="post-page-container border-box">
+        <div class="post-content-container border-box">
+            
+
+            <div class="post-content-bottom border-box">
+                
+                    <div class="post-title">
+                        Ubuntu常用指令
+                    </div>
+                
+
+                
+                    <div class="post-header border-box">
+                        
+                            <div class="avatar-box border-box">
+                                <img src="/programBlog/images/avatar.svg">
+                            </div>
+                        
+                        <div class="info-box">
+                            <div class="author border-box">
+                                <span class="name">LiKCu</span>
+                                
+                                    <span class="author-badge">Lv2</span>
+                                
+                            </div>
+                            <div class="meta-info border-box">
+                                
+
+<div class="post-meta-info-container border-box post">
+    <div class="post-meta-info border-box">
+        
+
+        
+            <span class="meta-info-item post-create-date">
+                <i class="icon fa-solid fa-calendar-plus"></i>&nbsp;
+                <span class="datetime">2026-04-24 14:23:12</span>
+            </span>
+
+            
+                <span class="meta-info-item post-update-date">
+                    <i class="icon fa-solid fa-file-pen"></i>&nbsp;
+                    <span class="datetime" data-updated="Fri Apr 24 2026 14:40:06 GMT+0800">2026-04-24 14:40:06</span>
+                </span>
+            
+        
+
+        
+            <span class="meta-info-item post-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
+                <ul class="post-category-ul">
+                    
+                            <li class="category-item"><a href="/programBlog/categories/%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/">教程笔记</a></li>
+                        
+                    
+                            <li class="category-item">&nbsp;<i class="icon fas fa-angle-right"></i>&nbsp;<a href="/programBlog/categories/%E6%95%99%E7%A8%8B%E7%AC%94%E8%AE%B0/%E5%A4%87%E5%BF%98/">备忘</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+            <span class="post-tag meta-info-item border-box">
+                <ul class="post-tag-ul">
+                    
+                            <li class="tag-item"><span class="tag-separator"><i class="icon fas fa-hashtag"></i></span><a href="/programBlog/tags/%E5%A4%87%E5%BF%98/">备忘</a></li>
+                        
+                    
+                </ul>
+            </span>
+        
+
+        
+        
+        
+        
+    </div>
+
+    
+</div>
+
+                            </div>
+                        </div>
+                    </div>
+                
+
+                <div class="post-content keep-markdown-body ">
+                    
+
+                    
+                         <p>该笔记内容：Ubuntu 系统中的常用指令—————————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h2 id="视频类型转换"><a href="#视频类型转换" class="headerlink" title="视频类型转换"></a>视频类型转换</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i input.webm -crf 23 -vf <span class="string">&quot;scale=1280:720&quot;</span> output.mp4</span><br><span class="line"><span class="comment">#（CRF值，0-51，越小质量越好）</span></span><br><span class="line"></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:01:30 -t 00:00:30 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p><code>-ss</code>：开始时间（格式：HH:MM:SS或秒数）</p>
+<p><code>-t</code>：持续时间</p>
+<p><code>-to</code>：结束时间</p>
+<h2 id="VScode-环境"><a href="#VScode-环境" class="headerlink" title="VScode 环境"></a>VScode 环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/include/opencv2</span><br><span class="line">/opt/ros/noetic/include/**</span><br><span class="line">/usr/local/include/eigen3</span><br><span class="line">/home/likcu/ku/vision_opencv-noetic/cv_bridge/install/include</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="deb-安装"><a href="#deb-安装" class="headerlink" title="deb 安装"></a>deb 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r foldername</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> filename</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看-OpenGL-版本"><a href="#查看-OpenGL-版本" class="headerlink" title="查看 OpenGL 版本"></a>查看 OpenGL 版本</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install mesa-utils</span><br><span class="line"></span><br><span class="line">glxinfo | grep <span class="string">&quot;OpenGL version&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Ubuntu-无法识别U盘"><a href="#Ubuntu-无法识别U盘" class="headerlink" title="Ubuntu 无法识别U盘"></a>Ubuntu 无法识别U盘</h2><p><code>unknown filesystem type</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install exfat-fuse exfat-utils</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Eigen3"><a href="#Eigen3" class="headerlink" title="Eigen3"></a>Eigen3</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev</span><br><span class="line"><span class="comment">#查看版本</span></span><br><span class="line">pkg-config --modversion eigen3</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ROS-安装"><a href="#ROS-安装" class="headerlink" title="ROS 安装"></a>ROS 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://fishros.com/install -O fishros &amp;&amp; . fishros</span><br></pre></td></tr></table></figure>
+
+<p>［5］ 更换系统源［2］更换系统源并清理第三方源［1］自动测速选择最快的源［1］添加ROS和ROS2源［2］清华镜像源</p>
+<p>［1］一键安装：ROS［3］noetic［1］桌面版［y］替换配置文件</p>
+<p>［3］一键配置：rosdep［1］清华源［y］替换</p>
+<p>［4］一键配置：ROS环境［y］替换</p>
+<h2 id="ROS-库依赖"><a href="#ROS-库依赖" class="headerlink" title="ROS 库依赖"></a>ROS 库依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新包列表</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># ROS依赖</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-geometry-msgs ros-noetic-nav-msgs \</span><br><span class="line">ros-noetic-roscpp ros-noetic-rospy ros-noetic-std-msgs \</span><br><span class="line">ros-noetic-message-runtime ros-noetic-cv-bridge \</span><br><span class="line">ros-noetic-image-transport </span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-compressed-image-transport</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装系统库</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev libpcl-dev libopencv-dev</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev          <span class="comment"># EIGEN3</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libpcl-dev             <span class="comment"># PCL</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libopencv-dev          <span class="comment"># OpenCV</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sophus</span></span><br><span class="line"><span class="comment"># 1: 通过ROS安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-sophus</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或 2: 从源码编译 Sophus</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/strasdat/Sophus.git</span><br><span class="line"><span class="built_in">cd</span> Sophus</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cv-birdge"><a href="#cv-birdge" class="headerlink" title="cv_birdge"></a>cv_birdge</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/usr/local/lib$ ldd ./libcv_bridge.so | grep opencv</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line">	libopencv_imgcodecs.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_imgcodecs.so.4.5 (0x00007f15eb396000)</span><br><span class="line">	libopencv_imgproc.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_imgproc.so.4.5 (0x00007f15eabbe000)</span><br><span class="line">	libopencv_core.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_core.so.4.5 (0x00007f15ea721000)</span><br></pre></td></tr></table></figure>
+
+<p><code>CMakeLists.txt</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(cv_bridge_DIR /usr/local/share/cv_bridge/cmake)</span><br><span class="line"><span class="keyword">find_package</span>(cv_bridge)</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;cv_bridge_INCLUDE_DIRS&#125;</span></span><br><span class="line"><span class="variable">$&#123;cv_bridge_LIBRARIES&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>使用与 OpenCV 4.5.4 链接的 cv_bridge：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/ku/cv_bridge_li/devel/setup.bash</span><br><span class="line"><span class="comment"># 在CMakeLists中指定OpenCV：</span></span><br><span class="line"><span class="built_in">set</span>(OpenCV_DIR <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/cmake/opencv4&quot;</span>)</span><br><span class="line">find_package(OpenCV 4.5 REQUIRED)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Sophus"><a href="#Sophus" class="headerlink" title="Sophus"></a>Sophus</h2><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(Sophus_INCLUDE_DIRS <span class="string">&quot;/home/likcu/ku/Sophus&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(Sophus_LIBRARIES <span class="string">&quot;/home/likcu/ku/Sophus/build/libSophus.so&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h2><p><code>3.4.11</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">&quot;/usr/local/include/&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/home/likcu/opencv-3.4.11/build&quot;</span>)</span><br><span class="line"><span class="keyword">link_directories</span>(<span class="string">&quot;/home/likcu/opencv-3.4.11/build/lib&quot;</span>)</span><br><span class="line"><span class="keyword">find_package</span>(OpenCV <span class="number">3.4</span> REQUIRED)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>4.5.4</code></p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/cmake/opencv4&quot;</span>)</span><br><span class="line"><span class="keyword">find_package</span>(OpenCV <span class="number">4.5</span> REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(OpenCV_LIBRARIES <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="pcl-viewer"><a href="#pcl-viewer" class="headerlink" title="pcl_viewer"></a>pcl_viewer</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装pcl_viewer工具</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install  pcl-tools</span><br><span class="line"><span class="comment"># 直接可视化pcd文件</span></span><br><span class="line">pcl_viewer test.pcd</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><p><code>zip</code>加密</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -er 输出的文件名.zip 要压缩的文件或文件夹</span><br></pre></td></tr></table></figure>
+
+<p><code>7z</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install p7zip-full</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密</span></span><br><span class="line">7z a -p -mhe=on 输出的文件名.7z 要压缩的文件或文件夹</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">7z x 文件名.7z</span><br></pre></td></tr></table></figure>
+
+
+                    
+                </div>
+
+                
+
+                <div class="post-bottom-tags-and-share border-box">
+                    <div>
+                        
+                            <ul class="post-tags-box border-box">
+                                
+                                    <li class="tag-item border-box">
+                                        <i class="icon fas fa-hashtag"></i>&nbsp;<a href="/programBlog/tags/%E5%A4%87%E5%BF%98/">备忘</a>
+                                    </li>
+                                
+                            </ul>
+                        
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                
+
+                
+                    <div class="post-nav border-box">
+                        
+                        
+                            <div class="next-post">
+                                <a class="next"
+                                   rel="next"
+                                   href="/programBlog/2026/04/24/%E4%BC%A0%E6%84%9F%E5%99%A8%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"
+                                   title="传感器常用指令"
+                                >
+                                    <span class="title flex-center">
+                                        <span class="post-nav-title-item text-ellipsis">传感器常用指令</span>
+                                        <span class="post-nav-item">Next posts</span>
+                                    </span>
+                                    <span class="right arrow-icon flex-center">
+                                        <i class="fas fa-chevron-right"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        
+                    </div>
+                
+
+                
+                    
+
+
+
+
+
+
+                
+            </div>
+        </div>
+
+        
+            <div class="pc-post-toc left-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">视频类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VScode-%E7%8E%AF%E5%A2%83"><span class="nav-text">VScode 环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deb-%E5%AE%89%E8%A3%85"><span class="nav-text">deb 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-OpenGL-%E7%89%88%E6%9C%AC"><span class="nav-text">查看 OpenGL 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu-%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%ABU%E7%9B%98"><span class="nav-text">Ubuntu 无法识别U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eigen3"><span class="nav-text">Eigen3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROS-%E5%AE%89%E8%A3%85"><span class="nav-text">ROS 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROS-%E5%BA%93%E4%BE%9D%E8%B5%96"><span class="nav-text">ROS 库依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cv-birdge"><span class="nav-text">cv_birdge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sophus"><span class="nav-text">Sophus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV"><span class="nav-text">OpenCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pcl-viewer"><span class="nav-text">pcl_viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9"><span class="nav-text">压缩</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+        </div>
+
+        <div class="page-main-content-bottom border-box">
+            
+<footer class="footer border-box">
+    <div class="copyright-info info-item">
+    &copy;&nbsp;2026
+    
+            &nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;&nbsp;<a href="/programBlog/">LiKCu</a>
+        
+    </div>
+
+    <div class="theme-info info-item">
+        Powered by&nbsp;<a target="_blank" href="https://hexo.io">Hexo</a>&nbsp;&&nbsp;Theme&nbsp;<a class="keep-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep</a>
+    </div>
+
+    
+
+    
+
+    
+</footer>
+
+        </div>
+    </div>
+
+    <!-- post tools -->
+    
+        <div class="post-tools left-toc">
+            <div class="post-tools-container border-box">
+    <ul class="post-tools-list border-box">
+        <!-- PC encrypt again -->
+        
+
+        <!-- PC TOC show toggle -->
+        
+            <li class="tools-item flex-center toggle-show-toc">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        <!-- PC go comment -->
+        
+
+        <!-- PC full screen -->
+        <li class="tools-item flex-center full-screen">
+            <i class="fa-solid fa-expand"></i>
+        </li>
+    </ul>
+</div>
+
+        </div>
+    
+
+    <!-- side tools -->
+    <div class="side-tools">
+        <div class="side-tools-container border-box ">
+    <ul class="side-tools-list side-tools-show-handle border-box">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <!-- toggle mode -->
+        
+            <li class="tools-item tool-toggle-theme-mode flex-center">
+                <i class="fas fa-moon"></i>
+            </li>
+        
+
+        <!-- rss -->
+        
+
+        <!-- to bottom -->
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list border-box">
+        
+            <li class="tools-item toggle-show-toc-tablet flex-center">
+                <i class="fas fa-list"></i>
+            </li>
+        
+
+        
+
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+
+        <li class="tools-item tool-scroll-to-top flex-center show-arrow">
+            <i class="arrow fas fa-arrow-up"></i>
+            <span class="percent"></span>
+        </li>
+    </ul>
+</div>
+
+    </div>
+
+    <!-- image mask -->
+    <div class="zoom-in-image-mask">
+    <img class="zoom-in-image">
+</div>
+
+
+    <!-- local search -->
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="close-popup-btn">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+    <!-- tablet toc -->
+    
+        <div class="tablet-post-toc-mask">
+            <div class="tablet-post-toc">
+                <div class="post-toc-wrap border-box">
+    <div class="post-toc border-box">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-text">视频类型转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VScode-%E7%8E%AF%E5%A2%83"><span class="nav-text">VScode 环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deb-%E5%AE%89%E8%A3%85"><span class="nav-text">deb 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-text">删除文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B-OpenGL-%E7%89%88%E6%9C%AC"><span class="nav-text">查看 OpenGL 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ubuntu-%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%ABU%E7%9B%98"><span class="nav-text">Ubuntu 无法识别U盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eigen3"><span class="nav-text">Eigen3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROS-%E5%AE%89%E8%A3%85"><span class="nav-text">ROS 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ROS-%E5%BA%93%E4%BE%9D%E8%B5%96"><span class="nav-text">ROS 库依赖</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cv-birdge"><span class="nav-text">cv_birdge</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sophus"><span class="nav-text">Sophus</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenCV"><span class="nav-text">OpenCV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pcl-viewer"><span class="nav-text">pcl_viewer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%8B%E7%BC%A9"><span class="nav-text">压缩</span></a></li></ol>
+    </div>
+</div>
+
+            </div>
+        </div>
+    
+</main>
+
+
+
+
+
+<!-- common js -->
+
+<script src="/programBlog/js/utils.js"></script>
+
+<script src="/programBlog/js/header-shrink.js"></script>
+
+<script src="/programBlog/js/back2top.js"></script>
+
+<script src="/programBlog/js/toggle-theme.js"></script>
+
+<script src="/programBlog/js/code-block.js"></script>
+
+<script src="/programBlog/js/main.js"></script>
+
+<script src="/programBlog/js/libs/anime.min.js"></script>
+
+
+<!-- local search -->
+
+    
+<script src="/programBlog/js/local-search.js"></script>
+
+
+
+<!-- lazyload -->
+
+
+<div class="pjax">
+    <!-- home page -->
+    
+
+    <!-- post page -->
+    
+        <!-- post-helper -->
+        
+<script src="/programBlog/js/post/post-helper.js"></script>
+
+
+        <!-- toc -->
+        
+            
+<script src="/programBlog/js/post/toc.js"></script>
+
+        
+
+        <!-- copyright-info -->
+        
+
+        <!-- share -->
+        
+    
+
+    <!-- categories page -->
+    
+
+    <!-- links page -->
+    
+
+    <!-- photos page -->
+    
+
+    <!-- tools page -->
+    
+</div>
+
+<!-- mermaid -->
+
+
+<!-- pjax -->
+
+    
+<script src="/programBlog/js/libs/pjax.min.js"></script>
+
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart()
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd()
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'))
+            KEEP.initExecute()
+        });
+    });
+</script>
+
+
+
+
+    
+        
+            
+<script class="custom-inject-js" src="/programBlog/js/custom-nav.js" data-pjax></script>
+
+        
+    
+
+</body>
+</html>

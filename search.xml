@@ -1,170 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CSS</title>
-    <url>/programBlog/2026/02/14/CSS/</url>
-    <content><![CDATA[<p>该笔记内容：css用来描述 HTML 文档样式的样式表语言,控制网页的外观和布局———————</p>
-<hr>
-<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
-<hr>
-<h3 id="active激活-选中状态"><a href="#active激活-选中状态" class="headerlink" title="active激活&#x2F;选中状态"></a><strong>active</strong>激活&#x2F;选中状态</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* .menu-item.active &#123; color: white; border-bottom: 2px solid white; &#125; */</span></span><br><span class="line"><span class="selector-class">.menu-item</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">2px</span> solid <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>.menu-item</code></p>
-<p><strong>普通状态</strong>下的菜单项样式：</p>
-<ul>
-<li><code>color: #ccc</code> - 文字颜色为浅灰色</li>
-<li><code>text-decoration: none</code> - 移除下划线</li>
-<li><code>margin-right: 20px</code> - 右侧留出20像素间距</li>
-<li><code>cursor: pointer</code> - 鼠标悬停时显示手指图标</li>
-</ul>
-<p><code>.menu-item.active</code></p>
-<p><strong>激活&#x2F;选中状态</strong>下的菜单项样式：</p>
-<ul>
-<li><code>color: #fff !important</code> - 文字变为白色（<code>!important</code> 表示强制应用）</li>
-<li><code>border-bottom: 2px solid #fff</code> - 底部添加白色边框作为选中指示</li>
-<li><code>font-weight: bold</code> - 文字加粗</li>
-</ul>
-<h3 id="常用颜色代码表"><a href="#常用颜色代码表" class="headerlink" title="常用颜色代码表"></a>常用颜色代码表</h3><table>
-<thead>
-<tr>
-<th>颜色</th>
-<th>代码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>黑色</td>
-<td><code>#000000</code> 或 <code>#000</code></td>
-<td>纯黑</td>
-</tr>
-<tr>
-<td>白色</td>
-<td><code>#FFFFFF</code> 或 <code>#fff</code></td>
-<td>纯白</td>
-</tr>
-<tr>
-<td>红色</td>
-<td><code>#FF0000</code> 或 <code>#f00</code></td>
-<td>纯红</td>
-</tr>
-<tr>
-<td>绿色</td>
-<td><code>#00FF00</code> 或 <code>#0f0</code></td>
-<td>纯绿</td>
-</tr>
-<tr>
-<td>蓝色</td>
-<td><code>#0000FF</code> 或 <code>#00f</code></td>
-<td>纯蓝</td>
-</tr>
-<tr>
-<td>黄色</td>
-<td><code>#FFFF00</code> 或 <code>#ff0</code></td>
-<td>纯黄</td>
-</tr>
-<tr>
-<td>灰色</td>
-<td><code>#808080</code></td>
-<td>中灰色</td>
-</tr>
-<tr>
-<td>浅灰</td>
-<td><code>#CCCCCC</code> 或 <code>#ccc</code></td>
-<td>浅灰色</td>
-</tr>
-<tr>
-<td>深灰</td>
-<td><code>#333333</code> 或 <code>#333</code></td>
-<td>深灰色</td>
-</tr>
-<tr>
-<td>橙色</td>
-<td><code>#FFA500</code></td>
-<td>橙色</td>
-</tr>
-<tr>
-<td>紫色</td>
-<td><code>#800080</code></td>
-<td>紫色</td>
-</tr>
-<tr>
-<td>粉色</td>
-<td><code>#FFC0CB</code></td>
-<td>粉红色</td>
-</tr>
-<tr>
-<td>棕色</td>
-<td><code>#A52A2A</code></td>
-<td>棕色</td>
-</tr>
-<tr>
-<td>青色</td>
-<td><code>#00FFFF</code> 或 <code>#0ff</code></td>
-<td>青色</td>
-</tr>
-<tr>
-<td>深蓝</td>
-<td><code>#000080</code></td>
-<td>深蓝色</td>
-</tr>
-</tbody></table>
-<h3 id="padding-内边距"><a href="#padding-内边距" class="headerlink" title="padding 内边距"></a>padding 内边距</h3><p>添加左右内边距：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;  <span class="comment">/* 左右各添加15像素的内边距 */</span></span><br><span class="line">  <span class="comment">/* 或者分别设置：padding-left: 15px; padding-right: 15px; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>增加整体宽度并添加内边距：</p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;  <span class="comment">/* 让元素可以设置宽度 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">120px</span>;           <span class="comment">/* 设置固定宽度 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;     <span class="comment">/* 文字居中 */</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">0</span>;         <span class="comment">/* 上下加一点内边距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>内边距（padding）说明</strong></p>
-<ul>
-<li><code>padding: 10px 20px;</code> - 上下10px，左右20px</li>
-<li><code>padding: 0 15px;</code> - 上下0，左右15px（只增加左右间距）</li>
-<li><code>padding-left: 20px;</code> - 只增加左边</li>
-<li><code>padding-right: 20px;</code> - 只增加右边</li>
-<li><code>padding: 10px 15px 5px 20px;</code> - 上、右、下、左（顺时针）</li>
-</ul>
-<h3 id="margin-right-外边距"><a href="#margin-right-外边距" class="headerlink" title="margin-right 外边距"></a>margin-right <strong>外边距</strong></h3><p><code>margin-right</code></p>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">50px</span>;  <span class="comment">/* 元素右侧向外留出50px空白 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>margin（外边距）与 padding（内边距）的区别</strong></p>
-<table>
-<thead>
-<tr>
-<th>属性</th>
-<th>方向</th>
-<th>作用</th>
-<th>视觉效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>margin-right: 50px;</code></td>
-<td>向外</td>
-<td>元素与外部元素的距离</td>
-<td>在元素<strong>外部</strong>留白</td>
-</tr>
-<tr>
-<td><code>padding-right: 50px;</code></td>
-<td>向内</td>
-<td>元素内容与边框的距离</td>
-<td>在元素<strong>内部</strong>留白</td>
-</tr>
-</tbody></table>
-<h3 id="返回按钮"><a href="#返回按钮" class="headerlink" title="返回按钮"></a>返回按钮</h3><p><strong>Markdown</strong> 渲染后的文章页面通常使用的是 <code>_layouts/post.html</code></p>
-<p>在文章内容输出 <code>&#123;&#123; content &#125;&#125;</code> 的上方或页面末尾添加以下 <strong>HTML</strong> 代码</p>
-<p><code>_layouts/post.html</code>：</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 文章标题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 发布日期 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span>&#123;&#123; page.date | date: &quot;%Y-%m-%d&quot; &#125;&#125;<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Markdown内容 --&gt;</span></span><br><span class="line">&#123;&#123; content &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;post-nav-buttons&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:history.back();&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nav-btn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span>⬅<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 返回</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; &#x27;/&#x27; | relative_url &#125;&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nav-btn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span>🏠<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 首页</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>笔记</category>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>FAST-Calib-相机LiDAR外参标定</title>
     <url>/programBlog/2025/07/24/FAST-Calib-%E7%9B%B8%E6%9C%BALiDAR%E5%A4%96%E5%8F%82%E6%A0%87%E5%AE%9A/</url>
     <content><![CDATA[<p>该教程内容：开源项目 FAST-Calib 相机与LiDAR标定方法的部署步骤————————————————</p>
@@ -474,13 +310,178 @@
 </blockquote>
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>项目部署</category>
+        <category>FAST-Calib</category>
       </categories>
       <tags>
         <tag>标定</tag>
         <tag>C++</tag>
         <tag>SLAM</tag>
         <tag>OpenCV</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS</title>
+    <url>/programBlog/2026/02/14/CSS/</url>
+    <content><![CDATA[<p>该笔记内容：css用来描述 HTML 文档样式的样式表语言,控制网页的外观和布局———————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h3 id="active激活-选中状态"><a href="#active激活-选中状态" class="headerlink" title="active激活&#x2F;选中状态"></a><strong>active</strong>激活&#x2F;选中状态</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* .menu-item.active &#123; color: white; border-bottom: 2px solid white; &#125; */</span></span><br><span class="line"><span class="selector-class">.menu-item</span><span class="selector-class">.active</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">border-bottom</span>: <span class="number">2px</span> solid <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>.menu-item</code></p>
+<p><strong>普通状态</strong>下的菜单项样式：</p>
+<ul>
+<li><code>color: #ccc</code> - 文字颜色为浅灰色</li>
+<li><code>text-decoration: none</code> - 移除下划线</li>
+<li><code>margin-right: 20px</code> - 右侧留出20像素间距</li>
+<li><code>cursor: pointer</code> - 鼠标悬停时显示手指图标</li>
+</ul>
+<p><code>.menu-item.active</code></p>
+<p><strong>激活&#x2F;选中状态</strong>下的菜单项样式：</p>
+<ul>
+<li><code>color: #fff !important</code> - 文字变为白色（<code>!important</code> 表示强制应用）</li>
+<li><code>border-bottom: 2px solid #fff</code> - 底部添加白色边框作为选中指示</li>
+<li><code>font-weight: bold</code> - 文字加粗</li>
+</ul>
+<h3 id="常用颜色代码表"><a href="#常用颜色代码表" class="headerlink" title="常用颜色代码表"></a>常用颜色代码表</h3><table>
+<thead>
+<tr>
+<th>颜色</th>
+<th>代码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>黑色</td>
+<td><code>#000000</code> 或 <code>#000</code></td>
+<td>纯黑</td>
+</tr>
+<tr>
+<td>白色</td>
+<td><code>#FFFFFF</code> 或 <code>#fff</code></td>
+<td>纯白</td>
+</tr>
+<tr>
+<td>红色</td>
+<td><code>#FF0000</code> 或 <code>#f00</code></td>
+<td>纯红</td>
+</tr>
+<tr>
+<td>绿色</td>
+<td><code>#00FF00</code> 或 <code>#0f0</code></td>
+<td>纯绿</td>
+</tr>
+<tr>
+<td>蓝色</td>
+<td><code>#0000FF</code> 或 <code>#00f</code></td>
+<td>纯蓝</td>
+</tr>
+<tr>
+<td>黄色</td>
+<td><code>#FFFF00</code> 或 <code>#ff0</code></td>
+<td>纯黄</td>
+</tr>
+<tr>
+<td>灰色</td>
+<td><code>#808080</code></td>
+<td>中灰色</td>
+</tr>
+<tr>
+<td>浅灰</td>
+<td><code>#CCCCCC</code> 或 <code>#ccc</code></td>
+<td>浅灰色</td>
+</tr>
+<tr>
+<td>深灰</td>
+<td><code>#333333</code> 或 <code>#333</code></td>
+<td>深灰色</td>
+</tr>
+<tr>
+<td>橙色</td>
+<td><code>#FFA500</code></td>
+<td>橙色</td>
+</tr>
+<tr>
+<td>紫色</td>
+<td><code>#800080</code></td>
+<td>紫色</td>
+</tr>
+<tr>
+<td>粉色</td>
+<td><code>#FFC0CB</code></td>
+<td>粉红色</td>
+</tr>
+<tr>
+<td>棕色</td>
+<td><code>#A52A2A</code></td>
+<td>棕色</td>
+</tr>
+<tr>
+<td>青色</td>
+<td><code>#00FFFF</code> 或 <code>#0ff</code></td>
+<td>青色</td>
+</tr>
+<tr>
+<td>深蓝</td>
+<td><code>#000080</code></td>
+<td>深蓝色</td>
+</tr>
+</tbody></table>
+<h3 id="padding-内边距"><a href="#padding-内边距" class="headerlink" title="padding 内边距"></a>padding 内边距</h3><p>添加左右内边距：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">15px</span>;  <span class="comment">/* 左右各添加15像素的内边距 */</span></span><br><span class="line">  <span class="comment">/* 或者分别设置：padding-left: 15px; padding-right: 15px; */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>增加整体宽度并添加内边距：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">text-decoration</span>: none;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">20px</span>;</span><br><span class="line">  <span class="attribute">cursor</span>: pointer;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">18px</span>;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;  <span class="comment">/* 让元素可以设置宽度 */</span></span><br><span class="line">  <span class="attribute">width</span>: <span class="number">120px</span>;           <span class="comment">/* 设置固定宽度 */</span></span><br><span class="line">  <span class="attribute">text-align</span>: center;     <span class="comment">/* 文字居中 */</span></span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">5px</span> <span class="number">0</span>;         <span class="comment">/* 上下加一点内边距 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>内边距（padding）说明</strong></p>
+<ul>
+<li><code>padding: 10px 20px;</code> - 上下10px，左右20px</li>
+<li><code>padding: 0 15px;</code> - 上下0，左右15px（只增加左右间距）</li>
+<li><code>padding-left: 20px;</code> - 只增加左边</li>
+<li><code>padding-right: 20px;</code> - 只增加右边</li>
+<li><code>padding: 10px 15px 5px 20px;</code> - 上、右、下、左（顺时针）</li>
+</ul>
+<h3 id="margin-right-外边距"><a href="#margin-right-外边距" class="headerlink" title="margin-right 外边距"></a>margin-right <strong>外边距</strong></h3><p><code>margin-right</code></p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.menu-item</span> &#123;</span><br><span class="line">  <span class="attribute">margin-right</span>: <span class="number">50px</span>;  <span class="comment">/* 元素右侧向外留出50px空白 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>margin（外边距）与 padding（内边距）的区别</strong></p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>方向</th>
+<th>作用</th>
+<th>视觉效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>margin-right: 50px;</code></td>
+<td>向外</td>
+<td>元素与外部元素的距离</td>
+<td>在元素<strong>外部</strong>留白</td>
+</tr>
+<tr>
+<td><code>padding-right: 50px;</code></td>
+<td>向内</td>
+<td>元素内容与边框的距离</td>
+<td>在元素<strong>内部</strong>留白</td>
+</tr>
+</tbody></table>
+<h3 id="返回按钮"><a href="#返回按钮" class="headerlink" title="返回按钮"></a>返回按钮</h3><p><strong>Markdown</strong> 渲染后的文章页面通常使用的是 <code>_layouts/post.html</code></p>
+<p>在文章内容输出 <code>&#123;&#123; content &#125;&#125;</code> 的上方或页面末尾添加以下 <strong>HTML</strong> 代码</p>
+<p><code>_layouts/post.html</code>：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 文章标题 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>&#123;&#123; page.title &#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 发布日期 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">small</span>&gt;</span>&#123;&#123; page.date | date: &quot;%Y-%m-%d&quot; &#125;&#125;<span class="tag">&lt;/<span class="name">small</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Markdown内容 --&gt;</span></span><br><span class="line">&#123;&#123; content &#125;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 按钮 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;post-nav-buttons&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;javascript:history.back();&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nav-btn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span>⬅<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 返回</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; &#x27;/&#x27; | relative_url &#125;&#125;&quot;</span> <span class="attr">class</span>=<span class="string">&quot;nav-btn&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;icon&quot;</span>&gt;</span>🏠<span class="tag">&lt;/<span class="name">span</span>&gt;</span> 首页</span><br><span class="line">  <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+        <category>其他</category>
+      </categories>
+      <tags>
+        <tag>css</tag>
       </tags>
   </entry>
   <entry>
@@ -567,11 +568,11 @@
 <hr>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>项目部署</category>
+        <category>FAST-LIVO2</category>
       </categories>
       <tags>
         <tag>SLAM</tag>
-        <tag>FASTLIVO2</tag>
       </tags>
   </entry>
   <entry>
@@ -716,7 +717,8 @@
 
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>教程笔记</category>
+        <category>Hexo</category>
       </categories>
       <tags>
         <tag>Hexo</tag>
@@ -901,7 +903,8 @@
 
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>项目部署</category>
+        <category>OpenCalib</category>
       </categories>
       <tags>
         <tag>标定</tag>
@@ -1033,12 +1036,104 @@
 <img src="/programBlog/2025/05/12/Ubuntu20-04%E5%AE%89%E8%A3%85Matlab2018a/%E5%90%AF%E5%8A%A8.png" class="" title="启动">
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>教程笔记</category>
         <category>Ubuntu</category>
       </categories>
       <tags>
         <tag>Ubuntu</tag>
         <tag>Matlab</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu常用指令</title>
+    <url>/programBlog/2026/04/24/Ubuntu%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>该笔记内容：Ubuntu 系统中的常用指令—————————————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h2 id="视频类型转换"><a href="#视频类型转换" class="headerlink" title="视频类型转换"></a>视频类型转换</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.webm -crf 23 -vf <span class="string">&quot;scale=1280:720&quot;</span> output.mp4</span><br><span class="line"><span class="comment">#（CRF值，0-51，越小质量越好）</span></span><br><span class="line"></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:01:30 -t 00:00:30 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p><code>-ss</code>：开始时间（格式：HH:MM:SS或秒数）</p>
+<p><code>-t</code>：持续时间</p>
+<p><code>-to</code>：结束时间</p>
+<h2 id="VScode-环境"><a href="#VScode-环境" class="headerlink" title="VScode 环境"></a>VScode 环境</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/include/opencv2</span><br><span class="line">/opt/ros/noetic/include/**</span><br><span class="line">/usr/local/include/eigen3</span><br><span class="line">/home/likcu/ku/vision_opencv-noetic/cv_bridge/install/include</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="deb-安装"><a href="#deb-安装" class="headerlink" title="deb 安装"></a>deb 安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> dpkg -i xxxx.deb</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -r foldername</span><br><span class="line"><span class="comment">#删除文件</span></span><br><span class="line"><span class="built_in">rm</span> filename</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="查看-OpenGL-版本"><a href="#查看-OpenGL-版本" class="headerlink" title="查看 OpenGL 版本"></a>查看 OpenGL 版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install mesa-utils</span><br><span class="line"></span><br><span class="line">glxinfo | grep <span class="string">&quot;OpenGL version&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Ubuntu-无法识别U盘"><a href="#Ubuntu-无法识别U盘" class="headerlink" title="Ubuntu 无法识别U盘"></a>Ubuntu 无法识别U盘</h2><p><code>unknown filesystem type</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install exfat-fuse exfat-utils</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Eigen3"><a href="#Eigen3" class="headerlink" title="Eigen3"></a>Eigen3</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev</span><br><span class="line"><span class="comment">#查看版本</span></span><br><span class="line">pkg-config --modversion eigen3</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="ROS-安装"><a href="#ROS-安装" class="headerlink" title="ROS 安装"></a>ROS 安装</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget http://fishros.com/install -O fishros &amp;&amp; . fishros</span><br></pre></td></tr></table></figure>
+
+<p>［5］ 更换系统源［2］更换系统源并清理第三方源［1］自动测速选择最快的源［1］添加ROS和ROS2源［2］清华镜像源</p>
+<p>［1］一键安装：ROS［3］noetic［1］桌面版［y］替换配置文件</p>
+<p>［3］一键配置：rosdep［1］清华源［y］替换</p>
+<p>［4］一键配置：ROS环境［y］替换</p>
+<h2 id="ROS-库依赖"><a href="#ROS-库依赖" class="headerlink" title="ROS 库依赖"></a>ROS 库依赖</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 更新包列表</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get update</span><br><span class="line"></span><br><span class="line"><span class="comment"># ROS依赖</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-geometry-msgs ros-noetic-nav-msgs \</span><br><span class="line">ros-noetic-roscpp ros-noetic-rospy ros-noetic-std-msgs \</span><br><span class="line">ros-noetic-message-runtime ros-noetic-cv-bridge \</span><br><span class="line">ros-noetic-image-transport </span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-compressed-image-transport</span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装系统库</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev libpcl-dev libopencv-dev</span><br><span class="line"></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libeigen3-dev          <span class="comment"># EIGEN3</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libpcl-dev             <span class="comment"># PCL</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install libopencv-dev          <span class="comment"># OpenCV</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Sophus</span></span><br><span class="line"><span class="comment"># 1: 通过ROS安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install ros-noetic-sophus</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或 2: 从源码编译 Sophus</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/strasdat/Sophus.git</span><br><span class="line"><span class="built_in">cd</span> Sophus</span><br><span class="line"><span class="built_in">mkdir</span> build &amp;&amp; <span class="built_in">cd</span> build</span><br><span class="line">cmake ..</span><br><span class="line">make -j4</span><br><span class="line"><span class="built_in">sudo</span> make install</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="cv-birdge"><a href="#cv-birdge" class="headerlink" title="cv_birdge"></a>cv_birdge</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/usr/local/lib$ ldd ./libcv_bridge.so | grep opencv</span><br><span class="line"><span class="comment">#输出：</span></span><br><span class="line">	libopencv_imgcodecs.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_imgcodecs.so.4.5 (0x00007f15eb396000)</span><br><span class="line">	libopencv_imgproc.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_imgproc.so.4.5 (0x00007f15eabbe000)</span><br><span class="line">	libopencv_core.so.4.5 =&gt; /home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/libopencv_core.so.4.5 (0x00007f15ea721000)</span><br></pre></td></tr></table></figure>
+
+<p><code>CMakeLists.txt</code></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(cv_bridge_DIR /usr/local/share/cv_bridge/cmake)</span><br><span class="line"><span class="keyword">find_package</span>(cv_bridge)</span><br><span class="line"></span><br><span class="line"><span class="variable">$&#123;cv_bridge_INCLUDE_DIRS&#125;</span></span><br><span class="line"><span class="variable">$&#123;cv_bridge_LIBRARIES&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>使用与 OpenCV 4.5.4 链接的 cv_bridge：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/ku/cv_bridge_li/devel/setup.bash</span><br><span class="line"><span class="comment"># 在CMakeLists中指定OpenCV：</span></span><br><span class="line"><span class="built_in">set</span>(OpenCV_DIR <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/cmake/opencv4&quot;</span>)</span><br><span class="line">find_package(OpenCV 4.5 REQUIRED)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="Sophus"><a href="#Sophus" class="headerlink" title="Sophus"></a>Sophus</h2><figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(Sophus_INCLUDE_DIRS <span class="string">&quot;/home/likcu/ku/Sophus&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(Sophus_LIBRARIES <span class="string">&quot;/home/likcu/ku/Sophus/build/libSophus.so&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="OpenCV"><a href="#OpenCV" class="headerlink" title="OpenCV"></a>OpenCV</h2><p><code>3.4.11</code></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">&quot;/usr/local/include/&quot;</span>)</span><br><span class="line"><span class="keyword">set</span>(CMAKE_PREFIX_PATH <span class="string">&quot;/home/likcu/opencv-3.4.11/build&quot;</span>)</span><br><span class="line"><span class="keyword">link_directories</span>(<span class="string">&quot;/home/likcu/opencv-3.4.11/build/lib&quot;</span>)</span><br><span class="line"><span class="keyword">find_package</span>(OpenCV <span class="number">3.4</span> REQUIRED)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>4.5.4</code></p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><span class="line"><span class="keyword">set</span>(OpenCV_DIR <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib/cmake/opencv4&quot;</span>)</span><br><span class="line"><span class="keyword">find_package</span>(OpenCV <span class="number">4.5</span> REQUIRED)</span><br><span class="line"></span><br><span class="line"><span class="keyword">set</span>(OpenCV_LIBRARIES <span class="string">&quot;/home/likcu/OpenCV-4.5.4/opencv-4.5.4/build/installed/lib&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="pcl-viewer"><a href="#pcl-viewer" class="headerlink" title="pcl_viewer"></a>pcl_viewer</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装pcl_viewer工具</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install  pcl-tools</span><br><span class="line"><span class="comment"># 直接可视化pcd文件</span></span><br><span class="line">pcl_viewer test.pcd</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><p><code>zip</code>加密</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">zip -er 输出的文件名.zip 要压缩的文件或文件夹</span><br></pre></td></tr></table></figure>
+
+<p><code>7z</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install p7zip-full</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密</span></span><br><span class="line">7z a -p -mhe=on 输出的文件名.7z 要压缩的文件或文件夹</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">7z x 文件名.7z</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+        <category>备忘</category>
+      </categories>
+      <tags>
+        <tag>备忘</tag>
       </tags>
   </entry>
   <entry>
@@ -1341,8 +1436,8 @@
 
 ]]></content>
       <categories>
-        <category>教程步骤</category>
         <category>项目部署</category>
+        <category>VINS-FUSION</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -1521,7 +1616,8 @@
 <p><font style="color:#DF2A3F;background-color:#D8DAD9;">（应该不会还有其他问题了叭）</font></p>
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>教程笔记</category>
+        <category>C++</category>
       </categories>
       <tags>
         <tag>C++</tag>
@@ -1609,12 +1705,70 @@
 <p>成功咯，左右键拖动可以查看不同角度。</p>
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>项目部署</category>
+        <category>其他</category>
       </categories>
       <tags>
         <tag>C++</tag>
         <tag>SLAM</tag>
         <tag>视觉</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>传感器常用指令</title>
+    <url>/programBlog/2026/04/24/%E4%BC%A0%E6%84%9F%E5%99%A8%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<p>该笔记内容：相机图像数据、LiDAR点云数据的常用指令—————————————————</p>
+<hr>
+<p>————————————————————————————————————————————————————————————————————————————————————————————————————————— LiKCu </p>
+<hr>
+<h3 id="查看-bag-包时间戳"><a href="#查看-bag-包时间戳" class="headerlink" title="查看 bag 包时间戳"></a>查看 bag 包时间戳</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rqt_bag bag_file.bag</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="ros-相关"><a href="#ros-相关" class="headerlink" title="ros 相关"></a>ros 相关</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看bag信息</span></span><br><span class="line">rosbag info xxx.bag</span><br><span class="line"></span><br><span class="line"><span class="comment">#查看bag话题</span></span><br><span class="line">rostopic list</span><br><span class="line">rostopic <span class="built_in">echo</span> /camera/image -n 5</span><br><span class="line">rostopic <span class="built_in">echo</span> /camera/image/header</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="libusb"><a href="#libusb" class="headerlink" title="libusb"></a>libusb</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/lib/x86_64-linux-gnu:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="图像数据"><a href="#图像数据" class="headerlink" title="图像数据"></a>图像数据</h2><h3 id="查看图像"><a href="#查看图像" class="headerlink" title="查看图像"></a>查看图像</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosrun image_view image_view image:=/camera/image</span><br></pre></td></tr></table></figure>
+
+<p>按 <strong>Ctrl+S</strong> 保存</p>
+<h3 id="相机内参标定"><a href="#相机内参标定" class="headerlink" title="相机内参标定"></a>相机内参标定</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rosrun camera_calibration cameracalibrator.py --size 9x6 --square 0.015 image:=/camera/image</span><br></pre></td></tr></table></figure>
+
+<p><strong>size</strong> 为角点参数，<strong>格子数-1</strong></p>
+<p><strong>square</strong> 为边长参数（m）</p>
+<h3 id="yuv-转-png"><a href="#yuv-转-png" class="headerlink" title="yuv 转 png"></a>yuv 转 png</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -f rawvideo -pix_fmt yuyv422 -s 1920x1080 -i xxx.yuv frame_%04d.png</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="视频类型转换"><a href="#视频类型转换" class="headerlink" title="视频类型转换"></a>视频类型转换</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ffmpeg -i input.webm -crf 23 -vf <span class="string">&quot;scale=1280:720&quot;</span> output.mp4</span><br><span class="line"><span class="comment">#（CRF值，0-51，越小质量越好）</span></span><br><span class="line"></span><br><span class="line">ffmpeg -i input.mp4 -ss 00:01:30 -t 00:00:30 output.mp4</span><br></pre></td></tr></table></figure>
+
+<p><code>-ss</code>：开始时间（格式：HH:MM:SS或秒数）</p>
+<p><code>-t</code>：持续时间</p>
+<p><code>-to</code>：结束时间</p>
+<h2 id="点云数据"><a href="#点云数据" class="headerlink" title="点云数据"></a>点云数据</h2><h3 id="查看点云pcd"><a href="#查看点云pcd" class="headerlink" title="查看点云pcd"></a>查看点云pcd</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 安装 pcl_viewer</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install pcl-tools</span><br><span class="line"><span class="comment"># 可视化pcd文件</span></span><br><span class="line">pcl_viewer test.pcd</span><br></pre></td></tr></table></figure>
+
+<p>或用 <strong>CloudCompare</strong>:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cloudcompare.CloudCompare</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>教程笔记</category>
+        <category>备忘</category>
+      </categories>
+      <tags>
+        <tag>备忘</tag>
       </tags>
   </entry>
   <entry>
@@ -1823,7 +1977,7 @@
 </tbody></table>
 ]]></content>
       <categories>
-        <category>教程步骤</category>
+        <category>教程笔记</category>
         <category>Ubuntu</category>
       </categories>
       <tags>
@@ -1854,7 +2008,7 @@
 <p>这下应该懂了吧？</p>
 <hr>
 <p>就这样吧</p>
-<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#55;&#x30;&#57;&#x37;&#56;&#x38;&#49;&#x33;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
+<p><strong>联系我：</strong> <a class="link" href="mailto:&#x36;&#x37;&#x30;&#57;&#55;&#x38;&#x38;&#x31;&#51;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">670978813@qq.com<i class="fas fa-external-link-alt"></i></a></p>
 <hr>
 <h4 id="备忘"><a href="#备忘" class="headerlink" title="备忘"></a>备忘</h4><p>分类</p>
 <ul>
@@ -2127,7 +2281,7 @@
 <p>我们可以用这些公式对任何线性系统建立精确的模型，对于非线性系统来说，我们使用<strong>扩展卡尔曼滤波</strong>，区别在于EKF多了一个把预测和测量部分进行线性化的过程。</p>
 ]]></content>
       <categories>
-        <category>笔记</category>
+        <category>教程笔记</category>
         <category>算法</category>
       </categories>
       <tags>
